@@ -21,7 +21,7 @@ namespace VRLabs.AV3Manager
         //List of parameters of the animator to merge
         public List<(AnimatorControllerParameter, string, ParameterState)> Parameters = new List<(AnimatorControllerParameter, string, ParameterState)>();
 
-        private AV3ManagerWindow _window;
+        private readonly AV3ManagerWindow _window;
 
         // UI text
         private static class Content

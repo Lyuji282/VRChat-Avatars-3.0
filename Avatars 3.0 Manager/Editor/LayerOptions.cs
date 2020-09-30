@@ -41,7 +41,7 @@ namespace VRLabs.AV3Manager
             public static GUIContent DefaultLayerButton = new GUIContent("Use Default VRC Layer", "Use the default animator set by VRC for this layer.");
             public static GUIContent MergeBoldMini = new GUIContent("Animator to merge");
             public static GUIContent MergeCurrent = new GUIContent("Merge on current", "Merge animator to the current layer animator.");
-            public static GUIContent MergeNew = new GUIContent("Merge as new", "Merge animatorsto a copy of the current layer animator.");
+            public static GUIContent MergeNew = new GUIContent("Merge as new", "Merge animator to a copy of the current layer animator.");
             public static GUIContent CancelMerge = new GUIContent("Cancel", "Cancel the operation.");
             public static GUIContent AddMerge = new GUIContent("Add animator to merge", "Select animator to merge to the current layer animator.");
         }
