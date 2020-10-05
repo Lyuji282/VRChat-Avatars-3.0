@@ -8,7 +8,7 @@
 
 [Grab FX](https://github.com/VRLabs/VRChat-Avatars-3.0/releases/download/1/GrabFX.unitypackage) Animations to perform a grabbing effect.
 
-[Light Slash](https://github.com/VRLabs/VRChat-Avatars-3.0/releases/download/1/LightSlash.unitypackage) Perform consecutive slash effects with motion.
+[Light Slash](https://github.com/VRLabs/VRChat-Avatars-3.0/releases/download/1/LightSlash.unitypackage) Perform consecutive slashes with motion.
 
 [Particle Driver](https://github.com/VRLabs/VRChat-Avatars-3.0/releases/download/1/ParticleDriver.unitypackage) A method for animating on particle death.
 
