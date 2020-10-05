@@ -19,4 +19,4 @@
 [World Constraint](https://github.com/VRLabs/VRChat-Avatars-3.0/releases/download/1/WorldConstraint.unitypackage) - A world fixed object, held in place with a constraint.
 
 
-## Testing in Unity may require the [3.0 emulator by Lyuma](https://github.com/lyuma/Av3Emulator)
+Testing in Unity may require the [3.0 emulator by Lyuma](https://github.com/lyuma/Av3Emulator)
