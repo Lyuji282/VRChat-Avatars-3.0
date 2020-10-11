@@ -4801,7 +4801,7 @@ ParentConstraint:
   - sourceTransform: {fileID: 136113307959278011}
     weight: 1
   - sourceTransform: {fileID: 7864919821958966605}
-    weight: 0.2
+    weight: 0.25
 --- !u!1 &2350460173655786730
 GameObject:
   m_ObjectHideFlags: 0
