@@ -138,7 +138,7 @@ ParticleSystem:
   startDelay:
     serializedVersion: 2
     minMaxState: 0
-    scalar: 0
+    scalar: 0.33
     minScalar: 0
     maxCurve:
       serializedVersion: 2
@@ -4801,7 +4801,7 @@ ParentConstraint:
   - sourceTransform: {fileID: 136113307959278011}
     weight: 1
   - sourceTransform: {fileID: 7864919821958966605}
-    weight: 0.25
+    weight: 0.4
 --- !u!1 &2350460173655786730
 GameObject:
   m_ObjectHideFlags: 0
@@ -19696,7 +19696,7 @@ ParentConstraint:
   - sourceTransform: {fileID: 7864919821958966605}
     weight: 1
   - sourceTransform: {fileID: 2894397526952154744}
-    weight: 1
+    weight: 0.2
 --- !u!1 &4852907291386943459
 GameObject:
   m_ObjectHideFlags: 0
