@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 136113307959278014}
   - component: {fileID: 136113307959278015}
   - component: {fileID: 8390174195745992383}
+  - component: {fileID: 335629245}
   m_Layer: 12
   m_Name: "\uA731\u029F\u1D00\uA731\u029C"
   m_TagString: Untagged
@@ -4802,6 +4803,25 @@ ParentConstraint:
     weight: 1
   - sourceTransform: {fileID: 7864919821958966605}
     weight: 0.4
+--- !u!1818360608 &335629245
+PositionConstraint:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 136113307959277988}
+  m_Enabled: 0
+  m_Weight: 1
+  m_TranslationAtRest: {x: 0, y: 0, z: 0}
+  m_TranslationOffset: {x: 0, y: 0, z: 0}
+  m_AffectTranslationX: 1
+  m_AffectTranslationY: 1
+  m_AffectTranslationZ: 1
+  m_IsContraintActive: 1
+  m_IsLocked: 1
+  m_Sources:
+  - sourceTransform: {fileID: 7864919821958966605}
+    weight: 1
 --- !u!1 &2350460173655786730
 GameObject:
   m_ObjectHideFlags: 0
