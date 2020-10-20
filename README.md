@@ -31,9 +31,17 @@ A world space follower, driven by constraints.
 
 Handle an avatar object with touch.
 
+## [Jiggle FX](https://github.com/VRLabs/VRChat-Avatars-3.0/releases/download/1/JiggleFX.unitypackage)
+
+Play an effect when target object is jiggled or shaken.
+
 ## [Light Slash](https://github.com/VRLabs/VRChat-Avatars-3.0/releases/download/1/LightSlash.unitypackage)
 
 Perform consecutive slashes with motion.
+
+## [Marker](https://github.com/VRLabs/VRChat-Avatars-3.0/releases/download/1/Marker.unitypackage)
+
+A pen for drawing.
 
 ## [Particle Driver](https://github.com/VRLabs/VRChat-Avatars-3.0/releases/download/1/ParticleDriver.unitypackage)
 
