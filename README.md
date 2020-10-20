@@ -39,6 +39,32 @@ Play an effect when the target object is jiggled or shaken.
 
 Perform consecutive slashes with motion.
 
+<details>
+  <summary>Install Notes</summary>
+  
+  ```
+Testing in Unity requires the 3.0 Emulator by Lyuma.
+
+Merge the FX controller to your own FX controller, using the Avatars 3.0 Manager tool.
+
+LightSlashFX is a synced parameter, so click the checkbox within the tool to add it to your avatar's parameter asset.
+
+The Light Slash.prefab should go to the base of your Unity scene, which will give it base Unity scaling.
+
+Unpack the prefab by right-clicking it and move the prefab to base of your avatar.
+
+Expand the prefab, and locate "Light Slash/Targets". Move this object under your prop hierarchy, then reset it's position and rotation.
+
+Targets/Motion is for motion detection. The detection direction is X-, opposite of the red arrow.  
+
+Targets/Effect is where the slash effect will appear. Position and angle this transform until you are happy with where the effect appears.
+
+If you need to adjust difficulty of the motion, adjust the bottom constraint source on "Light Slash/Collider". The default is .2, and .1 should be very hard to slash.
+
+The system is disabled when you animate off the Light Slash/Collider object.
+  ```
+</details>
+
 ## [Marker](https://github.com/VRLabs/VRChat-Avatars-3.0/releases/download/1/Marker.unitypackage)
 
 A pen for drawing.
