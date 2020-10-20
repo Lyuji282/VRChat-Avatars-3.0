@@ -41,6 +41,7 @@ Perform consecutive slashes with motion.
 
 <details>
   <summary>Install Notes</summary>
+  
 ```  
 Testing in Unity requires the 3.0 Emulator by Lyuma.
 
