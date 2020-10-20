@@ -42,7 +42,6 @@ Perform consecutive slashes with motion.
 <details>
   <summary>Install Notes</summary>
   
-  ```
 Testing in Unity requires the 3.0 Emulator by Lyuma.
 
 Merge the FX controller to your own FX controller, using the Avatars 3.0 Manager tool.
@@ -62,7 +61,6 @@ Targets/Effect is where the slash effect will appear. Position and angle this tr
 If you need to adjust difficulty of the motion, adjust the bottom constraint source on "Light Slash/Collider". The default is .2, and .1 should be very hard to slash.
 
 The system is disabled when you animate off the Light Slash/Collider object.
-  ```
 </details>
 
 ## [Marker](https://github.com/VRLabs/VRChat-Avatars-3.0/releases/download/1/Marker.unitypackage)
