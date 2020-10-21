@@ -27,6 +27,25 @@ Constraints with damping effects.
 
 A world space follower, driven by constraints.
 
+<details>
+  <summary>Install notes</summary>
+  
+> Testing in Unity requires the 3.0 Emulator by Lyuma.
+> 
+> Merge the FX controller to your own FX controller, using the Avatars 3.0 Manager tool.
+> 
+> The Follower.prefab should go to the base of your Unity scene, which will give it base Unity scaling.
+> 
+> Unpack the prefab by right-clicking it and move the prefab to base of your avatar.
+> 
+> Expand the prefab, and locate Follower/Target. Move this object out of the Follower hierarchy. Position the Target where you want.
+> 
+> Follower/Container is where you place your objects that you want to follow.
+> 
+> To change the speed of the follower, you can edit the Speed.anim clip inside the Animations folder.
+
+</details>
+
 ## [Grab FX](https://github.com/VRLabs/VRChat-Avatars-3.0/releases/download/1/GrabFX.unitypackage)
 
 Handle an avatar object with touch.
