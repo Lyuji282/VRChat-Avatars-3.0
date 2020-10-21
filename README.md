@@ -40,7 +40,7 @@ Play an effect when the target object is jiggled or shaken.
 Perform consecutive slashes with motion.
 
 <details>
-  <summary>Install Notes</summary>
+  <summary>Install notes</summary>
   
 > Testing in Unity requires the 3.0 Emulator by Lyuma.
 > 
