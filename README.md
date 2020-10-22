@@ -148,3 +148,30 @@ A constraint with spring behavior.
 ## [World Constraint](https://github.com/VRLabs/VRChat-Avatars-3.0/releases/download/1/WorldConstraint.unitypackage)
 
 A world fixed object, held in place with a constraint.
+
+<details>
+  <summary>Install notes</summary>
+
+> The world constraining method itself is 1 constraint and simple.
+>
+> Testing in Unity requires the 3.0 Emulator by Lyuma.
+> 
+> Merge the FX controller to your own FX controller, using the Avatars 3.0 Manager tool.
+> 
+> "WorldFX" is a synced parameter, so click the checkbox within the tool to add it to your avatar's parameter asset.
+>
+> The World Constraint.prefab should go to the base of your Unity scene, which will give it base Unity scaling.
+>
+> Unpack the prefab by right-clicking it and move the prefab to base of your avatar.
+> 
+> Expand the prefab, and locate World Constraint/ResetTarget. Move this object out of the prefab to anywhere else on your avatar.
+>
+> World Constraint/Container will start at and reset to ResetTarget.
+>
+> Replace the Cube under World Constraint/Container with your own objects.
+>
+> Review the handleWorldFX layer that was merged into your FX controller. Change "WorldFX" parameter to cause transitions with this layer.
+>
+> Edit the handleWorldFX.anim clip to customize.
+
+</details>
