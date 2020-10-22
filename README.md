@@ -15,6 +15,8 @@
 
 Testing in Unity may require the [3.0 emulator by Lyuma](https://github.com/lyuma/Av3Emulator).
 
+Support on [Discord](https://discord.gg/THCRsJc)
+
 ## [Avatars 3.0 Manager](https://github.com/VRLabs/VRChat-Avatars-3.0/releases/download/1/AV3Manager.unitypackage)
 
  A tool for managing playable layers and parameters for Avatars 3.0.
