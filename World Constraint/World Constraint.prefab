@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6374876860151498723}
   m_Layer: 0
-  m_Name: Target
+  m_Name: ResetTarget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -118,7 +118,7 @@ GameObject:
   - component: {fileID: 8980635857301152985}
   - component: {fileID: 128089152187907176}
   m_Layer: 0
-  m_Name: worldSpace
+  m_Name: World Constraint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

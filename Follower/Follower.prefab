@@ -4883,7 +4883,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7944361667734474870}
   m_Layer: 0
-  m_Name: Look
+  m_Name: LookTarget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5190,7 +5190,7 @@ GameObject:
   - component: {fileID: 8746243131874760047}
   - component: {fileID: 8746243131874760046}
   m_Layer: 12
-  m_Name: Target
+  m_Name: FollowerTarget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -19591,7 +19591,7 @@ GameObject:
   - component: {fileID: 2350460174418481583}
   - component: {fileID: 2539054650605034789}
   m_Layer: 0
-  m_Name: Effect
+  m_Name: EffectTarget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19801,7 +19801,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2894397526952154744}
   m_Layer: 0
-  m_Name: Motion
+  m_Name: MotionTarget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -9643,7 +9643,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8463829823676936866}
   m_Layer: 0
-  m_Name: jiggleTarget
+  m_Name: JiggleTarget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

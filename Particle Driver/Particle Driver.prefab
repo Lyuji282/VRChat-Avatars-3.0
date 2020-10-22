@@ -4781,7 +4781,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1778268884766793518}
   m_Layer: 0
-  m_Name: triggerTarget
+  m_Name: ParticleTarget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4813,7 +4813,7 @@ GameObject:
   - component: {fileID: 7554240678341747014}
   - component: {fileID: 5545800055700091482}
   m_Layer: 0
-  m_Name: particleDriver
+  m_Name: Particle Driver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

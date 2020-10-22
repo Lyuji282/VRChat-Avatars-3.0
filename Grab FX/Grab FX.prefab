@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1654735315656797642}
   - component: {fileID: 1654735315656797640}
   m_Layer: 0
-  m_Name: grabCollider
+  m_Name: ColliderTarget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -202,7 +202,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1654735317228073053}
   m_Layer: 0
-  m_Name: grabTarget
+  m_Name: GrabTarget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5031,7 +5031,7 @@ GameObject:
   - component: {fileID: 7866073043422680056}
   - component: {fileID: 7866073043422680061}
   m_Layer: 0
-  m_Name: grabFX
+  m_Name: Grab FX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
