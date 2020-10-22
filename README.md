@@ -139,9 +139,9 @@ A constraint with spring behavior.
 >
 > To change the characteristics of the spring, change the position constraint values on the Spring Constraint/Overshoot object. 
 > 
+> Sources > SpringTarget (default 1.1) controls the strength of the spring. Higher values make it harder to stretch the spring. Min: 1, Max: 2
+>
 > Sources > Overshoot (default 4) dampens acceleration, the higher the value the slower Spring Constraint/Container accelerates.
-> 
-> Sources > Target (default 1.1) controls the strength of the spring. Higher values make it harder to stretch the spring. Min: 1, Max: 2
 
 </details>
 
