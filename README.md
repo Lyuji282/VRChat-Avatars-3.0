@@ -124,7 +124,26 @@ Player-local proximity effects.
 
 ## [Particle Shader](https://github.com/VRLabs/VRChat-Avatars-3.0/releases/download/1/ParticleShader.unitypackage)
 
- A shader for particle effects.
+A shader for particle effects.
+ 
+## [Spring Constraint](https://github.com/VRLabs/VRChat-Avatars-3.0/releases/download/1/SpringConstraint.unitypackage)
+
+A constraint with spring behavior.
+
+<details>
+  <summary>Install notes</summary>
+
+> Replace the Cube under Spring Constraint/Container with your own objects.
+>
+> The Container will follow Spring Constraint/SpringTarget.
+>
+> To change the characteristics of the spring, change the position constraint values on the Spring Constraint/Motion object. 
+> 
+> Sources > SpringTarget (default 1.1) controls the strength of the spring. Higher values make it harder to stretch the spring. Min: 1, Max: 2
+>
+> Sources > Motion (default 4) dampens acceleration, the higher the value the slower Spring Constraint/Container accelerates.
+
+</details>
 
 ## [World Constraint](https://github.com/VRLabs/VRChat-Avatars-3.0/releases/download/1/WorldConstraint.unitypackage)
 
