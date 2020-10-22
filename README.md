@@ -13,9 +13,9 @@
 
 # Downloads
 
-Testing in Unity may require the [3.0 emulator by Lyuma](https://github.com/lyuma/Av3Emulator).
-
 If you need help, our support channel is on [Discord](https://discord.gg/THCRsJc).
+
+Testing in Unity may require the [3.0 emulator by Lyuma](https://github.com/lyuma/Av3Emulator).
 
 ## [Avatars 3.0 Manager](https://github.com/VRLabs/VRChat-Avatars-3.0/releases/download/1/AV3Manager.unitypackage)
 
