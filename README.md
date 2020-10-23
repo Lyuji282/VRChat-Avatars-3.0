@@ -80,7 +80,7 @@ Handle an avatar object with touch.
 > 
 > Expand the prefab, and locate Grab FX/GrabTarget. GrabTarget is what you use for touching. Move it to an appropriate spot in your hierarchy.
 > 
-> Grab FX/ColliderTarget is a box collider that represents the area you need to touch. Move it to an appropriate spot in your hierarchy. Scale it as needed.
+> Grab FX/ColliderTarget is a box collider that represents the area you need to touch. Move it outside of the prefab to an appropriate spot in your hierarchy. Scale it as needed.
 >
 > Grab FX/Container will be weighted between GrabTarget and ColliderTarget as they touch. Replace the Cube under the Container with your own objects, and fix transforms as needed.
 
@@ -89,6 +89,25 @@ Handle an avatar object with touch.
 ## [Jiggle FX](https://github.com/VRLabs/VRChat-Avatars-3.0/releases/download/1/JiggleFX.unitypackage)
 
 Play an effect when the target object is jiggled or shaken.
+
+<details>
+  <summary>Install notes</summary>
+  
+> Testing in Unity requires the 3.0 Emulator by Lyuma.
+> 
+> Merge the FX controller to your own FX controller, using the Avatars 3.0 Manager tool.
+> 
+> The Jiggle FX.prefab should go to the base of your Unity scene, which will give it base Unity scaling.
+> 
+> Unpack the prefab by right-clicking it and move the prefab to base of your avatar.
+> 
+> Expand the prefab, and locate Jiggle FX/JiggleTarget. JiggleTarget is what you use for jiggling. Move it outside of the prefab to an appropriate spot in your hierarchy.
+> 
+> Jiggle FX/Detection is where you adjust difficulty. Under the emission module of the particle system, the lower the rate over distance, the harder it is to jiggle.
+> 
+> Review the handleJiggleFX layer that was merged into your FX controller. Animate what you want here.
+
+</details>
 
 ## [Light Slash](https://github.com/VRLabs/VRChat-Avatars-3.0/releases/download/1/LightSlash.unitypackage)
 
