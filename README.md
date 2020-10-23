@@ -30,9 +30,9 @@ Constraints with damping effects.
 
 > There are constraints for position and rotation.
 >
-> Replace the Cube under the Constraint/Container with your own objects.
+> Replace the Cube under Damping Constraint/Container with your own objects.
 >
-> The Container will follow the Constraint/Target.
+> Damping Constraint/Container will follow Damping Constraint/Target.
 >
 > Within the Container constraint, the smaller the weight to the Target, the more motion will be dampened.
 
