@@ -52,6 +52,27 @@ A world space follower, driven by constraints.
 
 Handle an avatar object with touch.
 
+<details>
+  <summary>Install notes</summary>
+  
+> Testing in Unity requires the 3.0 Emulator by Lyuma.
+> 
+> Merge the FX controller to your own FX controller, using the Avatars 3.0 Manager tool.
+> 
+> "GrabFX" is a synced parameter, so click the checkbox within the tool to add it to your avatar's parameter asset.
+>  
+> The Grab FX.prefab should go to the base of your Unity scene, which will give it base Unity scaling.
+> 
+> Unpack the prefab by right-clicking it and move the prefab to base of your avatar.
+> 
+> Expand the prefab, and locate Grab FX/GrabTarget. GrabTarget is what you use for touching. Move it to an appropriate spot in your hierarchy.
+> 
+> Grab FX/ColliderTarget is a box collider that represents the area you need to touch. Move it to an appropriate spot in your hierarchy. Scale it as needed.
+>
+> Grab FX/Container will be weighted between GrabTarget and ColliderTarget as they touch. Replace the Cube under the Container with your own objects, and fix transforms as needed.
+
+</details>
+
 ## [Jiggle FX](https://github.com/VRLabs/VRChat-Avatars-3.0/releases/download/1/JiggleFX.unitypackage)
 
 Play an effect when the target object is jiggled or shaken.
@@ -88,6 +109,23 @@ Perform consecutive slashes with motion.
 ## [Marker](https://github.com/VRLabs/VRChat-Avatars-3.0/releases/download/1/Marker.unitypackage)
 
 A pen for drawing.
+
+<details>
+  <summary>Install notes</summary>
+  
+> Testing in Unity requires the 3.0 Emulator by Lyuma.
+> 
+> Merge the FX controller to your own FX controller, using the Avatars 3.0 Manager tool.
+> 
+> The Marker.prefab should go to the base of your Unity scene, which will give it base Unity scaling.
+> 
+> Unpack the prefab by right-clicking it and move the prefab to base of your avatar.
+> 
+> Expand the prefab, and locate Marker/DrawingTarget. Move this object under your drawing wrist bone, then adjust it's position and rotation.
+> 
+> Review the markerLeft and markerRight layers that were merged into your FX controller. Unmute the transition for the gestures you would like for drawing and erasing.
+
+</details>
 
 ## [Particle Driver](https://github.com/VRLabs/VRChat-Avatars-3.0/releases/download/1/ParticleDriver.unitypackage)
 
