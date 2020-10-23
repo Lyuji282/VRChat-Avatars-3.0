@@ -192,6 +192,27 @@ A method for animating on particle death.
 
 Player-local proximity effects.
 
+<details>
+  <summary>Install notes</summary>
+  
+> Testing in Unity requires the 3.0 Emulator by Lyuma. Test with a non-local clone and the testDummy.
+> 
+> Merge the FX controller to your own FX controller, using the Avatars 3.0 Manager tool.
+> 
+> The Proximity FX.prefab should go to the base of your Unity scene, which will give it base Unity scaling.
+> 
+> Unpack the prefab by right-clicking it and move the prefab to base of your avatar.
+> 
+> Expand the prefab, and locate Proximity FX/ᴍɪɴ, Proximity FX/ᴍɪᴅ, Proximity FX/ᴍᴀx. These are particles, that when killed by player-local collision, will drive a parameter changes within your playable layers.
+>
+> Adjust the collision radius on these particles as you see fit.
+> 
+> Review the handleProximityFX layer that was merged into your FX controller. Notice the Blend Tree.
+>
+> Edit the Idle.anim, minProximity.anim, midProximity.anim, maxProximity.anim clips to animate what you want.
+
+</details>
+
 ## [Particle Shader](https://github.com/VRLabs/VRChat-Avatars-3.0/releases/download/1/ParticleShader.unitypackage)
 
 A shader for particle effects.
