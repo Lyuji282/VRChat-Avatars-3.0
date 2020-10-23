@@ -25,6 +25,19 @@ Testing in Unity may require the [3.0 emulator by Lyuma](https://github.com/lyum
 
 Constraints with damping effects.
 
+<details>
+  <summary>Install notes</summary>
+
+> There are constraints for position and rotation.
+>
+> Replace the Cube under the Constraint/Container with your own objects.
+>
+> The Container will follow the Constraint/Target.
+>
+> Within the Container constraint, the smaller the weight to the Target, the more motion will be dampened.
+
+</details>
+
 ## [Follower](https://github.com/VRLabs/VRChat-Avatars-3.0/releases/download/1/Follower.unitypackage)
 
 A world space follower, driven by constraints.
