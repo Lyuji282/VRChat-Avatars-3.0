@@ -222,7 +222,7 @@ A world fixed object, held in place with a constraint.
 <details>
   <summary>Install notes</summary>
 
-> The world constraining method itself is 1 constraint and simple.
+> The world constraining method itself is 1 constraint and simple. Look at it and profit.
 >
 > Testing in Unity requires the 3.0 Emulator by Lyuma.
 > 
