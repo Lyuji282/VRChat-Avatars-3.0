@@ -203,7 +203,7 @@ Player-local proximity effects.
 > 
 > Unpack the prefab by right-clicking it and move the prefab to base of your avatar.
 > 
-> Expand the prefab, and locate Proximity FX/ᴍɪɴ, Proximity FX/ᴍɪᴅ, Proximity FX/ᴍᴀx. These are particles, that when killed by player-local collision, will drive a parameter changes within your playable layers.
+> Expand the prefab, and locate Proximity FX/ᴍɪɴ, Proximity FX/ᴍɪᴅ, Proximity FX/ᴍᴀx. These are particles, that when killed by player-local collision, will drive parameter changes within your playable layers.
 >
 > Adjust the collision radius on these particles as you see fit.
 > 
