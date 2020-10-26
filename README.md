@@ -439,7 +439,7 @@ A world fixed object, held in place with a constraint. Constraintを使ってオ
 >
 > Replace the Cube under World Constraint/Container with your own objects.
 >
-> Review the handleWorldFX layer that was merged into your FX controller. Change "WorldFX" parameter to cause transitions with this layer.
+> Review the handleWorldFX layer that was merged into your FX controller. Change "WorldFX" parameter to cause transitions within this layer.
 >
 > Edit the handleWorldFX.anim clip to customize.
 
