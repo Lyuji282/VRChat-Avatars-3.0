@@ -1,7 +1,9 @@
 <div align="center">
-  <h1>VRChat Avatars 3.0 Assets</h1>
+  <h1>
+      VRChat Avatars 3.0 Assets. VRChat アバター3.0用アセット
+  </h1>
   <p>
-     Assets and prefabs made for VRChat Avatars 3.0 system.
+     Assets and prefabs made for VRChat Avatars 3.0 system. VRChatのアバター3.0用に作られたアセットやPrefab
   </p>
 
   <a href="https://github.com/VRLabs/VRChat-Avatars-3.0/releases/latest">
@@ -11,25 +13,25 @@
   <br />
 </div>
 
-# Downloads
+# Downloads ダウンロード
 
-If you need help, our support channel is on [Discord](https://discord.gg/THCRsJc).
+If you need help, our support channel is on [Discord](https://discord.gg/THCRsJc). 質問等は[Discord](https://discord.gg/THCRsJc)にて専用サポートチャンネルがあります。
 
-Testing in Unity may require the [3.0 emulator by Lyuma](https://github.com/lyuma/Av3Emulator).
+Testing in Unity may require the [3.0 emulator by Lyuma](https://github.com/lyuma/Av3Emulator). Unity内でテストプレイをする場合は[Lyuma](https://github.com/lyuma/Av3Emulator)さんの3.0エミュレーターを必要とする物もあります。
 
 ## [Avatars 3.0 Manager](https://github.com/VRLabs/VRChat-Avatars-3.0/releases/download/1/AV3Manager.unitypackage)
 
- A tool for managing playable layers and parameters for Avatars 3.0.
+ A tool for managing playable layers and parameters for Avatars 3.0. アバター3.0でプレイするレイヤーやパラメターを管理するツール
 
 ## [Damping Constraints](https://github.com/VRLabs/VRChat-Avatars-3.0/releases/download/1/DampingConstraints.unitypackage)
 
-Constraints with damping effects.
+Constraints with damping effects. Damping（制動、減衰）エフェクト付きのConstraint（紐付け）。
 
 <details>
   <summary>Install notes</summary>
 
-> There are constraints for position and rotation.
->
+> There are constraints for position and rotation. 
+> 
 > Replace the Cube under Damping Constraint/Container with your own objects.
 >
 > Damping Constraint/Container will follow Damping Constraint/Target.
@@ -38,9 +40,22 @@ Constraints with damping effects.
 
 </details>
 
+<details>
+  <summary>導入手順</summary>
+
+> 位置(Position)と回転(Rotation)用のConstraintがあります。
+> 
+> Damping Constraint/ContainerについているCubeを任意のオブジェクトと交換してください。
+>
+> Damping Constraint/ContainerはDamping Constraint/Targetを追尾します。
+>
+> ContainerのConstraint内では重さ（weight）が少なければ少ないほどモーションが減衰します。
+
+</details>
+
 ## [Follower](https://github.com/VRLabs/VRChat-Avatars-3.0/releases/download/1/Follower.unitypackage)
 
-A world space follower, driven by constraints.
+A world space follower, driven by constraints. Constraintによってワールドスペースでついてくるfollower。
 
 <details>
   <summary>Install notes</summary>
@@ -61,9 +76,28 @@ A world space follower, driven by constraints.
 
 </details>
 
+<details>
+  <summary>導入手順</summary>
+  
+> ※Unity内でテストプレイする場合はLyumaさん作成の3.0エミュレーターが必要となります。
+> 
+> アバター3.0のManager toolを使用し、FX controllerを自身のFX controllerとマージしてください。
+> 
+> "Follower.prefab"はUnity sceneのベース（一番下）に置くとbase Unityのスケールが使用できます。
+> 
+> Prefabを右クリックして"Unpack the prefab"を選択してからPrefabごとアバターのベースに追加してください。
+> 
+> Prefabを開き、Follower/FollowerTargetを探し、そのオブジェクトをFollowerのヒエラルキーから抜いてください。FollowerTargetを任意の場所に移動させてください。
+> 
+> Follower/Containerには追尾したいオブジェクトを置いてください
+> 
+> Followerのスピードを変えたい場合はAnimationsのフォルダー内にあるSpeed.animのクリップを編集してください。
+
+</details>
+
 ## [Grab FX](https://github.com/VRLabs/VRChat-Avatars-3.0/releases/download/1/GrabFX.unitypackage)
 
-Handle an avatar object with touch.
+Handle an avatar object with touch. アバターオブジェクトをタッチで操作。
 
 <details>
   <summary>Install notes</summary>
@@ -86,9 +120,30 @@ Handle an avatar object with touch.
 
 </details>
 
+<details>
+  <summary>導入手順</summary>
+  
+> ※Unity内でテストプレイする場合はLyumaさん作成の3.0エミュレーターが必要となります。
+> 
+> アバター3.0のManager toolを使用し、FX controllerを自身のFX controllerとマージしてください。
+> 
+> "GrabFX"は同期型のパラメターなのでアバターのパラメターに追加する場合はツール内でチェックを入れてください。
+>  
+> Grab FX.prefabはUnity sceneのベース（一番下）に置くとbase Unityのスケールが使用できます。
+> 
+> Prefabを右クリックして"Unpack the prefab"を選択してからプレハブごとアバターのベースに追加してください。
+> 
+> Prefabを開き、Grab FX/GrabTargetを探し、ヒエラルキーの任意の場所に設置してください。GrabTargetはタッチに使います。
+> 
+> Grab FX/ColliderTargetは触る対象用のボックスコライダーです。Prefab外の任意の場所に移動させてください。必要にリサイズ可です。
+>
+> Grab FX/ContainerはGrabTargetとColliderTargetが触れている間にウエイトを設定します。Container内のCubeを任意のオブジェクトに置き換え、必要に応じて大きさを調整してください。
+
+</details>
+
 ## [Jiggle FX](https://github.com/VRLabs/VRChat-Avatars-3.0/releases/download/1/JiggleFX.unitypackage)
 
-Play an effect when the target object is jiggled or shaken.
+Play an effect when the target object is jiggled or shaken. 対象オブジェクトが揺らされた場合に再生されるエフェクト。
 
 <details>
   <summary>Install notes</summary>
@@ -109,9 +164,28 @@ Play an effect when the target object is jiggled or shaken.
 
 </details>
 
+<details>
+  <summary>導入手順</summary>
+  
+> ※Unity内でテストプレイする場合はLyumaさん作成の3.0エミュレーターが必要となります。
+> 
+> アバター3.0のManager toolを使用し、FX controllerを自身のFX controllerとマージしてください。
+> 
+> "Jiggle FX.prefab"はUnity sceneのベース（一番下）に置くとbase Unityのスケールが使用できます。
+> 
+> Prefabを右クリックして"Unpack the prefab"を選択してからプレハブごとアバターのベースに追加してください。
+> 
+> Prefabを開き、Jiggle FX/JiggleTargetを探してください。JiggleTargetは揺らすために使用します。Prefab外の任意の場所に移動させてください。
+> 
+> Jiggle FX/Detectionでは判定の難易度を設定します。パーティクルシステム下のemission moduleにて距離のレートを低くすると揺らしにくくなります。
+> 
+> FX Controllerに追加したhandleJiggleFXのレイヤーをご確認ください。アニメーションを好きに追加できます。
+
+</details>
+
 ## [Light Slash](https://github.com/VRLabs/VRChat-Avatars-3.0/releases/download/1/LightSlash.unitypackage)
 
-Perform consecutive slashes with motion.
+Perform consecutive slashes with motion. モーションからのスラッシュ効果が表示できます。
 
 <details>
   <summary>Install notes</summary>
@@ -138,9 +212,34 @@ Perform consecutive slashes with motion.
 
 </details>
 
+<details>
+  <summary>導入手順</summary>
+  
+> ※Unity内でテストプレイする場合はLyumaさん作成の3.0エミュレーターが必要となります。
+> 
+> アバター3.0のManager toolを使用し、FX controllerを自身のFX controllerとマージしてください。
+> 
+> "LightSlashFX"は同期型のパラメターなのでアバターのパラメターに追加する場合はツール内でチェックを入れてください。
+> 
+> "Light Slash.prefab"はUnity sceneのベース（一番下）に置くとbase Unityのスケールが使用できます。
+> 
+> Prefabを右クリックして"Unpack the prefab"を選択してからプレハブごとアバターのベースに追加してください。
+> 
+> Prefabを開き、Light Slash/Targetsを探してください。このオブジェクトはPropヒエラルキー下に入れ、PositionとRotationをすべてリセットしてください。
+> 
+> Targets/MotionTargetはモーション判定用です。判定方向はX-、赤い矢印の反対側になります。
+> 
+> Targets/EffectTargetはスラッシュエフェクトが表示される位置です。エフェクト表示場所に納得がいくまで位置と回転を調整してください。
+> 
+> 判定の難易度を上げる場合はLight Slash/Colliderの一番下のConstraint Sourceを調整してください。デフォルトは.2、.1はとても切りづらくなります。
+> 
+> このシステムはLight Slash/Colliderのオブジェクトをanimate offにすると作動しなくなります。
+
+</details>
+
 ## [Marker](https://github.com/VRLabs/VRChat-Avatars-3.0/releases/download/1/Marker.unitypackage)
 
-A pen for drawing.
+A pen for drawing. お絵描き用のペン。
 
 <details>
   <summary>Install notes</summary>
@@ -159,9 +258,26 @@ A pen for drawing.
 
 </details>
 
+<details>
+  <summary>導入手順</summary>
+  
+> ※Unity内でテストプレイする場合はLyumaさん作成の3.0エミュレーターが必要となります。
+> 
+> アバター3.0のManager toolを使用し、FX controllerを自身のFX controllerとマージしてください。
+> 
+> "The Marker.prefab"はUnity sceneのベース（一番下）に置くとbase Unityのスケールが使用できます。
+> 
+> Prefabを右クリックして"Unpack the prefab"を選択してからプレハブごとアバターのベースに追加してください。
+> 
+> Prefabを開き、Marker/DrawingTargetを探してください。このオブジェクトを利き手のwristボーンに入れ子してから位置と回転を調整してください。
+> 
+> FX Controllerに追加したmarkerLeftとmarkerRightのレイヤーをご確認ください。使用したいお絵描き、消しゴム用のジェスチャーのtransitionをunmuteしてください。
+
+</details>
+
 ## [Particle Driver](https://github.com/VRLabs/VRChat-Avatars-3.0/releases/download/1/ParticleDriver.unitypackage)
 
-A method for animating on particle death.
+A method for animating on particle death. パーティクルによるデスアニメーション用のツール。
 
 <details>
   <summary>Install notes</summary>
@@ -188,9 +304,34 @@ A method for animating on particle death.
 
 </details>
 
+<details>
+  <summary>導入手順</summary>
+  
+> ※Unity内でテストプレイする場合はLyumaさん作成の3.0エミュレーターが必要となります。
+> 
+> アバター3.0のManager toolを使用し、FX controllerを自身のFX controllerとマージしてください。
+> 
+> "FX"は同期型のパラメターなのでアバターのパラメターに追加する場合はツール内でチェックを入れてください。
+>  
+> "Particle Driver.prefab"はUnity sceneのベース（一番下）に置くとbase Unityのスケールが使用できます。
+> 
+> Prefabを右クリックして"Unpack the prefab"を選択してからプレハブごとアバターのベースに追加してください。
+> 
+> Prefabを開き、Particle Driver/ᴛʀɪɢɢᴇʀを探してください。ᴛʀɪɢɢᴇʀはデス判定が入った時にプレイ可能レイヤーのパラメターを変えるパーティクルです。
+>
+> ᴛʀɪɢɢᴇʀはデフォルトでローカルパラメターの"ParticleDeath"を操作します。
+> 
+> デフォルトのFX Controllerの設定でParticleDeathの変更は同期してある"FX"を操作するように設定してあります。
+>
+> 白紙のテンプレートなので任意に好きなアニメーションを追加できます。
+> 
+> ᴛʀɪɢɢᴇʀはParticleTargetにcontraint（紐付け）されています。
+
+</details>
+
 ## [Proximity FX](https://github.com/VRLabs/VRChat-Avatars-3.0/releases/download/1/ProximityFX.unitypackage)
 
-Player-local proximity effects.
+Player-local proximity effects. プレイヤー近接発動エフェクト。
 
 <details>
   <summary>Install notes</summary>
@@ -213,13 +354,34 @@ Player-local proximity effects.
 
 </details>
 
+<details>
+  <summary>導入手順</summary>
+  
+> ※Unity内でテストプレイする場合はLyumaさん作成の3.0エミュレーターが必要となります。テストプレイの場合はnon-localのクローンとtestDummyをご使用ください。
+> 
+> アバター3.0のManager toolを使用し、FX controllerを自身のFX controllerとマージしてください。
+> 
+> "Proximity FX.prefab"はUnity sceneのベース（一番下）に置くとbase Unityのスケールが使用できます。
+> 
+> Prefabを右クリックして"Unpack the prefab"を選択してからプレハブごとアバターのベースに追加してください。
+> 
+> Prefabを開き、Proximity FX/ᴍɪɴ, Proximity FX/ᴍɪᴅ, Proximity FX/ᴍᴀxを探してください。これらはプレイヤー近接発動でのデス判定が入った時にプレイ可能レイヤーのパラメターを変えるパーティクルです。
+>
+> パーティクルのCollision Radius（抵触半径）を任意に調整してください。
+> 
+> FX Controllerに追加したhandleProximityFXのレイヤーをご確認ください。Blend Treeを注視してください。
+>
+> Idle.anim, minProximity.anim, midProximity.anim, maxProximity.animに任意のアニメーションを追加してください。
+
+</details>
+
 ## [Particle Shader](https://github.com/VRLabs/VRChat-Avatars-3.0/releases/download/1/ParticleShader.unitypackage)
 
-A shader for particle effects.
+A shader for particle effects. パーティクルエフェクト用のシェーダー。
  
 ## [Spring Constraint](https://github.com/VRLabs/VRChat-Avatars-3.0/releases/download/1/SpringConstraint.unitypackage)
 
-A constraint with spring behavior.
+A constraint with spring behavior. バネモーションの入ったConstraint。
 
 <details>
   <summary>Install notes</summary>
@@ -236,9 +398,25 @@ A constraint with spring behavior.
 
 </details>
 
+<details>
+  <summary>導入手順</summary>
+
+> Spring Constraint/ContainerについているCubeを任意のオブジェクトと交換してください。
+>
+> ContainerはSpring Constraint/SpringTargetを追尾します。
+>
+> Springの調整をする場合はSpring Constraint/Motionオブジェクトのposition constraintの数値を編集してください。
+> 
+> Sources > SpringTarget (デフォルト値 1.1)はバネの強さをコントロールします。数値が高ければ高いほど伸びにくくなります（最小値１、最大値２）
+>
+> Sources > Motion (デフォルト値 4)は加速を減衰、数値が高ければ高いほどSpring Constraint/Containerの加速がゆっくりになります。
+
+
+</details>
+
 ## [World Constraint](https://github.com/VRLabs/VRChat-Avatars-3.0/releases/download/1/WorldConstraint.unitypackage)
 
-A world fixed object, held in place with a constraint.
+A world fixed object, held in place with a constraint. Constraintを使ってオブジェクトをワールド固定。
 
 <details>
   <summary>Install notes</summary>
@@ -264,5 +442,32 @@ A world fixed object, held in place with a constraint.
 > Review the handleWorldFX layer that was merged into your FX controller. Change "WorldFX" parameter to cause transitions with this layer.
 >
 > Edit the handleWorldFX.anim clip to customize.
+
+</details>
+
+<details>
+  <summary>導入手順</summary>
+
+> 1つのConstraintで完結する比較的シンプルなメソッドです。
+>
+> ※Unity内でテストプレイする場合はLyumaさん作成の3.0エミュレーターが必要となります。
+> 
+> アバター3.0のManager toolを使用し、FX controllerを自身のFX controllerとマージしてください。
+> 
+> "WorldFX"は同期型のパラメターなのでアバターのパラメターに追加する場合はツール内でチェックを入れてください。
+>
+> "World Constraint.prefab"はUnity sceneのベース（一番下）に置くとbase Unityのスケールが使用できます。
+>
+> Prefabを右クリックして"Unpack the prefab"を選択してからプレハブごとアバターのベースに追加してください。
+> 
+> Prefabを開き、World Constraint/ResetTargetを探してください。Prefab外の任意の場所（アバター内）に移動させてください。
+>
+> World Constraint/ContainerはResetTargetからスタート、リセットします。
+>
+> World Constraint/ContainerについているCubeを任意のオブジェクトと交換してください。
+>
+> FX Controllerに追加したhandleWorldFXのレイヤーをご確認ください。このレイヤーでトランジションを使いたい場合は"WorldFX"のパラメターを使ってください。
+>
+> カスタマイズしたい場合はhandleWorldFX.animを編集してください。
 
 </details>
