@@ -9,7 +9,7 @@ AnimatorController:
   m_Name: "\uA730\u1D0F\u029F\u029F\u1D0F\u1D21"
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: isStopping
+  - m_Name: IsStopping
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -57,7 +57,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parameters:
-  - name: isStopping
+  - name: IsStopping
     value: 0
   debugString: 
 --- !u!114 &114557505218278540
@@ -89,7 +89,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parameters:
-  - name: isStopping
+  - name: IsStopping
     value: 1
   debugString: 
 --- !u!1101 &1101248401824567898
@@ -121,7 +121,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: isStopping to True
+  m_Name: IsStopping to True
   m_Speed: 10
   m_CycleOffset: 0
   m_Transitions:
@@ -149,7 +149,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: isStopping to False
+  m_Name: IsStopping to False
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
