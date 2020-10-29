@@ -292,15 +292,17 @@ A method for animating on particle death. パーティクルによるデスア�
 > 
 > Unpack the prefab by right-clicking it and move the prefab to base of your avatar.
 > 
-> Expand the prefab, and locate Particle Driver/ᴛʀɪɢɢᴇʀ. ᴛʀɪɢɢᴇʀ is a particle, that when killed, will drive a parameter change within your playable layers.
+> Expand the prefab, and locate Particle Driver/ᴛʀɪɢɢᴇʀ. ᴛʀɪɢɢᴇʀ is a particle that when killed will drive a parameter change within your playable layers.
 >
-> By default, ᴛʀɪɢɢᴇʀ drives the local parameter, "ParticleDeath".
+> By default, the particle settings on ᴛʀɪɢɢᴇʀ will have it die inside Particle Driver/Cube.
+>
+> ᴛʀɪɢɢᴇʀ is constrained to ParticleTarget.
 > 
-> The default FX controller is set up so "ParticleDeath" changes will drive the synced parameter, "FX".
+> ᴛʀɪɢɢᴇʀ drives the local parameter, "ParticleDeath", and the onParticleDeath layer in the FX controller drives the synced parameter, "FX".
+>
+> The handleFX layer will play the example handleCube.anim clip, which will resize the cube and correctly sync state.
 >
 > Animate what you want. This is a blank template.
-> 
-> ᴛʀɪɢɢᴇʀ is constrained to ParticleTarget.
 
 </details>
 
