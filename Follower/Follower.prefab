@@ -25,7 +25,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2964867142897612174}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -93,8 +93,8 @@ GameObject:
   - component: {fileID: 3542135162953571385}
   - component: {fileID: 3542135162953571391}
   - component: {fileID: 3542135162953571388}
-  - component: {fileID: 3542135162953571389}
   - component: {fileID: 3542135162953571367}
+  - component: {fileID: 3542135162953571389}
   m_Layer: 0
   m_Name: "\uA730\u1D0F\u029F\u029F\u1D0F\u1D21"
   m_TagString: Untagged
@@ -197,6 +197,25 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1818360608 &3542135162953571367
+PositionConstraint:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3542135162953571366}
+  m_Enabled: 1
+  m_Weight: 1
+  m_TranslationAtRest: {x: -0.388, y: 1.553, z: 0}
+  m_TranslationOffset: {x: 0, y: 0, z: 0}
+  m_AffectTranslationX: 1
+  m_AffectTranslationY: 1
+  m_AffectTranslationZ: 1
+  m_IsContraintActive: 1
+  m_IsLocked: 1
+  m_Sources:
+  - sourceTransform: {fileID: 8746243130261703842}
+    weight: 1
 --- !u!198 &3542135162953571389
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -4854,25 +4873,6 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
---- !u!1818360608 &3542135162953571367
-PositionConstraint:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3542135162953571366}
-  m_Enabled: 1
-  m_Weight: 1
-  m_TranslationAtRest: {x: -0.388, y: 1.553, z: 0}
-  m_TranslationOffset: {x: 0, y: 0, z: 0}
-  m_AffectTranslationX: 1
-  m_AffectTranslationY: 1
-  m_AffectTranslationZ: 1
-  m_IsContraintActive: 1
-  m_IsLocked: 1
-  m_Sources:
-  - sourceTransform: {fileID: 8746243130261703842}
-    weight: 1
 --- !u!1 &7944361667734474873
 GameObject:
   m_ObjectHideFlags: 0
