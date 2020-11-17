@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: handleGrabFX
+  m_Name: Right 10 Exit
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -17,34 +17,6 @@ AnimationClip:
   m_PositionCurves: []
   m_ScaleCurves: []
   m_FloatCurves:
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 1
-        inSlope: 0
-        outSlope: -29.999998
-        tangentMode: 69
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 0.033333335
-        value: 0
-        inSlope: -29.999998
-        outSlope: 0
-        tangentMode: 69
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_Sources.Array.data[0].weight
-    path: Grab FX/Container
-    classID: 1773428102
-    script: {fileID: 0}
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -69,8 +41,36 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: m_Sources.Array.data[1].weight
-    path: Grab FX/Container
+    attribute: m_Sources.Array.data[0].weight
+    path: Grab FX/Items/10
+    classID: 1773428102
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: -29.999998
+        tangentMode: 69
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.033333335
+        value: 0
+        inSlope: -29.999998
+        outSlope: 0
+        tangentMode: 69
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_Sources.Array.data[2].weight
+    path: Grab FX/Items/10
     classID: 1773428102
     script: {fileID: 0}
   m_PPtrCurves: []
@@ -82,15 +82,15 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 3386567736
+      path: 2192414061
       attribute: 15
       script: {fileID: 0}
       typeID: 1773428102
       customType: 35
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 3386567736
-      attribute: 31
+      path: 2192414061
+      attribute: 47
       script: {fileID: 0}
       typeID: 1773428102
       customType: 35
@@ -122,34 +122,6 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 1
-        inSlope: 0
-        outSlope: -29.999998
-        tangentMode: 69
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 0.033333335
-        value: 0
-        inSlope: -29.999998
-        outSlope: 0
-        tangentMode: 69
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_Sources.Array.data[0].weight
-    path: Grab FX/Container
-    classID: 1773428102
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
         value: 0
         inSlope: 0
         outSlope: 29.999998
@@ -169,8 +141,36 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: m_Sources.Array.data[1].weight
-    path: Grab FX/Container
+    attribute: m_Sources.Array.data[0].weight
+    path: Grab FX/Items/10
+    classID: 1773428102
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: -29.999998
+        tangentMode: 69
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.033333335
+        value: 0
+        inSlope: -29.999998
+        outSlope: 0
+        tangentMode: 69
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_Sources.Array.data[2].weight
+    path: Grab FX/Items/10
     classID: 1773428102
     script: {fileID: 0}
   m_EulerEditorCurves: []

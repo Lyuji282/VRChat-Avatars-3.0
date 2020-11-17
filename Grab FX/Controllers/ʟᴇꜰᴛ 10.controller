@@ -6,18 +6,18 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: "\u0262\u0280\u1D00\u0299"
+  m_Name: "\u029F\u1D07\uA730\u1D1B 10"
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: IsGrabbing
-    m_Type: 4
+  - m_Name: LeftIsGrabbing
+    m_Type: 3
     m_DefaultFloat: 0
-    m_DefaultInt: 0
-    m_DefaultBool: 1
-    m_Controller: {fileID: 9100000}
+    m_DefaultInt: 10
+    m_DefaultBool: 0
+    m_Controller: {fileID: 0}
   m_AnimatorLayers:
   - serializedVersion: 5
-    m_Name: Grab
+    m_Name: LeftGrab
     m_StateMachine: {fileID: 1107905440011652546}
     m_Mask: {fileID: 0}
     m_Motions: []
@@ -57,7 +57,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parameters:
-  - name: IsGrabbing
+  - name: LeftIsGrabbing
     value: 0
   debugString: 
 --- !u!114 &114557505218278540
@@ -89,8 +89,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parameters:
-  - name: IsGrabbing
-    value: 1
+  - name: LeftIsGrabbing
+    value: 10
   debugString: 
 --- !u!1101 &1101248401824567898
 AnimatorStateTransition:
@@ -121,8 +121,8 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: IsGrabbing to True
-  m_Speed: 10
+  m_Name: LeftIsGrabbing to 10
+  m_Speed: 3
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 1101248401824567898}
@@ -149,7 +149,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: IsGrabbing to False
+  m_Name: LeftIsGrabbing to 0
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -176,7 +176,7 @@ AnimatorStateMachine:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Grab
+  m_Name: LeftGrab
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: 1102681234606215542}
