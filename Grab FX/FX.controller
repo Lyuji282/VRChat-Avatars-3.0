@@ -14,34 +14,34 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
+  - m_Name: LeftGrabFX
+    m_Type: 3
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 0}
   - m_Name: LeftIsGrabbing
     m_Type: 3
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
+  - m_Name: RightGrabFX
+    m_Type: 3
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 0}
   - m_Name: RightIsGrabbing
     m_Type: 3
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
-  - m_Name: LeftGrab
-    m_Type: 3
-    m_DefaultFloat: 0
-    m_DefaultInt: 0
-    m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
-  - m_Name: RightGrab
-    m_Type: 3
-    m_DefaultFloat: 0
-    m_DefaultInt: 0
-    m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   m_AnimatorLayers:
   - serializedVersion: 5
-    m_Name: onLeftGrab
+    m_Name: handleLeftGrab
     m_StateMachine: {fileID: 1107392934222790524}
     m_Mask: {fileID: 0}
     m_Motions: []
@@ -53,7 +53,7 @@ AnimatorController:
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
   - serializedVersion: 5
-    m_Name: onRightGrab
+    m_Name: handleRightGrab
     m_StateMachine: {fileID: 1107879111638344724}
     m_Mask: {fileID: 0}
     m_Motions: []
@@ -77,7 +77,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parameters:
-  - name: LeftGrab
+  - name: LeftGrabFX
     value: 7
   debugString: 
 --- !u!114 &114034800062036050
@@ -109,7 +109,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parameters:
-  - name: RightGrab
+  - name: RightGrabFX
     value: 3
   debugString: 
 --- !u!114 &114046154533600110
@@ -125,7 +125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parameters:
-  - name: LeftGrab
+  - name: LeftGrabFX
     value: 8
   debugString: 
 --- !u!114 &114066362873770366
@@ -141,7 +141,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parameters:
-  - name: LeftGrab
+  - name: LeftGrabFX
     value: 6
   debugString: 
 --- !u!114 &114086345719430830
@@ -157,7 +157,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parameters:
-  - name: RightGrab
+  - name: RightGrabFX
     value: 2
   debugString: 
 --- !u!114 &114187069132678116
@@ -189,7 +189,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parameters:
-  - name: RightGrab
+  - name: RightGrabFX
     value: 0
   debugString: 
 --- !u!114 &114313808213995124
@@ -205,7 +205,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parameters:
-  - name: RightGrab
+  - name: RightGrabFX
     value: 0
   debugString: 
 --- !u!114 &114321618859799016
@@ -221,7 +221,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parameters:
-  - name: LeftGrab
+  - name: LeftGrabFX
     value: 4
   debugString: 
 --- !u!114 &114329520331577578
@@ -237,7 +237,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parameters:
-  - name: LeftGrab
+  - name: LeftGrabFX
     value: 0
   debugString: 
 --- !u!114 &114332678458512036
@@ -253,7 +253,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parameters:
-  - name: LeftGrab
+  - name: LeftGrabFX
     value: 0
   debugString: 
 --- !u!114 &114337277943437492
@@ -269,7 +269,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parameters:
-  - name: LeftGrab
+  - name: LeftGrabFX
     value: 0
   debugString: 
 --- !u!114 &114339737064668010
@@ -285,7 +285,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parameters:
-  - name: LeftGrab
+  - name: LeftGrabFX
     value: 0
   debugString: 
 --- !u!114 &114374380743719600
@@ -333,7 +333,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parameters:
-  - name: RightGrab
+  - name: RightGrabFX
     value: 0
   debugString: 
 --- !u!114 &114386952162833148
@@ -349,7 +349,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parameters:
-  - name: RightGrab
+  - name: RightGrabFX
     value: 1
   debugString: 
 --- !u!114 &114389264931903992
@@ -381,7 +381,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parameters:
-  - name: RightGrab
+  - name: RightGrabFX
     value: 0
   debugString: 
 --- !u!114 &114430621890818194
@@ -413,7 +413,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parameters:
-  - name: LeftGrab
+  - name: LeftGrabFX
     value: 9
   debugString: 
 --- !u!114 &114456329946211434
@@ -429,7 +429,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parameters:
-  - name: LeftGrab
+  - name: LeftGrabFX
     value: 5
   debugString: 
 --- !u!114 &114468460551779840
@@ -445,7 +445,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parameters:
-  - name: RightGrab
+  - name: RightGrabFX
     value: 6
   debugString: 
 --- !u!114 &114472492364927140
@@ -461,7 +461,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parameters:
-  - name: RightGrab
+  - name: RightGrabFX
     value: 0
   debugString: 
 --- !u!114 &114601741028133030
@@ -493,7 +493,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parameters:
-  - name: RightGrab
+  - name: RightGrabFX
     value: 0
   debugString: 
 --- !u!114 &114610757739507526
@@ -509,7 +509,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parameters:
-  - name: RightGrab
+  - name: RightGrabFX
     value: 0
   debugString: 
 --- !u!114 &114612751494678154
@@ -525,7 +525,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parameters:
-  - name: RightGrab
+  - name: RightGrabFX
     value: 7
   debugString: 
 --- !u!114 &114642285069083914
@@ -541,7 +541,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parameters:
-  - name: RightGrab
+  - name: RightGrabFX
     value: 5
   debugString: 
 --- !u!114 &114654464051170570
@@ -557,7 +557,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parameters:
-  - name: RightGrab
+  - name: RightGrabFX
     value: 10
   debugString: 
 --- !u!114 &114679760742016662
@@ -573,7 +573,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parameters:
-  - name: LeftGrab
+  - name: LeftGrabFX
     value: 0
   debugString: 
 --- !u!114 &114722380060318900
@@ -589,7 +589,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parameters:
-  - name: LeftGrab
+  - name: LeftGrabFX
     value: 3
   debugString: 
 --- !u!114 &114728382925436380
@@ -605,7 +605,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parameters:
-  - name: LeftGrab
+  - name: LeftGrabFX
     value: 0
   debugString: 
 --- !u!114 &114739811476287684
@@ -621,7 +621,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parameters:
-  - name: RightGrab
+  - name: RightGrabFX
     value: 0
   debugString: 
 --- !u!114 &114756058005663980
@@ -653,7 +653,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parameters:
-  - name: LeftGrab
+  - name: LeftGrabFX
     value: 2
   debugString: 
 --- !u!114 &114775878301552710
@@ -669,7 +669,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parameters:
-  - name: RightGrab
+  - name: RightGrabFX
     value: 8
   debugString: 
 --- !u!114 &114782884242495448
@@ -701,7 +701,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parameters:
-  - name: LeftGrab
+  - name: LeftGrabFX
     value: 0
   debugString: 
 --- !u!114 &114811532373708714
@@ -717,7 +717,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parameters:
-  - name: RightGrab
+  - name: RightGrabFX
     value: 4
   debugString: 
 --- !u!114 &114850973719127578
@@ -749,7 +749,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parameters:
-  - name: LeftGrab
+  - name: LeftGrabFX
     value: 0
   debugString: 
 --- !u!114 &114866456855075030
@@ -781,7 +781,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parameters:
-  - name: RightGrab
+  - name: RightGrabFX
     value: 0
   debugString: 
 --- !u!114 &114935316926627550
@@ -797,7 +797,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parameters:
-  - name: LeftGrab
+  - name: LeftGrabFX
     value: 0
   debugString: 
 --- !u!114 &114946969042711412
@@ -813,7 +813,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parameters:
-  - name: RightGrab
+  - name: RightGrabFX
     value: 0
   debugString: 
 --- !u!114 &114962258490496406
@@ -829,7 +829,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parameters:
-  - name: LeftGrab
+  - name: LeftGrabFX
     value: 0
   debugString: 
 --- !u!114 &114964541611901574
@@ -845,7 +845,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parameters:
-  - name: LeftGrab
+  - name: LeftGrabFX
     value: 10
   debugString: 
 --- !u!114 &114972918223491834
@@ -861,7 +861,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parameters:
-  - name: LeftGrab
+  - name: LeftGrabFX
     value: 1
   debugString: 
 --- !u!114 &114975400342219780
@@ -877,7 +877,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parameters:
-  - name: RightGrab
+  - name: RightGrabFX
     value: 9
   debugString: 
 --- !u!114 &114976969721000886
@@ -995,7 +995,7 @@ AnimatorStateTransition:
     m_ConditionEvent: IsLocal
     m_EventTreshold: 0
   - m_ConditionMode: 6
-    m_ConditionEvent: LeftGrab
+    m_ConditionEvent: LeftGrabFX
     m_EventTreshold: 3
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102267294432580836}
@@ -1048,7 +1048,7 @@ AnimatorStateTransition:
     m_ConditionEvent: RightIsGrabbing
     m_EventTreshold: 7
   - m_ConditionMode: 7
-    m_ConditionEvent: LeftGrab
+    m_ConditionEvent: LeftGrabFX
     m_EventTreshold: 7
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102036356878050514}
@@ -1101,7 +1101,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 6
-    m_ConditionEvent: LeftGrab
+    m_ConditionEvent: LeftGrabFX
     m_EventTreshold: 5
   - m_ConditionMode: 6
     m_ConditionEvent: LeftIsGrabbing
@@ -1207,7 +1207,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 6
-    m_ConditionEvent: RightGrab
+    m_ConditionEvent: RightGrabFX
     m_EventTreshold: 0
   - m_ConditionMode: 6
     m_ConditionEvent: RightIsGrabbing
@@ -1266,7 +1266,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 6
-    m_ConditionEvent: RightGrab
+    m_ConditionEvent: RightGrabFX
     m_EventTreshold: 0
   - m_ConditionMode: 6
     m_ConditionEvent: RightIsGrabbing
@@ -1347,7 +1347,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 6
-    m_ConditionEvent: LeftGrab
+    m_ConditionEvent: LeftGrabFX
     m_EventTreshold: 7
   - m_ConditionMode: 6
     m_ConditionEvent: LeftIsGrabbing
@@ -1487,7 +1487,7 @@ AnimatorStateTransition:
     m_ConditionEvent: LeftIsGrabbing
     m_EventTreshold: 8
   - m_ConditionMode: 7
-    m_ConditionEvent: RightGrab
+    m_ConditionEvent: RightGrabFX
     m_EventTreshold: 8
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102306403793236762}
@@ -1515,7 +1515,7 @@ AnimatorStateTransition:
     m_ConditionEvent: IsLocal
     m_EventTreshold: 0
   - m_ConditionMode: 6
-    m_ConditionEvent: RightGrab
+    m_ConditionEvent: RightGrabFX
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102309267078347970}
@@ -1627,7 +1627,7 @@ AnimatorStateTransition:
     m_ConditionEvent: IsLocal
     m_EventTreshold: 0
   - m_ConditionMode: 6
-    m_ConditionEvent: RightGrab
+    m_ConditionEvent: RightGrabFX
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102831799805014888}
@@ -1680,7 +1680,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 6
-    m_ConditionEvent: LeftGrab
+    m_ConditionEvent: LeftGrabFX
     m_EventTreshold: 0
   - m_ConditionMode: 6
     m_ConditionEvent: LeftIsGrabbing
@@ -1814,7 +1814,7 @@ AnimatorStateTransition:
     m_ConditionEvent: IsLocal
     m_EventTreshold: 0
   - m_ConditionMode: 6
-    m_ConditionEvent: LeftGrab
+    m_ConditionEvent: LeftGrabFX
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102523190079289832}
@@ -1845,7 +1845,7 @@ AnimatorStateTransition:
     m_ConditionEvent: LeftIsGrabbing
     m_EventTreshold: 10
   - m_ConditionMode: 7
-    m_ConditionEvent: RightGrab
+    m_ConditionEvent: RightGrabFX
     m_EventTreshold: 10
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102783913176543522}
@@ -2156,7 +2156,7 @@ AnimatorStateTransition:
     m_ConditionEvent: LeftIsGrabbing
     m_EventTreshold: 2
   - m_ConditionMode: 7
-    m_ConditionEvent: RightGrab
+    m_ConditionEvent: RightGrabFX
     m_EventTreshold: 2
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102713973824317778}
@@ -2256,7 +2256,7 @@ AnimatorStateTransition:
     m_ConditionEvent: IsLocal
     m_EventTreshold: 0
   - m_ConditionMode: 6
-    m_ConditionEvent: LeftGrab
+    m_ConditionEvent: LeftGrabFX
     m_EventTreshold: 1
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102390993360074048}
@@ -2481,7 +2481,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 6
-    m_ConditionEvent: RightGrab
+    m_ConditionEvent: RightGrabFX
     m_EventTreshold: 7
   - m_ConditionMode: 6
     m_ConditionEvent: RightIsGrabbing
@@ -2537,7 +2537,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 6
-    m_ConditionEvent: RightGrab
+    m_ConditionEvent: RightGrabFX
     m_EventTreshold: 0
   - m_ConditionMode: 6
     m_ConditionEvent: RightIsGrabbing
@@ -2693,7 +2693,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 6
-    m_ConditionEvent: LeftGrab
+    m_ConditionEvent: LeftGrabFX
     m_EventTreshold: 0
   - m_ConditionMode: 6
     m_ConditionEvent: LeftIsGrabbing
@@ -2727,7 +2727,7 @@ AnimatorStateTransition:
     m_ConditionEvent: LeftIsGrabbing
     m_EventTreshold: 5
   - m_ConditionMode: 7
-    m_ConditionEvent: RightGrab
+    m_ConditionEvent: RightGrabFX
     m_EventTreshold: 5
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102618412020408030}
@@ -2758,7 +2758,7 @@ AnimatorStateTransition:
     m_ConditionEvent: RightIsGrabbing
     m_EventTreshold: 9
   - m_ConditionMode: 7
-    m_ConditionEvent: LeftGrab
+    m_ConditionEvent: LeftGrabFX
     m_EventTreshold: 9
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102116032886953770}
@@ -2811,7 +2811,7 @@ AnimatorStateTransition:
     m_ConditionEvent: RightIsGrabbing
     m_EventTreshold: 2
   - m_ConditionMode: 7
-    m_ConditionEvent: LeftGrab
+    m_ConditionEvent: LeftGrabFX
     m_EventTreshold: 2
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102882020294169020}
@@ -3017,7 +3017,7 @@ AnimatorStateTransition:
     m_ConditionEvent: RightIsGrabbing
     m_EventTreshold: 8
   - m_ConditionMode: 7
-    m_ConditionEvent: LeftGrab
+    m_ConditionEvent: LeftGrabFX
     m_EventTreshold: 8
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102469377094462800}
@@ -3042,7 +3042,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 6
-    m_ConditionEvent: RightGrab
+    m_ConditionEvent: RightGrabFX
     m_EventTreshold: 8
   - m_ConditionMode: 6
     m_ConditionEvent: RightIsGrabbing
@@ -3104,7 +3104,7 @@ AnimatorStateTransition:
     m_ConditionEvent: LeftIsGrabbing
     m_EventTreshold: 4
   - m_ConditionMode: 7
-    m_ConditionEvent: RightGrab
+    m_ConditionEvent: RightGrabFX
     m_EventTreshold: 4
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102958307986599174}
@@ -3335,7 +3335,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 6
-    m_ConditionEvent: RightGrab
+    m_ConditionEvent: RightGrabFX
     m_EventTreshold: 0
   - m_ConditionMode: 6
     m_ConditionEvent: RightIsGrabbing
@@ -3425,7 +3425,7 @@ AnimatorStateTransition:
     m_ConditionEvent: RightIsGrabbing
     m_EventTreshold: 10
   - m_ConditionMode: 7
-    m_ConditionEvent: LeftGrab
+    m_ConditionEvent: LeftGrabFX
     m_EventTreshold: 10
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102645176086007218}
@@ -3453,7 +3453,7 @@ AnimatorStateTransition:
     m_ConditionEvent: IsLocal
     m_EventTreshold: 0
   - m_ConditionMode: 6
-    m_ConditionEvent: LeftGrab
+    m_ConditionEvent: LeftGrabFX
     m_EventTreshold: 9
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102753524195614000}
@@ -3534,7 +3534,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 6
-    m_ConditionEvent: RightGrab
+    m_ConditionEvent: RightGrabFX
     m_EventTreshold: 6
   - m_ConditionMode: 6
     m_ConditionEvent: RightIsGrabbing
@@ -3565,7 +3565,7 @@ AnimatorStateTransition:
     m_ConditionEvent: IsLocal
     m_EventTreshold: 0
   - m_ConditionMode: 6
-    m_ConditionEvent: LeftGrab
+    m_ConditionEvent: LeftGrabFX
     m_EventTreshold: 2
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102803420273844750}
@@ -3590,7 +3590,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 6
-    m_ConditionEvent: LeftGrab
+    m_ConditionEvent: LeftGrabFX
     m_EventTreshold: 2
   - m_ConditionMode: 6
     m_ConditionEvent: LeftIsGrabbing
@@ -3849,7 +3849,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 6
-    m_ConditionEvent: LeftGrab
+    m_ConditionEvent: LeftGrabFX
     m_EventTreshold: 6
   - m_ConditionMode: 6
     m_ConditionEvent: LeftIsGrabbing
@@ -3955,7 +3955,7 @@ AnimatorStateTransition:
     m_ConditionEvent: IsLocal
     m_EventTreshold: 0
   - m_ConditionMode: 6
-    m_ConditionEvent: RightGrab
+    m_ConditionEvent: RightGrabFX
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102327262956332536}
@@ -3980,7 +3980,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 6
-    m_ConditionEvent: LeftGrab
+    m_ConditionEvent: LeftGrabFX
     m_EventTreshold: 4
   - m_ConditionMode: 6
     m_ConditionEvent: LeftIsGrabbing
@@ -4008,7 +4008,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 6
-    m_ConditionEvent: LeftGrab
+    m_ConditionEvent: LeftGrabFX
     m_EventTreshold: 0
   - m_ConditionMode: 6
     m_ConditionEvent: LeftIsGrabbing
@@ -4039,7 +4039,7 @@ AnimatorStateTransition:
     m_ConditionEvent: IsLocal
     m_EventTreshold: 0
   - m_ConditionMode: 6
-    m_ConditionEvent: RightGrab
+    m_ConditionEvent: RightGrabFX
     m_EventTreshold: 2
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102171571683546702}
@@ -4089,7 +4089,7 @@ AnimatorStateTransition:
     m_ConditionEvent: IsLocal
     m_EventTreshold: 0
   - m_ConditionMode: 6
-    m_ConditionEvent: LeftGrab
+    m_ConditionEvent: LeftGrabFX
     m_EventTreshold: 10
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102636577186637126}
@@ -4114,7 +4114,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 6
-    m_ConditionEvent: RightGrab
+    m_ConditionEvent: RightGrabFX
     m_EventTreshold: 0
   - m_ConditionMode: 6
     m_ConditionEvent: RightIsGrabbing
@@ -4142,7 +4142,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 6
-    m_ConditionEvent: LeftGrab
+    m_ConditionEvent: LeftGrabFX
     m_EventTreshold: 1
   - m_ConditionMode: 6
     m_ConditionEvent: LeftIsGrabbing
@@ -4276,7 +4276,7 @@ AnimatorStateTransition:
     m_ConditionEvent: IsLocal
     m_EventTreshold: 0
   - m_ConditionMode: 6
-    m_ConditionEvent: LeftGrab
+    m_ConditionEvent: LeftGrabFX
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102348074230758282}
@@ -4326,7 +4326,7 @@ AnimatorStateTransition:
     m_ConditionEvent: IsLocal
     m_EventTreshold: 0
   - m_ConditionMode: 6
-    m_ConditionEvent: LeftGrab
+    m_ConditionEvent: LeftGrabFX
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102408354220035782}
@@ -4354,7 +4354,7 @@ AnimatorStateTransition:
     m_ConditionEvent: IsLocal
     m_EventTreshold: 0
   - m_ConditionMode: 6
-    m_ConditionEvent: RightGrab
+    m_ConditionEvent: RightGrabFX
     m_EventTreshold: 4
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102234097887825642}
@@ -4385,7 +4385,7 @@ AnimatorStateTransition:
     m_ConditionEvent: LeftIsGrabbing
     m_EventTreshold: 9
   - m_ConditionMode: 7
-    m_ConditionEvent: RightGrab
+    m_ConditionEvent: RightGrabFX
     m_EventTreshold: 9
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102435231484614344}
@@ -4413,7 +4413,7 @@ AnimatorStateTransition:
     m_ConditionEvent: IsLocal
     m_EventTreshold: 0
   - m_ConditionMode: 6
-    m_ConditionEvent: LeftGrab
+    m_ConditionEvent: LeftGrabFX
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102033577032076136}
@@ -4441,7 +4441,7 @@ AnimatorStateTransition:
     m_ConditionEvent: IsLocal
     m_EventTreshold: 0
   - m_ConditionMode: 6
-    m_ConditionEvent: LeftGrab
+    m_ConditionEvent: LeftGrabFX
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102303322754349392}
@@ -4619,7 +4619,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 6
-    m_ConditionEvent: LeftGrab
+    m_ConditionEvent: LeftGrabFX
     m_EventTreshold: 0
   - m_ConditionMode: 6
     m_ConditionEvent: LeftIsGrabbing
@@ -4647,7 +4647,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 6
-    m_ConditionEvent: RightGrab
+    m_ConditionEvent: RightGrabFX
     m_EventTreshold: 0
   - m_ConditionMode: 6
     m_ConditionEvent: RightIsGrabbing
@@ -4678,7 +4678,7 @@ AnimatorStateTransition:
     m_ConditionEvent: IsLocal
     m_EventTreshold: 0
   - m_ConditionMode: 6
-    m_ConditionEvent: LeftGrab
+    m_ConditionEvent: LeftGrabFX
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102990678930831902}
@@ -4762,7 +4762,7 @@ AnimatorStateTransition:
     m_ConditionEvent: LeftIsGrabbing
     m_EventTreshold: 7
   - m_ConditionMode: 7
-    m_ConditionEvent: RightGrab
+    m_ConditionEvent: RightGrabFX
     m_EventTreshold: 7
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102929260522427274}
@@ -4812,7 +4812,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 6
-    m_ConditionEvent: RightGrab
+    m_ConditionEvent: RightGrabFX
     m_EventTreshold: 0
   - m_ConditionMode: 6
     m_ConditionEvent: RightIsGrabbing
@@ -5005,7 +5005,7 @@ AnimatorStateTransition:
     m_ConditionEvent: IsLocal
     m_EventTreshold: 0
   - m_ConditionMode: 6
-    m_ConditionEvent: RightGrab
+    m_ConditionEvent: RightGrabFX
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102161324211349122}
@@ -5089,7 +5089,7 @@ AnimatorStateTransition:
     m_ConditionEvent: RightIsGrabbing
     m_EventTreshold: 6
   - m_ConditionMode: 7
-    m_ConditionEvent: LeftGrab
+    m_ConditionEvent: LeftGrabFX
     m_EventTreshold: 6
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102532435822433362}
@@ -5142,7 +5142,7 @@ AnimatorStateTransition:
     m_ConditionEvent: IsLocal
     m_EventTreshold: 0
   - m_ConditionMode: 6
-    m_ConditionEvent: RightGrab
+    m_ConditionEvent: RightGrabFX
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102542253977902468}
@@ -5167,7 +5167,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 6
-    m_ConditionEvent: RightGrab
+    m_ConditionEvent: RightGrabFX
     m_EventTreshold: 10
   - m_ConditionMode: 6
     m_ConditionEvent: RightIsGrabbing
@@ -5198,7 +5198,7 @@ AnimatorStateTransition:
     m_ConditionEvent: IsLocal
     m_EventTreshold: 0
   - m_ConditionMode: 6
-    m_ConditionEvent: LeftGrab
+    m_ConditionEvent: LeftGrabFX
     m_EventTreshold: 8
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102582425440496924}
@@ -5276,7 +5276,7 @@ AnimatorStateTransition:
     m_ConditionEvent: IsLocal
     m_EventTreshold: 0
   - m_ConditionMode: 6
-    m_ConditionEvent: RightGrab
+    m_ConditionEvent: RightGrabFX
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102557504189219596}
@@ -5304,7 +5304,7 @@ AnimatorStateTransition:
     m_ConditionEvent: IsLocal
     m_EventTreshold: 0
   - m_ConditionMode: 6
-    m_ConditionEvent: LeftGrab
+    m_ConditionEvent: LeftGrabFX
     m_EventTreshold: 5
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102728166742831954}
@@ -5357,7 +5357,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 6
-    m_ConditionEvent: RightGrab
+    m_ConditionEvent: RightGrabFX
     m_EventTreshold: 4
   - m_ConditionMode: 6
     m_ConditionEvent: RightIsGrabbing
@@ -5544,7 +5544,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 6
-    m_ConditionEvent: RightGrab
+    m_ConditionEvent: RightGrabFX
     m_EventTreshold: 5
   - m_ConditionMode: 6
     m_ConditionEvent: RightIsGrabbing
@@ -5572,7 +5572,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 6
-    m_ConditionEvent: RightGrab
+    m_ConditionEvent: RightGrabFX
     m_EventTreshold: 9
   - m_ConditionMode: 6
     m_ConditionEvent: RightIsGrabbing
@@ -5625,7 +5625,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 6
-    m_ConditionEvent: LeftGrab
+    m_ConditionEvent: LeftGrabFX
     m_EventTreshold: 0
   - m_ConditionMode: 6
     m_ConditionEvent: LeftIsGrabbing
@@ -5656,7 +5656,7 @@ AnimatorStateTransition:
     m_ConditionEvent: IsLocal
     m_EventTreshold: 0
   - m_ConditionMode: 6
-    m_ConditionEvent: LeftGrab
+    m_ConditionEvent: LeftGrabFX
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102011958789049290}
@@ -5712,7 +5712,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 6
-    m_ConditionEvent: LeftGrab
+    m_ConditionEvent: LeftGrabFX
     m_EventTreshold: 9
   - m_ConditionMode: 6
     m_ConditionEvent: LeftIsGrabbing
@@ -5902,7 +5902,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 6
-    m_ConditionEvent: RightGrab
+    m_ConditionEvent: RightGrabFX
     m_EventTreshold: 3
   - m_ConditionMode: 6
     m_ConditionEvent: RightIsGrabbing
@@ -5930,7 +5930,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 6
-    m_ConditionEvent: RightGrab
+    m_ConditionEvent: RightGrabFX
     m_EventTreshold: 0
   - m_ConditionMode: 6
     m_ConditionEvent: RightIsGrabbing
@@ -6036,7 +6036,7 @@ AnimatorStateTransition:
     m_ConditionEvent: IsLocal
     m_EventTreshold: 0
   - m_ConditionMode: 6
-    m_ConditionEvent: RightGrab
+    m_ConditionEvent: RightGrabFX
     m_EventTreshold: 6
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102439362588125306}
@@ -6105,7 +6105,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 6
-    m_ConditionEvent: LeftGrab
+    m_ConditionEvent: LeftGrabFX
     m_EventTreshold: 3
   - m_ConditionMode: 6
     m_ConditionEvent: LeftIsGrabbing
@@ -6220,7 +6220,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 6
-    m_ConditionEvent: LeftGrab
+    m_ConditionEvent: LeftGrabFX
     m_EventTreshold: 8
   - m_ConditionMode: 6
     m_ConditionEvent: LeftIsGrabbing
@@ -6273,7 +6273,7 @@ AnimatorStateTransition:
     m_ConditionEvent: IsLocal
     m_EventTreshold: 0
   - m_ConditionMode: 6
-    m_ConditionEvent: RightGrab
+    m_ConditionEvent: RightGrabFX
     m_EventTreshold: 8
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102868720270041864}
@@ -6304,7 +6304,7 @@ AnimatorStateTransition:
     m_ConditionEvent: LeftIsGrabbing
     m_EventTreshold: 3
   - m_ConditionMode: 7
-    m_ConditionEvent: RightGrab
+    m_ConditionEvent: RightGrabFX
     m_EventTreshold: 3
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102385722417769908}
@@ -6335,7 +6335,7 @@ AnimatorStateTransition:
     m_ConditionEvent: LeftIsGrabbing
     m_EventTreshold: 1
   - m_ConditionMode: 7
-    m_ConditionEvent: RightGrab
+    m_ConditionEvent: RightGrabFX
     m_EventTreshold: 1
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102077774578488576}
@@ -6416,7 +6416,7 @@ AnimatorStateTransition:
     m_ConditionEvent: LeftIsGrabbing
     m_EventTreshold: 6
   - m_ConditionMode: 7
-    m_ConditionEvent: RightGrab
+    m_ConditionEvent: RightGrabFX
     m_EventTreshold: 6
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102626378804652704}
@@ -6466,7 +6466,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 6
-    m_ConditionEvent: LeftGrab
+    m_ConditionEvent: LeftGrabFX
     m_EventTreshold: 0
   - m_ConditionMode: 6
     m_ConditionEvent: LeftIsGrabbing
@@ -6494,7 +6494,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 6
-    m_ConditionEvent: LeftGrab
+    m_ConditionEvent: LeftGrabFX
     m_EventTreshold: 0
   - m_ConditionMode: 6
     m_ConditionEvent: LeftIsGrabbing
@@ -6525,7 +6525,7 @@ AnimatorStateTransition:
     m_ConditionEvent: IsLocal
     m_EventTreshold: 0
   - m_ConditionMode: 6
-    m_ConditionEvent: RightGrab
+    m_ConditionEvent: RightGrabFX
     m_EventTreshold: 9
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102078538434479236}
@@ -6584,7 +6584,7 @@ AnimatorStateTransition:
     m_ConditionEvent: RightIsGrabbing
     m_EventTreshold: 3
   - m_ConditionMode: 7
-    m_ConditionEvent: LeftGrab
+    m_ConditionEvent: LeftGrabFX
     m_EventTreshold: 3
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102099528660598280}
@@ -6640,7 +6640,7 @@ AnimatorStateTransition:
     m_ConditionEvent: RightIsGrabbing
     m_EventTreshold: 5
   - m_ConditionMode: 7
-    m_ConditionEvent: LeftGrab
+    m_ConditionEvent: LeftGrabFX
     m_EventTreshold: 5
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102113098449980422}
@@ -6668,7 +6668,7 @@ AnimatorStateTransition:
     m_ConditionEvent: IsLocal
     m_EventTreshold: 0
   - m_ConditionMode: 6
-    m_ConditionEvent: RightGrab
+    m_ConditionEvent: RightGrabFX
     m_EventTreshold: 3
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102532249172531304}
@@ -6724,7 +6724,7 @@ AnimatorStateTransition:
     m_ConditionEvent: IsLocal
     m_EventTreshold: 0
   - m_ConditionMode: 6
-    m_ConditionEvent: LeftGrab
+    m_ConditionEvent: LeftGrabFX
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102122390291831414}
@@ -6974,7 +6974,7 @@ AnimatorStateTransition:
     m_ConditionEvent: IsLocal
     m_EventTreshold: 0
   - m_ConditionMode: 6
-    m_ConditionEvent: RightGrab
+    m_ConditionEvent: RightGrabFX
     m_EventTreshold: 7
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102998057054478436}
@@ -7055,7 +7055,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 6
-    m_ConditionEvent: LeftGrab
+    m_ConditionEvent: LeftGrabFX
     m_EventTreshold: 0
   - m_ConditionMode: 6
     m_ConditionEvent: LeftIsGrabbing
@@ -7158,7 +7158,7 @@ AnimatorStateTransition:
     m_ConditionEvent: IsLocal
     m_EventTreshold: 0
   - m_ConditionMode: 6
-    m_ConditionEvent: LeftGrab
+    m_ConditionEvent: LeftGrabFX
     m_EventTreshold: 6
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102584616878297022}
@@ -7186,7 +7186,7 @@ AnimatorStateTransition:
     m_ConditionEvent: IsLocal
     m_EventTreshold: 0
   - m_ConditionMode: 6
-    m_ConditionEvent: LeftGrab
+    m_ConditionEvent: LeftGrabFX
     m_EventTreshold: 7
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102944130787056602}
@@ -7214,7 +7214,7 @@ AnimatorStateTransition:
     m_ConditionEvent: IsLocal
     m_EventTreshold: 0
   - m_ConditionMode: 6
-    m_ConditionEvent: RightGrab
+    m_ConditionEvent: RightGrabFX
     m_EventTreshold: 5
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102702761241772698}
@@ -7298,7 +7298,7 @@ AnimatorStateTransition:
     m_ConditionEvent: IsLocal
     m_EventTreshold: 0
   - m_ConditionMode: 6
-    m_ConditionEvent: LeftGrab
+    m_ConditionEvent: LeftGrabFX
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102572135514066694}
@@ -7382,7 +7382,7 @@ AnimatorStateTransition:
     m_ConditionEvent: IsLocal
     m_EventTreshold: 0
   - m_ConditionMode: 6
-    m_ConditionEvent: RightGrab
+    m_ConditionEvent: RightGrabFX
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102135705443508828}
@@ -7410,7 +7410,7 @@ AnimatorStateTransition:
     m_ConditionEvent: IsLocal
     m_EventTreshold: 0
   - m_ConditionMode: 6
-    m_ConditionEvent: LeftGrab
+    m_ConditionEvent: LeftGrabFX
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102537416016282588}
@@ -7438,7 +7438,7 @@ AnimatorStateTransition:
     m_ConditionEvent: IsLocal
     m_EventTreshold: 0
   - m_ConditionMode: 6
-    m_ConditionEvent: LeftGrab
+    m_ConditionEvent: LeftGrabFX
     m_EventTreshold: 4
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102822292154374264}
@@ -7494,7 +7494,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 6
-    m_ConditionEvent: RightGrab
+    m_ConditionEvent: RightGrabFX
     m_EventTreshold: 0
   - m_ConditionMode: 6
     m_ConditionEvent: RightIsGrabbing
@@ -7572,7 +7572,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 6
-    m_ConditionEvent: RightGrab
+    m_ConditionEvent: RightGrabFX
     m_EventTreshold: 2
   - m_ConditionMode: 6
     m_ConditionEvent: RightIsGrabbing
@@ -7603,7 +7603,7 @@ AnimatorStateTransition:
     m_ConditionEvent: IsLocal
     m_EventTreshold: 0
   - m_ConditionMode: 6
-    m_ConditionEvent: RightGrab
+    m_ConditionEvent: RightGrabFX
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102013349524996396}
@@ -7650,7 +7650,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 6
-    m_ConditionEvent: LeftGrab
+    m_ConditionEvent: LeftGrabFX
     m_EventTreshold: 0
   - m_ConditionMode: 6
     m_ConditionEvent: LeftIsGrabbing
@@ -7684,7 +7684,7 @@ AnimatorStateTransition:
     m_ConditionEvent: RightIsGrabbing
     m_EventTreshold: 1
   - m_ConditionMode: 7
-    m_ConditionEvent: LeftGrab
+    m_ConditionEvent: LeftGrabFX
     m_EventTreshold: 1
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102412283228387808}
@@ -7837,7 +7837,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 6
-    m_ConditionEvent: RightGrab
+    m_ConditionEvent: RightGrabFX
     m_EventTreshold: 0
   - m_ConditionMode: 6
     m_ConditionEvent: RightIsGrabbing
@@ -7921,7 +7921,7 @@ AnimatorStateTransition:
     m_ConditionEvent: IsLocal
     m_EventTreshold: 0
   - m_ConditionMode: 6
-    m_ConditionEvent: RightGrab
+    m_ConditionEvent: RightGrabFX
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102380659069659086}
@@ -8030,7 +8030,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 6
-    m_ConditionEvent: RightGrab
+    m_ConditionEvent: RightGrabFX
     m_EventTreshold: 1
   - m_ConditionMode: 6
     m_ConditionEvent: RightIsGrabbing
@@ -8220,7 +8220,7 @@ AnimatorStateTransition:
     m_ConditionEvent: RightIsGrabbing
     m_EventTreshold: 4
   - m_ConditionMode: 7
-    m_ConditionEvent: LeftGrab
+    m_ConditionEvent: LeftGrabFX
     m_EventTreshold: 4
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102326620590527606}
@@ -8248,7 +8248,7 @@ AnimatorStateTransition:
     m_ConditionEvent: IsLocal
     m_EventTreshold: 0
   - m_ConditionMode: 6
-    m_ConditionEvent: RightGrab
+    m_ConditionEvent: RightGrabFX
     m_EventTreshold: 1
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102752276567820898}
@@ -8304,7 +8304,7 @@ AnimatorStateTransition:
     m_ConditionEvent: IsLocal
     m_EventTreshold: 0
   - m_ConditionMode: 6
-    m_ConditionEvent: RightGrab
+    m_ConditionEvent: RightGrabFX
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102784965355263414}
@@ -8379,7 +8379,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 6
-    m_ConditionEvent: LeftGrab
+    m_ConditionEvent: LeftGrabFX
     m_EventTreshold: 0
   - m_ConditionMode: 6
     m_ConditionEvent: LeftIsGrabbing
@@ -8529,7 +8529,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 6
-    m_ConditionEvent: LeftGrab
+    m_ConditionEvent: LeftGrabFX
     m_EventTreshold: 10
   - m_ConditionMode: 6
     m_ConditionEvent: LeftIsGrabbing
@@ -8604,7 +8604,7 @@ AnimatorStateTransition:
     m_ConditionEvent: IsLocal
     m_EventTreshold: 0
   - m_ConditionMode: 6
-    m_ConditionEvent: RightGrab
+    m_ConditionEvent: RightGrabFX
     m_EventTreshold: 10
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102653677007312544}
@@ -8813,7 +8813,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: LeftGrab 3 is 0
+  m_Name: LeftGrabFX 3 is 0
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -8840,7 +8840,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: RightGrab 4 is 0
+  m_Name: RightGrabFX 4 is 0
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -8867,7 +8867,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: LeftGrab 2 to 0
+  m_Name: LeftGrabFX 2 to 0
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -8895,7 +8895,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: RightGrab 4 to 0
+  m_Name: RightGrabFX 4 to 0
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -8923,7 +8923,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: RightGrab 3 to 0
+  m_Name: RightGrabFX 3 to 0
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -8951,7 +8951,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: LeftGrab 4 is 0
+  m_Name: LeftGrabFX 4 is 0
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -9034,7 +9034,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: RightGrab to 7
+  m_Name: RightGrabFX to 7
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -9062,7 +9062,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: LeftGrab 3 to 0
+  m_Name: LeftGrabFX 3 to 0
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -9120,7 +9120,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: LeftGrab to 1
+  m_Name: LeftGrabFX to 1
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -9148,7 +9148,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: RightGrab is 9
+  m_Name: RightGrabFX is 9
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -9176,7 +9176,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: LeftGrab 1 to 0
+  m_Name: LeftGrabFX 1 to 0
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -9204,7 +9204,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: RightGrab 9 to 0
+  m_Name: RightGrabFX 9 to 0
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -9232,7 +9232,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: RightGrab to 3
+  m_Name: RightGrabFX to 3
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -9260,7 +9260,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: RightGrab to 5
+  m_Name: RightGrabFX to 5
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -9288,7 +9288,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: RightGrab to 9
+  m_Name: RightGrabFX to 9
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -9316,7 +9316,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: LeftGrab 7 is 0
+  m_Name: LeftGrabFX 7 is 0
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -9423,7 +9423,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: RightGrab 1 is 0
+  m_Name: RightGrabFX 1 is 0
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -9450,7 +9450,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: RightGrab 7 is 0
+  m_Name: RightGrabFX 7 is 0
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -9477,7 +9477,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: LeftGrab 9 to 0
+  m_Name: LeftGrabFX 9 to 0
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -9533,7 +9533,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: RightGrab 8 to 0
+  m_Name: RightGrabFX 8 to 0
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -9561,7 +9561,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: RightGrab is 2
+  m_Name: RightGrabFX is 2
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -9772,7 +9772,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: RightGrab is 4
+  m_Name: RightGrabFX is 4
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -9882,7 +9882,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: LeftGrab is 3
+  m_Name: LeftGrabFX is 3
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -9910,7 +9910,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: RightGrab 6 to 0
+  m_Name: RightGrabFX 6 to 0
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -10128,7 +10128,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: LeftGrab 1 is 0
+  m_Name: LeftGrabFX 1 is 0
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -10155,7 +10155,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: LeftGrab to 8
+  m_Name: LeftGrabFX to 8
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -10183,7 +10183,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: RightGrab 8 is 0
+  m_Name: RightGrabFX 8 is 0
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -10318,7 +10318,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: RightGrab to 4
+  m_Name: RightGrabFX to 4
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -10346,7 +10346,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: RightGrab 5 is 0
+  m_Name: RightGrabFX 5 is 0
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -10401,7 +10401,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: LeftGrab 2 is 0
+  m_Name: LeftGrabFX 2 is 0
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -10455,7 +10455,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: LeftGrab 6 to 0
+  m_Name: LeftGrabFX 6 to 0
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -10510,7 +10510,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: RightGrab 6 is 0
+  m_Name: RightGrabFX 6 is 0
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -10563,7 +10563,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: LeftGrab to 3
+  m_Name: LeftGrabFX to 3
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -10591,7 +10591,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: RightGrab 5 to 0
+  m_Name: RightGrabFX 5 to 0
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -10646,7 +10646,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: LeftGrab is 1
+  m_Name: LeftGrabFX is 1
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -10674,7 +10674,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: LeftGrab 10 is 0
+  m_Name: LeftGrabFX 10 is 0
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -10755,7 +10755,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: LeftGrab to 9
+  m_Name: LeftGrabFX to 9
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -10783,7 +10783,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: RightGrab is 6
+  m_Name: RightGrabFX is 6
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -10811,7 +10811,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: RightGrab to 8
+  m_Name: RightGrabFX to 8
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -10839,7 +10839,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: LeftGrab 8 to 0
+  m_Name: LeftGrabFX 8 to 0
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -10894,7 +10894,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: LeftGrab 5 to 0
+  m_Name: LeftGrabFX 5 to 0
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -10952,7 +10952,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: LeftGrab 8 is 0
+  m_Name: LeftGrabFX 8 is 0
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -10979,7 +10979,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: RightGrab is 3
+  m_Name: RightGrabFX is 3
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -11007,7 +11007,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: RightGrab to 6
+  m_Name: RightGrabFX to 6
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -11035,7 +11035,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: LeftGrab 9 is 0
+  m_Name: LeftGrabFX 9 is 0
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -11062,7 +11062,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: RightGrab 2 is 0
+  m_Name: RightGrabFX 2 is 0
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -11089,7 +11089,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: RightGrab 10 to 0
+  m_Name: RightGrabFX 10 to 0
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -11117,7 +11117,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: RightGrab 9 is 0
+  m_Name: RightGrabFX 9 is 0
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -11171,7 +11171,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: LeftGrab 6 is 0
+  m_Name: LeftGrabFX 6 is 0
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -11224,7 +11224,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: LeftGrab is 8
+  m_Name: LeftGrabFX is 8
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -11252,7 +11252,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: LeftGrab is 6
+  m_Name: LeftGrabFX is 6
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -11333,7 +11333,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: LeftGrab to 5
+  m_Name: LeftGrabFX to 5
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -11388,7 +11388,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: RightGrab 1 to 0
+  m_Name: RightGrabFX 1 to 0
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -11444,7 +11444,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: LeftGrab to 6
+  m_Name: LeftGrabFX to 6
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -11472,7 +11472,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: LeftGrab is 10
+  m_Name: LeftGrabFX is 10
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -11500,7 +11500,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: RightGrab to 10
+  m_Name: RightGrabFX to 10
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -11528,7 +11528,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: LeftGrab 7 to 0
+  m_Name: LeftGrabFX 7 to 0
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -11556,7 +11556,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: RightGrab is 10
+  m_Name: RightGrabFX is 10
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -11611,7 +11611,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: RightGrab is 5
+  m_Name: RightGrabFX is 5
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -11669,7 +11669,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: LeftGrab to 2
+  m_Name: LeftGrabFX to 2
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -11697,7 +11697,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: LeftGrab is 5
+  m_Name: LeftGrabFX is 5
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -11725,7 +11725,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: LeftGrab 4 to 0
+  m_Name: LeftGrabFX 4 to 0
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -11753,7 +11753,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: RightGrab is 1
+  m_Name: RightGrabFX is 1
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -11781,7 +11781,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: LeftGrab is 9
+  m_Name: LeftGrabFX is 9
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -11809,7 +11809,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: LeftGrab to 10
+  m_Name: LeftGrabFX to 10
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -11837,7 +11837,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: RightGrab 10 is 0
+  m_Name: RightGrabFX 10 is 0
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -11864,7 +11864,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: RightGrab 2 to 0
+  m_Name: RightGrabFX 2 to 0
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -11892,7 +11892,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: LeftGrab is 2
+  m_Name: LeftGrabFX is 2
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -11974,7 +11974,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: LeftGrab is 4
+  m_Name: LeftGrabFX is 4
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -12028,7 +12028,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: RightGrab 3 is 0
+  m_Name: RightGrabFX 3 is 0
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -12167,7 +12167,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: LeftGrab 10 to 0
+  m_Name: LeftGrabFX 10 to 0
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -12195,7 +12195,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: RightGrab is 8
+  m_Name: RightGrabFX is 8
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -12223,7 +12223,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: RightGrab to 2
+  m_Name: RightGrabFX to 2
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -12304,7 +12304,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: LeftGrab to 7
+  m_Name: LeftGrabFX to 7
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -12385,7 +12385,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: LeftGrab is 7
+  m_Name: LeftGrabFX is 7
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -12413,7 +12413,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: LeftGrab to 4
+  m_Name: LeftGrabFX to 4
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -12441,7 +12441,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: RightGrab 7 to 0
+  m_Name: RightGrabFX 7 to 0
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -12469,7 +12469,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: LeftGrab 5 is 0
+  m_Name: LeftGrabFX 5 is 0
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -12496,7 +12496,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: RightGrab is 7
+  m_Name: RightGrabFX is 7
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -12524,7 +12524,7 @@ AnimatorStateMachine:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: onLeftGrab
+  m_Name: handleLeftGrab
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: 1102862619394641218}
@@ -12691,7 +12691,7 @@ AnimatorStateMachine:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: onRightGrab
+  m_Name: handleRightGrab
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: 1102831799805014888}
