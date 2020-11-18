@@ -118,7 +118,7 @@ Handle an avatar object with touch. アバターオブジェクトをタッチ�
 >
 > Enable the Box object under Grab FX/Colliders that corresponds to your item. The Cube under each Box object is for visualization, and can be deleted after setup.
 >
-> Scale the Box object, and adjust the transforms of your Container(not the Box), until the Box covers the handle of your item.
+> Scale the Box object, and adjust the position and rotation transforms of your Container(not the Box), until the Box covers the handle of your item.
 >
 > In Grab FX/Targets there will be a Item#Target that corresponds to your item. This represents your item's starting transforms while not grabbed. Move this object anywhere in your hierarchy, and adjust the transforms until your item is where you want it.
 >
