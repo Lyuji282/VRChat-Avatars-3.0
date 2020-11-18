@@ -1209,9 +1209,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 6
     m_ConditionEvent: RightGrabFX
     m_EventTreshold: 0
-  - m_ConditionMode: 6
+  - m_ConditionMode: 7
     m_ConditionEvent: RightIsGrabbing
-    m_EventTreshold: 0
+    m_EventTreshold: 7
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102161324211349122}
   m_Solo: 0
@@ -1268,9 +1268,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 6
     m_ConditionEvent: RightGrabFX
     m_EventTreshold: 0
-  - m_ConditionMode: 6
+  - m_ConditionMode: 7
     m_ConditionEvent: RightIsGrabbing
-    m_EventTreshold: 0
+    m_EventTreshold: 5
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102327262956332536}
   m_Solo: 0
@@ -1682,9 +1682,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 6
     m_ConditionEvent: LeftGrabFX
     m_EventTreshold: 0
-  - m_ConditionMode: 6
+  - m_ConditionMode: 7
     m_ConditionEvent: LeftIsGrabbing
-    m_EventTreshold: 0
+    m_EventTreshold: 7
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102122390291831414}
   m_Solo: 0
@@ -2539,9 +2539,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 6
     m_ConditionEvent: RightGrabFX
     m_EventTreshold: 0
-  - m_ConditionMode: 6
+  - m_ConditionMode: 7
     m_ConditionEvent: RightIsGrabbing
-    m_EventTreshold: 0
+    m_EventTreshold: 4
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102013349524996396}
   m_Solo: 0
@@ -2695,9 +2695,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 6
     m_ConditionEvent: LeftGrabFX
     m_EventTreshold: 0
-  - m_ConditionMode: 6
+  - m_ConditionMode: 7
     m_ConditionEvent: LeftIsGrabbing
-    m_EventTreshold: 0
+    m_EventTreshold: 4
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102033577032076136}
   m_Solo: 0
@@ -3337,9 +3337,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 6
     m_ConditionEvent: RightGrabFX
     m_EventTreshold: 0
-  - m_ConditionMode: 6
+  - m_ConditionMode: 7
     m_ConditionEvent: RightIsGrabbing
-    m_EventTreshold: 0
+    m_EventTreshold: 6
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102380659069659086}
   m_Solo: 0
@@ -4010,9 +4010,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 6
     m_ConditionEvent: LeftGrabFX
     m_EventTreshold: 0
-  - m_ConditionMode: 6
+  - m_ConditionMode: 7
     m_ConditionEvent: LeftIsGrabbing
-    m_EventTreshold: 0
+    m_EventTreshold: 3
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102011958789049290}
   m_Solo: 0
@@ -4116,9 +4116,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 6
     m_ConditionEvent: RightGrabFX
     m_EventTreshold: 0
-  - m_ConditionMode: 6
+  - m_ConditionMode: 7
     m_ConditionEvent: RightIsGrabbing
-    m_EventTreshold: 0
+    m_EventTreshold: 3
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102831799805014888}
   m_Solo: 0
@@ -4621,9 +4621,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 6
     m_ConditionEvent: LeftGrabFX
     m_EventTreshold: 0
-  - m_ConditionMode: 6
+  - m_ConditionMode: 7
     m_ConditionEvent: LeftIsGrabbing
-    m_EventTreshold: 0
+    m_EventTreshold: 8
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102523190079289832}
   m_Solo: 0
@@ -4649,9 +4649,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 6
     m_ConditionEvent: RightGrabFX
     m_EventTreshold: 0
-  - m_ConditionMode: 6
+  - m_ConditionMode: 7
     m_ConditionEvent: RightIsGrabbing
-    m_EventTreshold: 0
+    m_EventTreshold: 10
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102784965355263414}
   m_Solo: 0
@@ -4814,9 +4814,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 6
     m_ConditionEvent: RightGrabFX
     m_EventTreshold: 0
-  - m_ConditionMode: 6
+  - m_ConditionMode: 7
     m_ConditionEvent: RightIsGrabbing
-    m_EventTreshold: 0
+    m_EventTreshold: 2
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102542253977902468}
   m_Solo: 0
@@ -5627,9 +5627,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 6
     m_ConditionEvent: LeftGrabFX
     m_EventTreshold: 0
-  - m_ConditionMode: 6
+  - m_ConditionMode: 7
     m_ConditionEvent: LeftIsGrabbing
-    m_EventTreshold: 0
+    m_EventTreshold: 10
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102408354220035782}
   m_Solo: 0
@@ -5932,9 +5932,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 6
     m_ConditionEvent: RightGrabFX
     m_EventTreshold: 0
-  - m_ConditionMode: 6
+  - m_ConditionMode: 7
     m_ConditionEvent: RightIsGrabbing
-    m_EventTreshold: 0
+    m_EventTreshold: 1
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102135705443508828}
   m_Solo: 0
@@ -6468,9 +6468,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 6
     m_ConditionEvent: LeftGrabFX
     m_EventTreshold: 0
-  - m_ConditionMode: 6
+  - m_ConditionMode: 7
     m_ConditionEvent: LeftIsGrabbing
-    m_EventTreshold: 0
+    m_EventTreshold: 1
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102303322754349392}
   m_Solo: 0
@@ -6496,9 +6496,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 6
     m_ConditionEvent: LeftGrabFX
     m_EventTreshold: 0
-  - m_ConditionMode: 6
+  - m_ConditionMode: 7
     m_ConditionEvent: LeftIsGrabbing
-    m_EventTreshold: 0
+    m_EventTreshold: 9
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102537416016282588}
   m_Solo: 0
@@ -7057,9 +7057,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 6
     m_ConditionEvent: LeftGrabFX
     m_EventTreshold: 0
-  - m_ConditionMode: 6
+  - m_ConditionMode: 7
     m_ConditionEvent: LeftIsGrabbing
-    m_EventTreshold: 0
+    m_EventTreshold: 6
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102572135514066694}
   m_Solo: 0
@@ -7496,9 +7496,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 6
     m_ConditionEvent: RightGrabFX
     m_EventTreshold: 0
-  - m_ConditionMode: 6
+  - m_ConditionMode: 7
     m_ConditionEvent: RightIsGrabbing
-    m_EventTreshold: 0
+    m_EventTreshold: 9
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102557504189219596}
   m_Solo: 0
@@ -7652,9 +7652,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 6
     m_ConditionEvent: LeftGrabFX
     m_EventTreshold: 0
-  - m_ConditionMode: 6
+  - m_ConditionMode: 7
     m_ConditionEvent: LeftIsGrabbing
-    m_EventTreshold: 0
+    m_EventTreshold: 5
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102990678930831902}
   m_Solo: 0
@@ -7839,9 +7839,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 6
     m_ConditionEvent: RightGrabFX
     m_EventTreshold: 0
-  - m_ConditionMode: 6
+  - m_ConditionMode: 7
     m_ConditionEvent: RightIsGrabbing
-    m_EventTreshold: 0
+    m_EventTreshold: 8
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102309267078347970}
   m_Solo: 0
@@ -8381,9 +8381,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 6
     m_ConditionEvent: LeftGrabFX
     m_EventTreshold: 0
-  - m_ConditionMode: 6
+  - m_ConditionMode: 7
     m_ConditionEvent: LeftIsGrabbing
-    m_EventTreshold: 0
+    m_EventTreshold: 2
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102348074230758282}
   m_Solo: 0
