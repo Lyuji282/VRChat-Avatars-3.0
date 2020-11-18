@@ -141,7 +141,7 @@ Handle an avatar object with touch. アバターオブジェクトをタッチ�
 <details>
   <summary>導入手順</summary>
   
-> WIP
+> 近日公開
 
 </details>
 
