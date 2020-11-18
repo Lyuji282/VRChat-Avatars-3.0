@@ -120,7 +120,7 @@ Handle an avatar object with touch. アバターオブジェクトをタッチ�
 >
 > Scale the Box object, and adjust the position and rotation transforms of your Container(not the Box), until the Box covers the handle of your item.
 >
-> In Grab FX/Targets there will be a Item#Target that corresponds to your item. This represents your item's starting transforms while not grabbed. Move this object anywhere in your hierarchy, and adjust the transforms until your item is where you want it.
+> In Grab FX/Targets there will be a Item#Target that corresponds to your item. This target represents your item's starting transforms while not grabbed. Move this object anywhere in your hierarchy, and adjust the transforms until your item is where you want it.
 >
 > Select the numbered object for your Container. There will be a parent constraint. Set the Item#Target source weight to 0. Set the LeftTarget source weight to 1.
 >
