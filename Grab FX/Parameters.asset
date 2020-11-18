@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Parameters
   m_EditorClassIdentifier: 
   parameters:
-  - name: GrabFX
-    valueType: 1
-  - name: 
+  - name: LeftGrabFX
+    valueType: 0
+  - name: RightGrabFX
     valueType: 0
   - name: 
     valueType: 0
