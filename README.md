@@ -105,41 +105,43 @@ Handle an avatar object with touch. アバターオブジェクトをタッチ�
   <summary>Install notes</summary>
   
 > Testing in Unity requires the 3.0 Emulator by Lyuma.
-> 
-> Merge the FX controller to your own FX controller, using the Avatars 3.0 Manager tool.
-> 
-> "GrabFX" is a synced parameter, so click the checkbox within the tool to add it to your avatar's parameter asset.
->  
-> The Grab FX.prefab should go to the base of your Unity scene, which will give it base Unity scaling.
-> 
-> Unpack the prefab by right-clicking it and move the prefab to base of your avatar.
-> 
-> Expand the prefab, and locate Grab FX/GrabTarget. GrabTarget is what you use for touching. Move it to an appropriate spot in your hierarchy.
-> 
-> Grab FX/ColliderTarget is a box collider that represents the area you need to touch. Move it outside of the prefab to an appropriate spot in your hierarchy. Scale it as needed.
 >
-> Grab FX/Container will be weighted between GrabTarget and ColliderTarget as they touch. Replace the Cube under the Container with your own objects, and fix transforms as needed.
+> Merge the FX controller to your own FX controller, using the Avatars 3.0 Manager tool.
+>
+> "LeftGrabFX" and "RightGrabFX" are synced parameters, so click the checkbox within the tool to add them to your avatar's parameter asset. If you are using only one hand, sync only that parameter.
+>
+> The Grab FX.prefab should go to the base of your Unity scene, which will give it base Unity scaling.
+>
+> Unpack the prefab by right-clicking it and move the prefab to base of your avatar.
+>
+> Review the hierarchy under Grab FX/Items. Each numbered hierarchy has a Container. Place your item prop in a Container.
+>
+> Enable the Box object under Grab FX/Colliders that corresponds to your item. The Cube under each Box object is for visualization, and can be deleted after setup.
+>
+> Scale the Box object, and adjust the transforms of your Container(not the Box), until the Box covers the handle of your item.
+>
+> In Grab FX/Targets there will be a Item#Target that corresponds to your item. This represents your item's starting transforms while not grabbed. Move this object anywhere in your hierarchy, and adjust the transforms until your item is where you want it.
+>
+> Select the numbered object for your Container. There will be a parent constraint. Set the Item#Target source weight to 0. Set the LeftTarget source weight to 1.
+>
+> Place the Grab FX/Targets/LeftTarget object under your left wrist bone and adjust the transforms until your item appears correctly in your hand.
+>
+> Set the LeftTarget source weight back to 0 and repeat a similar process for the RightTarget. When finished, set the source weights back to their defaults. Item#Target 1, LeftTarget 0, RightTarget 0.
+>
+> Hierarchies in Grab FX/Items will be weighted to the LeftTarget or RightTarget as those target objects touch an enabled Box from Grab FX/Colliders. 
+>
+> Review the handleLeftGrab and handleRightGrab layers that were merged into your FX controller.
+>
+> If you do not need one of these layers, delete it. If you want to prevent a certain hand from grabbing a certain item, select the Idle state and mute the "to" transition for your item number.
+>
+> If you want to make the prefab smaller, delete what you will not use.
 
 </details>
 
 <details>
   <summary>導入手順</summary>
   
-> ※Unity内でテストプレイする場合はLyumaさん作成の3.0エミュレーターが必要となります。
-> 
-> アバター3.0のManager toolを使用し、FX controllerを自身のFX controllerとマージしてください。
-> 
-> "GrabFX"は同期型のパラメターなのでアバターのパラメターに追加する場合はツール内でチェックを入れてください。
->  
-> Grab FX.prefabはUnity sceneのベース（一番下）に置くとbase Unityのスケールが使用できます。
-> 
-> Prefabを右クリックして"Unpack the prefab"を選択してからプレハブごとアバターのベースに追加してください。
-> 
-> Prefabを開き、Grab FX/GrabTargetを探し、ヒエラルキーの任意の場所に設置してください。GrabTargetはタッチに使います。
-> 
-> Grab FX/ColliderTargetは触る対象用のボックスコライダーです。Prefab外の任意の場所に移動させてください。必要にリサイズ可です。
->
-> Grab FX/ContainerはGrabTargetとColliderTargetが触れている間にウエイトを設定します。Container内のCubeを任意のオブジェクトに置き換え、必要に応じて大きさを調整してください。
+> WIP
 
 </details>
 
