@@ -134,7 +134,7 @@ Handle an avatar object with touch. アバターオブジェクトをタッチ�
 >
 > If you do not need one of these layers, delete it. If you want to prevent a certain hand from grabbing a certain item, select the Idle state and mute the "to" transition for your item number.
 >
-> If you want to make the prefab smaller, delete what you will not use.
+> If you want to make the prefab smaller, delete the objects you will not use.
 
 </details>
 
