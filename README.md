@@ -120,7 +120,7 @@ Ten grabbable avatar objects. つかむことができる10個のアバターオ
 >
 > Enable the Box object under Grab FX/Colliders that corresponds to your item. The Cube under each Box object is for visualization, and can be deleted after setup.
 >
-> Scale the Box object, and adjust the transforms of the Container under Grab FX/Items(not the Box), until the Box covers the handle of your item.
+> Scale the Box object, and adjust it's transforms until the Box covers the handle of your item.
 >
 > In Grab FX/Targets there will be a numbered hierarchy that corresponds to your item. Locate the appropriate Item#Target.
 >
