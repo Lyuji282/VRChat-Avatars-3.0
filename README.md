@@ -453,7 +453,7 @@ A world fixed object, held in place with a constraint. Constraintを使ってオ
 >
 > Review the handleWorldFX layer that was merged into your FX controller. Change "WorldFX" parameter to cause transitions within this layer.
 >
-> Edit the handleWorldFX.anim clip to customize.
+> If you want to customize it, edit On.anim / Off.anim.
 
 </details>
 
@@ -480,6 +480,6 @@ A world fixed object, held in place with a constraint. Constraintを使ってオ
 >
 > FX Controllerに追加したhandleWorldFXのレイヤーをご確認ください。このレイヤーでトランジションを使いたい場合は"WorldFX"のパラメターを使ってください。
 >
-> カスタマイズしたい場合はhandleWorldFX.animを編集してください。
+> カスタマイズする場合は、On.anim /Off.animを編集します。
 
 </details>
