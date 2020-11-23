@@ -423,7 +423,6 @@ A constraint with spring behavior. バネモーションの入ったConstraint�
 >
 > Sources > Motion (デフォルト値 4)は加速を減衰、数値が高ければ高いほどSpring Constraint/Containerの加速がゆっくりになります。
 
-
 </details>
 
 ## [World Constraint](https://github.com/VRLabs/VRChat-Avatars-3.0/releases/download/1/WorldConstraint.unitypackage)
@@ -452,8 +451,6 @@ A world fixed object, held in place with a constraint. Constraintを使ってオ
 > Replace the Cube under World Constraint/Container with your own objects.
 >
 > Review the handleWorldFX layer that was merged into your FX controller. Change "WorldFX" parameter to cause transitions within this layer.
->
-> If you want to customize it, edit On.anim / Off.anim.
 
 </details>
 
@@ -479,7 +476,5 @@ A world fixed object, held in place with a constraint. Constraintを使ってオ
 > World Constraint/ContainerについているCubeを任意のオブジェクトと交換してください。
 >
 > FX Controllerに追加したhandleWorldFXのレイヤーをご確認ください。このレイヤーでトランジションを使いたい場合は"WorldFX"のパラメターを使ってください。
->
-> カスタマイズする場合は、On.anim /Off.animを編集します。
 
 </details>
