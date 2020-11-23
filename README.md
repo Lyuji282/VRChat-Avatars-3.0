@@ -114,21 +114,25 @@ Ten grabbable avatar objects. つかむことができる10個のアバターオ
 >
 > Unpack the prefab by right-clicking it and move the prefab to base of your avatar.
 >
-> Review the hierarchy under Grab FX/Items. Each numbered hierarchy has a Container. Place your item prop in a Container.
+> Inside the Grab FX/Targets hierarchy, there will be a LeftHandTarget and a RightHandTarget. Place each target under your corresponding wrist and position it where you want each hand's grab radius to start.
+>
+> Review the hierarchy under Grab FX/Items. Each numbered hierarchy has a Container. Place your item prop in a Container and reset the prop's transforms.
 >
 > Enable the Box object under Grab FX/Colliders that corresponds to your item. The Cube under each Box object is for visualization, and can be deleted after setup.
 >
-> Scale the Box object, and adjust the position and rotation transforms of your Container(not the Box), until the Box covers the handle of your item.
+> Scale the Box object, and adjust the transforms of the Container under Grab FX/Items(not the Box), until the Box covers the handle of your item.
 >
-> In Grab FX/Targets there will be a Item#Target that corresponds to your item. This target represents your item's starting transforms while not grabbed. Move this object anywhere in your hierarchy, and adjust the transforms until your item is where you want it.
+> In Grab FX/Targets there will be a numbered hierarchy that corresponds to your item. Locate the appropriate Item#Target.
 >
-> Select the numbered object for your Container. There will be a parent constraint. Set the Item#Target source weight to 0. Set the LeftTarget source weight to 1.
+> Item#Target represents your item's starting transforms while not grabbed. Move Item#Target anywhere in your hierarchy, and adjust it's transforms until your item is where you want it.
 >
-> Place the Grab FX/Targets/LeftTarget object under your left wrist bone and adjust the transforms until your item appears correctly in your hand.
+> Select the numbered object for your Container under Grab FX/Items. There will be a parent constraint. Set the Item#Target source weight to 0. Set the Left#Target source weight to 1.
 >
-> Set the LeftTarget source weight back to 0 and repeat a similar process for the RightTarget. When finished, set the source weights back to their defaults. Item#Target 1, LeftTarget 0, RightTarget 0.
+> Place the Left#Target object under your left wrist bone and adjust the transforms until your item appears correctly in your hand.
 >
-> Hierarchies in Grab FX/Items will be weighted to the LeftTarget or RightTarget as those target objects touch an enabled Box from Grab FX/Colliders. 
+> Set the Left#Target source weight back to 0 and repeat a similar process for the Right#Target. When finished, set the source weights back to their defaults. Item#Target 1, Left#Target 0, Right#Target 0.
+>
+> Hierarchies in Grab FX/Items will be weighted to the Left#Target or Right#Target as the LeftHandTarget and RightHandTarget objects touch an enabled Box from Grab FX/Colliders. 
 >
 > Review the handleLeftGrab and handleRightGrab layers that were merged into your FX controller.
 >
