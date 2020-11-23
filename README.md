@@ -99,7 +99,7 @@ A world space follower, driven by constraints. Constraintによってワール�
 
 ## [Grab FX](https://github.com/VRLabs/VRChat-Avatars-3.0/releases/download/1/GrabFX.unitypackage)
 
-Ten grabbable avatar objects. アバターオブジェクトをタッチで操作。
+Ten grabbable avatar objects. つかむことができる10個のアバターオブジェクト。
 
 <details>
   <summary>Install notes</summary>
