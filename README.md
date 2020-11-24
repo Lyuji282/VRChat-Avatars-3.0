@@ -134,7 +134,7 @@ Ten grabbable avatar objects. つかむことができる10個のアバターオ
 >
 > Hierarchies in Grab FX/Items will be weighted to the Left#Target or Right#Target as the LeftHandTarget and RightHandTarget objects touch an enabled Box from Grab FX/Colliders. 
 >
-> Review the handleLeftGrab and handleRightGrab layers that were merged into your FX controller.
+> Review the onLeftGrab and onRightGrab layers that were merged into your FX controller.
 >
 > If you do not need one of these layers, delete it. If you want to prevent a certain hand from grabbing a certain item, select the Idle state and mute the "to" transition for your item number.
 >
