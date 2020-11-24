@@ -168,7 +168,7 @@ Play an effect when the target object is jiggled or shaken. 対象オブジェ�
 > 
 > Jiggle FX/Detection is where you adjust difficulty. Under the emission module of the particle system, the lower the rate over distance, the harder it is to jiggle.
 > 
-> Review the handleJiggleFX layer that was merged into your FX controller. Animate what you want here.
+> Review the onJiggle layer that was merged into your FX controller. Animate what you want here.
 
 </details>
 
@@ -187,7 +187,7 @@ Play an effect when the target object is jiggled or shaken. 対象オブジェ�
 > 
 > Jiggle FX/Detectionでは判定の難易度を設定します。パーティクルシステム下のemission moduleにて距離のレートを低くすると揺らしにくくなります。
 > 
-> FX Controllerに追加したhandleJiggleFXのレイヤーをご確認ください。アニメーションを好きに追加できます。
+> FX Controllerに追加したonJiggleのレイヤーをご確認ください。アニメーションを好きに追加できます。
 
 </details>
 
