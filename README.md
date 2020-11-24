@@ -308,7 +308,7 @@ A method for animating on particle death. パーティクルによるデスア�
 > 
 > ᴛʀɪɢɢᴇʀ drives the local parameter, "ParticleDeath", and the onParticleDeath layer in the FX controller drives the synced parameter, "FX".
 >
-> The handleFX layer will play the example handleCube.anim clip, which will resize the cube and correctly sync state.
+> The handleFX layer will play the example Cube.anim clip, which will resize the cube and sync state.
 >
 > Animate what you want. This is a blank template.
 
@@ -335,7 +335,7 @@ A method for animating on particle death. パーティクルによるデスア�
 >
 > ᴛʀɪɢɢᴇʀはデフォルトでローカルパラメターの"ParticleDeath"を操作し、FX controller内のonParticleDeathレイヤーが同期してある"FX"を操作するように設定してあります。
 > 
-> handleFXレイヤーは例のhandleCube.animを再生し、キューブのサイズを調整、同期を正しい状態にします。
+> handleFXレイヤーは例のCube.animを再生し、キューブのサイズを調整、同期を正しい状態にします。
 >
 > 白紙のテンプレートなので任意に好きなアニメーションを追加できます。
 
