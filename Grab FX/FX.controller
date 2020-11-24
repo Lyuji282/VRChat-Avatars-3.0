@@ -41,7 +41,7 @@ AnimatorController:
     m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
-    m_Name: handleLeftGrab
+    m_Name: onLeftGrab
     m_StateMachine: {fileID: 1107392934222790524}
     m_Mask: {fileID: 0}
     m_Motions: []
@@ -53,7 +53,7 @@ AnimatorController:
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
   - serializedVersion: 5
-    m_Name: handleRightGrab
+    m_Name: onRightGrab
     m_StateMachine: {fileID: 1107879111638344724}
     m_Mask: {fileID: 0}
     m_Motions: []
@@ -12524,7 +12524,7 @@ AnimatorStateMachine:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: handleLeftGrab
+  m_Name: onLeftGrab
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: 1102862619394641218}
@@ -12691,7 +12691,7 @@ AnimatorStateMachine:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: handleRightGrab
+  m_Name: onRightGrab
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: 1102831799805014888}
