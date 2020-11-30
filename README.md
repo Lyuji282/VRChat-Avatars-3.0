@@ -145,7 +145,42 @@ Ten grabbable avatar objects. つかむことができる10個のアバターオ
 <details>
   <summary>導入手順</summary>
   
-> 近日公開
+> ※Unity内でテストプレイする場合はLyumaさん作成の3.0エミュレーターが必要となります。
+> 
+> アバター3.0のManager toolを使用し、FX controllerを自身のFX controllerとマージしてください。
+> 
+> "LeftGrabFX" と "RightGrabFX" は同期型のパラメターなのでアバターのパラメターに追加する場合はツール内でチェックを入れてください。片手のみの使用の場合はそのパラメターのみ同期してください。
+> 
+> “Grab FX.prefab”はUnity sceneのベース（一番下）に置くとbase Unityのスケールが使用できます。
+> 
+> Prefabを右クリックして"Unpack the prefab"を選択してからプレハブごとアバターのベースに追加してください。
+> 
+> Grab FX/Targetsのヒエラルキーを開くとLeftHandTargetとRightHandTargetがあります。各Targetを手首の位置に調整をしてください。
+> 
+> Grab FX/Itemsのヒエラルキーを開くと番号の振ってあるContainerがあります。任意のアイテムをContainerに子入れしてからアイテムのTransformをリセットしてください。
+> 
+> Grab FX/Collidersに子入れしてあるBox objectをEnableしてください。各オブジェクトのしたのキューブは確認用なのでセットアップ後消去してください。
+> 
+> Boxオブジェクトのスケールと位置をアイテムの掴む部分を全部覆うように設定してください。
+> 
+> Grab FX/Targetsには番号が振ってあるHierarchyがあります。正しいItem#Target番号を探してください。
+> 
+> Item#Targetは掴まれていない状態でのアイテムの初期地点を指定しています。Item#Targetをヒエラルキーの任意の場所に移動、オブジェクト自体も置きたい場所に移動させてください。
+> 
+> Container用にGrab FX/Itemsでオブジェクトの番号を探してください。Parentの紐付けがあります。Item#Targetのsource weightを０に、Left#Targetのsource weightを１に設定してください。
+> 
+> Left#Targetのオブジェクトを左手首に子入れしてからアイテムが正しく手に入るように移動させてください。
+> 
+> Left#Targetのsource weightを0戻し、Right#Targetも同様に設定してください。作業が終わったらsource weightをデフォルトの値に戻してください。
+（Item#Target 1, Left#Target 0, Right#Target 0）
+> 
+> Grab FX/Itemsのヒエラルキー内にあるオブジェクトはLeft#TargetとRight#TargetがLeftHandTargetとRightHandTargetのオブジェクトが有効化されたGrab FX/CollidersのBoxとぶつかったときに移動します。
+> 
+> FX Controllerに追加したonLeftGrabとonRightGrabのレイヤーをご確認ください。
+> 
+> レイヤーが必要ない場合は消してください。特定のアイテムを指定の手でのみ使用したい場合は"Idle"状態からアイテムナンバーの"to"をミュート設定にしてください。
+> 
+> Prefabを小さくしたい場合は使用されていないオブジェクトを消してください。
 
 </details>
 
