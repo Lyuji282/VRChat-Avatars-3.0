@@ -245,7 +245,7 @@ Perform consecutive slashes with motion. モーションからのスラッシュ
 > 
 > Expand the prefab, and locate Light Slash/Targets. Move this object under your prop hierarchy, then reset it's position and rotation.
 > 
-> Targets/MotionTarget is for motion detection. The detection direction is X-, opposite of the red arrow.  
+> Targets/MotionTarget is for motion detection. The detection direction is X+, with the red arrow.  
 > 
 > Targets/EffectTarget is where the slash effect will appear. Position and angle this transform until you are happy with where the effect appears.
 > 
@@ -270,7 +270,7 @@ Perform consecutive slashes with motion. モーションからのスラッシュ
 > 
 > Prefabを開き、Light Slash/Targetsを探してください。このオブジェクトはPropヒエラルキー下に入れ、PositionとRotationをすべてリセットしてください。
 > 
-> Targets/MotionTargetはモーション判定用です。判定方向はX-、赤い矢印の反対側になります。
+> Targets/MotionTargetはモーション判定用です。判定方向はX+、赤い矢印のになります。
 > 
 > Targets/EffectTargetはスラッシュエフェクトが表示される位置です。エフェクト表示場所に納得がいくまで位置と回転を調整してください。
 > 
