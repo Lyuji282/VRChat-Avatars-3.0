@@ -21,7 +21,7 @@ Testing in Unity may require the [3.0 emulator by Lyuma](https://github.com/lyum
 
 Do not mix old 2.0 and new 3.0 VRLabs folders. Delete your old VRLabs folder. 古い2.0と新しい3.0のVRLabsフォルダーを混在させないでください。古いVRLabsフォルダを削除します。
 
-These packages follow the VRChat animation standard with write defaults turned off. これらのパッケージは、書き込みのデフォルトがオフになっているVRChatアニメーション標準に準拠しています。
+These assets follow the VRChat animation standard with write defaults turned off. これらのアセットは、書き込みのデフォルトがオフになっているVRChatアニメーション標準に準拠しています。
 
 ## [Avatars 3.0 Manager](https://github.com/VRLabs/VRChat-Avatars-3.0/releases/download/1/AV3Manager.unitypackage)
 
@@ -548,6 +548,8 @@ Some bandaids to make physics work on avatars. アバターで物理を機能さ
 > Using gravity seems to have some minor local-only issues on the Y axis and with culling. Not really a big deal, hard to even notice. Doesn't happen if you don't use gravity on a given rigidbody.
 >
 > The setKinematic FX layer, and the Mirror-Copy Destroy Gesture layer should not be edited unless you know what you are doing by editing them.
+>
+> This package just fixes VRChat-related physics problems. Unity physics is rather open-ended and making things work as you intend beyond these fixes is your responsibility.
 
 </details>
 
