@@ -513,3 +513,45 @@ A world fixed object, held in place with a constraint. Constraintを使ってオ
 > FX Controllerに追加したhandleWorldFXのレイヤーをご確認ください。このレイヤーでトランジションを使いたい場合は"WorldFX"のパラメターを使ってください。
 
 </details>
+
+## [World Physics](https://github.com/VRLabs/VRChat-Avatars-3.0/releases/download/1/WorldPhysics.unitypackage)
+
+Some bandaids to make physics work on avatars. アバターで物理を機能させるためのいくつかの修正。
+
+<details>
+  <summary>Install notes</summary>
+
+> Testing in Unity requires the 3.0 Emulator by Lyuma.
+> 
+> Merge the FX, Gesture controllers to your own FX, Gesture controllers, using the Avatars 3.0 Manager tool.
+> 
+> The World Physics.prefab should go to the base of your Unity scene, which will give it base Unity scaling.
+>
+> Unpack the prefab by right-clicking it and move the prefab to base of your avatar.
+> 
+> Expand the prefab, and locate World Physics/Fix Colliders. Keep this object off while testing in Unity. Before uploading to VRChat, enable this object. It is required for collision to work.
+>
+> Look at World Constraint/Rigidbody/Collider. There is a particle system component on this object. Copy and paste this particle system onto any object with a physics collider. Every object with this particle system will be deleted in the local mirror when Fix Colliders is enabled, which will prevent your simulation from locally freaking out.
+>
+> The mirror collider destroy process happens at avatar load in, takes about 1 second, and requires that the colliders' hierarchy be enabled by default, so the particle systems can be awake. The hierarchy can be disabled after this process. You should be always be conscious of what you are disabling when doing physics simulations, as rigidbodies and joint connections are sensitive to object disables.
+>
+> The World Constraint/Rigidbody is set up for a physics demo, where it just falls and collides with the world.
+> 
+> If you want to observe the demo, move World Constraint/RigidbodyTarget outside of the prefab to the base of the avatar, and raise the height. When the scene starts the rigidbody will have the constraint disabled, and Is Kinematic set inactive, enabling it to fall.
+>
+> Review the handlePhysics layer that was merged into your FX controller. This is for the demo. The layer waits a second before doing any animating, because the mirror collider destroy process takes about 1 second when you first load your avatar. You should similarly wait 1 second at the start for any layer that is animating physics.
+> 
+> An important note is that the "Is Kinematic" property doesn't seem to persist, so you must constantly animate this property to the desired state.
+>
+> Using gravity seems to have some minor local-only issues on the Y axis and with culling. Not really a big deal, hard to even notice. Doesn't happen if you don't use gravity on a given rigidbody.
+>
+> The setKinematic FX layer, and the Mirror-Copy Destroy Gesture layer should not be edited unless you know what you are doing by editing them.
+
+</details>
+
+<details>
+  <summary>導入手順</summary>
+
+> 近日公開。
+
+</details>
