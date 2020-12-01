@@ -548,6 +548,8 @@ Some bandaids to make physics work on avatars. アバターで物理を機能さ
 > Using gravity seems to have some minor local-only issues on the Y axis and with culling. Not really a big deal, hard to even notice. Doesn't happen if you don't use gravity on a given rigidbody.
 >
 > The setKinematic FX layer, and the Mirror-Copy Destroy Gesture layer should not be edited unless you know what you are doing by editing them.
+>
+> This package just fixes VRChat-related physics problems. Unity physics is rather open-ended and making things work as you intend beyond these fixes is your responsibility.
 
 </details>
 
