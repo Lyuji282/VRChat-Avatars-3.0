@@ -21,6 +21,8 @@ Testing in Unity may require the [3.0 emulator by Lyuma](https://github.com/lyum
 
 Do not mix old 2.0 and new 3.0 VRLabs folders. Delete your old VRLabs folder. 古い2.0と新しい3.0のVRLabsフォルダーを混在させないでください。古いVRLabsフォルダを削除します。
 
+These packages follow the VRChat animation standard with write defaults turned off. これらのパッケージは、書き込みのデフォルトがオフになっているVRChatアニメーション標準に準拠しています。
+
 ## [Avatars 3.0 Manager](https://github.com/VRLabs/VRChat-Avatars-3.0/releases/download/1/AV3Manager.unitypackage)
 
  A tool for managing playable layers and parameters for Avatars 3.0. アバター3.0でプレイするレイヤーやパラメターを管理するツール。
