@@ -5324,7 +5324,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 10000
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -8795,7 +8795,7 @@ ParticleSystem:
     outside: 0
     enter: 0
     exit: 0
-    radiusScale: 10000
+    radiusScale: 1
   SubModule:
     serializedVersion: 2
     enabled: 0
