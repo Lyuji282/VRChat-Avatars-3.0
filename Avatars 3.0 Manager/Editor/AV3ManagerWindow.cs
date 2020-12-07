@@ -51,6 +51,8 @@ namespace VRLabs.AV3Manager
             public static GUIContent Avatar = new GUIContent("Avatar", "Your avatar.");
         }
 
+        private Vector2 _mainScrollviewPosition;
+
         // Avatar descriptor
         private VRCAvatarDescriptor _avatar = null;
         // Animator layers
@@ -82,6 +84,7 @@ namespace VRLabs.AV3Manager
                 EditorGUILayout.LabelField(Content.PlaymodeError);
                 return;
             }
+            _mainScrollviewPosition = EditorGUILayout.BeginScrollView(_mainScrollviewPosition);
             GUILayout.Space(10);
             EditorGUI.BeginChangeCheck();
             _avatar = (VRCAvatarDescriptor)EditorGUILayout.ObjectField(Content.Avatar, _avatar, typeof(VRCAvatarDescriptor), true);
@@ -123,6 +126,8 @@ namespace VRLabs.AV3Manager
                     l.DrawLayerOptions();
                 }
             }
+
+            EditorGUILayout.EndScrollView();
         }
 
         // Generates new Expression parameters Asset
