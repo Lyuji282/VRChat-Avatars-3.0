@@ -225,6 +225,7 @@ namespace VRLabs.AV3Manager
                         layer.UpdateParameterList();
                     }
                 }
+                EditorUtility.SetDirty(_avatar.expressionParameters);
             }
             HasFreeParameterSlots = _avatar.expressionParameters.parameters.Count(x => string.IsNullOrEmpty(x.name)) > 0;
         }
