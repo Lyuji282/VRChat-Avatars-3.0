@@ -523,7 +523,7 @@ Some bandaids to make physics work on avatars. アバターで物理を機能さ
 <details>
   <summary>Install notes</summary>
 
-> This package fixes two problems that break avatar physics in VRChat. First, it destroys colliders in the mirror copy of your avatar to prevent physics collisions from breaking locally. Second, it fixes incorrect movement with rigidbodies in world space non-locally.
+> This package fixes two problems that break avatar physics in VRChat. First, it destroys colliders in the mirror copy of your avatar to fix local collision. Second, it fixes incorrect movement with rigidbodies in world space.
 >
 > Testing in Unity requires the 3.0 Emulator by Lyuma.
 > 
