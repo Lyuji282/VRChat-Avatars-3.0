@@ -66,7 +66,7 @@ A world space follower, driven by constraints. Constraintによってワール�
   
 > Testing in Unity requires the [3.0 emulator by Lyuma](https://github.com/lyuma/Av3Emulator).
 > 
-> Merge the FX controller to your own FX controller, using the Avatars 3.0 Manager tool.
+> Merge the FX controller to your own FX controller, using the [Avatars 3.0 Manager](https://github.com/VRLabs/VRChat-Avatars-3.0/releases/download/1/AV3Manager.unitypackage) tool.
 > 
 > The Follower.prefab should go to the base of your Unity scene, which will give it base Unity scaling.
 > 
@@ -83,9 +83,9 @@ A world space follower, driven by constraints. Constraintによってワール�
 <details>
   <summary>導入手順</summary>
   
-> ※Unity内でテストプレイする場合はLyumaさん作成の3.0エミュレーターが必要となります。
+> ※Unity内でテストプレイする場合は[Lyuma](https://github.com/lyuma/Av3Emulator)さん作成の3.0エミュレーターが必要となります。
 > 
-> アバター3.0のManager toolを使用し、FX controllerを自身のFX controllerとマージしてください。
+> アバター3.0の[Manager tool](https://github.com/VRLabs/VRChat-Avatars-3.0/releases/download/1/AV3Manager.unitypackage)を使用し、FX controllerを自身のFX controllerとマージしてください。
 > 
 > "Follower.prefab"はUnity sceneのベース（一番下）に置くとbase Unityのスケールが使用できます。
 > 
@@ -108,7 +108,7 @@ Ten grabbable avatar objects. つかむことができる10個のアバターオ
   
 > Testing in Unity requires the [3.0 emulator by Lyuma](https://github.com/lyuma/Av3Emulator).
 >
-> Merge the FX controller to your own FX controller, using the Avatars 3.0 Manager tool.
+> Merge the FX controller to your own FX controller, using the [Avatars 3.0 Manager](https://github.com/VRLabs/VRChat-Avatars-3.0/releases/download/1/AV3Manager.unitypackage) tool.
 >
 > "LeftGrabFX" and "RightGrabFX" are synced parameters, so click the checkbox within the tool to add them to your avatar's parameter asset. If you are using only one hand, sync only that parameter.
 >
@@ -147,9 +147,9 @@ Ten grabbable avatar objects. つかむことができる10個のアバターオ
 <details>
   <summary>導入手順</summary>
   
-> ※Unity内でテストプレイする場合はLyumaさん作成の3.0エミュレーターが必要となります。
+> ※Unity内でテストプレイする場合は[Lyuma](https://github.com/lyuma/Av3Emulator)さん作成の3.0エミュレーターが必要となります。
 > 
-> アバター3.0のManager toolを使用し、FX controllerを自身のFX controllerとマージしてください。
+> アバター3.0の[Manager tool](https://github.com/VRLabs/VRChat-Avatars-3.0/releases/download/1/AV3Manager.unitypackage)を使用し、FX controllerを自身のFX controllerとマージしてください。
 > 
 > "LeftGrabFX" と "RightGrabFX" は同期型のパラメターなのでアバターのパラメターに追加する場合はツール内でチェックを入れてください。片手のみの使用の場合はそのパラメターのみ同期してください。
 > 
@@ -195,7 +195,7 @@ Play an effect when the target object is jiggled or shaken. 対象オブジェ�
   
 > Testing in Unity requires the [3.0 emulator by Lyuma](https://github.com/lyuma/Av3Emulator).
 > 
-> Merge the FX controller to your own FX controller, using the Avatars 3.0 Manager tool.
+> Merge the FX controller to your own FX controller, using the [Avatars 3.0 Manager](https://github.com/VRLabs/VRChat-Avatars-3.0/releases/download/1/AV3Manager.unitypackage) tool.
 > 
 > The Jiggle FX.prefab should go to the base of your Unity scene, which will give it base Unity scaling.
 > 
@@ -212,9 +212,9 @@ Play an effect when the target object is jiggled or shaken. 対象オブジェ�
 <details>
   <summary>導入手順</summary>
   
-> ※Unity内でテストプレイする場合はLyumaさん作成の3.0エミュレーターが必要となります。
+> ※Unity内でテストプレイする場合は[Lyuma](https://github.com/lyuma/Av3Emulator)さん作成の3.0エミュレーターが必要となります。
 > 
-> アバター3.0のManager toolを使用し、FX controllerを自身のFX controllerとマージしてください。
+> アバター3.0の[Manager tool](https://github.com/VRLabs/VRChat-Avatars-3.0/releases/download/1/AV3Manager.unitypackage)を使用し、FX controllerを自身のFX controllerとマージしてください。
 > 
 > "Jiggle FX.prefab"はUnity sceneのベース（一番下）に置くとbase Unityのスケールが使用できます。
 > 
@@ -237,7 +237,7 @@ Perform consecutive slashes with motion. モーションからのスラッシュ
   
 > Testing in Unity requires the [3.0 emulator by Lyuma](https://github.com/lyuma/Av3Emulator).
 > 
-> Merge the FX controller to your own FX controller, using the Avatars 3.0 Manager tool.
+> Merge the FX controller to your own FX controller, using the [Avatars 3.0 Manager](https://github.com/VRLabs/VRChat-Avatars-3.0/releases/download/1/AV3Manager.unitypackage) tool.
 > 
 > "LightSlashFX" is a synced parameter, so click the checkbox within the tool to add it to your avatar's parameter asset.
 > 
@@ -260,9 +260,9 @@ Perform consecutive slashes with motion. モーションからのスラッシュ
 <details>
   <summary>導入手順</summary>
   
-> ※Unity内でテストプレイする場合はLyumaさん作成の3.0エミュレーターが必要となります。
+> ※Unity内でテストプレイする場合は[Lyuma](https://github.com/lyuma/Av3Emulator)さん作成の3.0エミュレーターが必要となります。
 > 
-> アバター3.0のManager toolを使用し、FX controllerを自身のFX controllerとマージしてください。
+> アバター3.0の[Manager tool](https://github.com/VRLabs/VRChat-Avatars-3.0/releases/download/1/AV3Manager.unitypackage)を使用し、FX controllerを自身のFX controllerとマージしてください。
 > 
 > "LightSlashFX"は同期型のパラメターなのでアバターのパラメターに追加する場合はツール内でチェックを入れてください。
 > 
@@ -291,7 +291,7 @@ A pen for drawing. お絵描き用のペン。
   
 > Testing in Unity requires the [3.0 emulator by Lyuma](https://github.com/lyuma/Av3Emulator).
 > 
-> Merge the FX controller to your own FX controller, using the Avatars 3.0 Manager tool.
+> Merge the FX controller to your own FX controller, using the [Avatars 3.0 Manager](https://github.com/VRLabs/VRChat-Avatars-3.0/releases/download/1/AV3Manager.unitypackage) tool.
 > 
 > The Marker.prefab should go to the base of your Unity scene, which will give it base Unity scaling.
 > 
@@ -306,9 +306,9 @@ A pen for drawing. お絵描き用のペン。
 <details>
   <summary>導入手順</summary>
   
-> ※Unity内でテストプレイする場合はLyumaさん作成の3.0エミュレーターが必要となります。
+> ※Unity内でテストプレイする場合は[Lyuma](https://github.com/lyuma/Av3Emulator)さん作成の3.0エミュレーターが必要となります。
 > 
-> アバター3.0のManager toolを使用し、FX controllerを自身のFX controllerとマージしてください。
+> アバター3.0の[Manager tool](https://github.com/VRLabs/VRChat-Avatars-3.0/releases/download/1/AV3Manager.unitypackage)を使用し、FX controllerを自身のFX controllerとマージしてください。
 > 
 > "The Marker.prefab"はUnity sceneのベース（一番下）に置くとbase Unityのスケールが使用できます。
 > 
@@ -329,7 +329,7 @@ A method for animating on particle death. パーティクルによるデスア�
   
 > Testing in Unity requires the [3.0 emulator by Lyuma](https://github.com/lyuma/Av3Emulator).
 > 
-> Merge the FX controller to your own FX controller, using the Avatars 3.0 Manager tool.
+> Merge the FX controller to your own FX controller, using the [Avatars 3.0 Manager](https://github.com/VRLabs/VRChat-Avatars-3.0/releases/download/1/AV3Manager.unitypackage) tool.
 > 
 > "FX" is a synced parameter, so click the checkbox within the tool to add it to your avatar's parameter asset.
 >  
@@ -354,9 +354,9 @@ A method for animating on particle death. パーティクルによるデスア�
 <details>
   <summary>導入手順</summary>
   
-> ※Unity内でテストプレイする場合はLyumaさん作成の3.0エミュレーターが必要となります。
+> ※Unity内でテストプレイする場合は[Lyuma](https://github.com/lyuma/Av3Emulator)さん作成の3.0エミュレーターが必要となります。
 > 
-> アバター3.0のManager toolを使用し、FX controllerを自身のFX controllerとマージしてください。
+> アバター3.0の[Manager tool](https://github.com/VRLabs/VRChat-Avatars-3.0/releases/download/1/AV3Manager.unitypackage)を使用し、FX controllerを自身のFX controllerとマージしてください。
 > 
 > "FX"は同期型のパラメターなのでアバターのパラメターに追加する場合はツール内でチェックを入れてください。
 >  
@@ -387,7 +387,7 @@ Player-local proximity effects. プレイヤー近接発動エフェクト。
   
 > Testing in Unity requires the [3.0 emulator by Lyuma](https://github.com/lyuma/Av3Emulator). Test with a non-local clone and the testDummy.
 > 
-> Merge the FX controller to your own FX controller, using the Avatars 3.0 Manager tool.
+> Merge the FX controller to your own FX controller, using the [Avatars 3.0 Manager](https://github.com/VRLabs/VRChat-Avatars-3.0/releases/download/1/AV3Manager.unitypackage) tool.
 > 
 > The Proximity FX.prefab should go to the base of your Unity scene, which will give it base Unity scaling.
 > 
@@ -406,9 +406,9 @@ Player-local proximity effects. プレイヤー近接発動エフェクト。
 <details>
   <summary>導入手順</summary>
   
-> ※Unity内でテストプレイする場合はLyumaさん作成の3.0エミュレーターが必要となります。テストプレイの場合はnon-localのクローンとtestDummyをご使用ください。
+> ※Unity内でテストプレイする場合は[Lyuma](https://github.com/lyuma/Av3Emulator)さん作成の3.0エミュレーターが必要となります。テストプレイの場合はnon-localのクローンとtestDummyをご使用ください。
 > 
-> アバター3.0のManager toolを使用し、FX controllerを自身のFX controllerとマージしてください。
+> アバター3.0の[Manager tool](https://github.com/VRLabs/VRChat-Avatars-3.0/releases/download/1/AV3Manager.unitypackage)を使用し、FX controllerを自身のFX controllerとマージしてください。
 > 
 > "Proximity FX.prefab"はUnity sceneのベース（一番下）に置くとbase Unityのスケールが使用できます。
 > 
@@ -473,7 +473,7 @@ A world fixed object, held in place with a constraint. Constraintを使ってオ
 >
 > Testing in Unity requires the [3.0 emulator by Lyuma](https://github.com/lyuma/Av3Emulator).
 > 
-> Merge the FX controller to your own FX controller, using the Avatars 3.0 Manager tool.
+> Merge the FX controller to your own FX controller, using the [Avatars 3.0 Manager](https://github.com/VRLabs/VRChat-Avatars-3.0/releases/download/1/AV3Manager.unitypackage) tool.
 > 
 > "WorldFX" is a synced parameter, so click the checkbox within the tool to add it to your avatar's parameter asset.
 >
@@ -496,9 +496,9 @@ A world fixed object, held in place with a constraint. Constraintを使ってオ
 
 > 1つのConstraintで完結する比較的シンプルなメソッドです。
 >
-> ※Unity内でテストプレイする場合はLyumaさん作成の3.0エミュレーターが必要となります。
+> ※Unity内でテストプレイする場合は[Lyuma](https://github.com/lyuma/Av3Emulator)さん作成の3.0エミュレーターが必要となります。
 > 
-> アバター3.0のManager toolを使用し、FX controllerを自身のFX controllerとマージしてください。
+> アバター3.0の[Manager tool](https://github.com/VRLabs/VRChat-Avatars-3.0/releases/download/1/AV3Manager.unitypackage)を使用し、FX controllerを自身のFX controllerとマージしてください。
 > 
 > "WorldFX"は同期型のパラメターなのでアバターのパラメターに追加する場合はツール内でチェックを入れてください。
 >
@@ -527,7 +527,7 @@ Some bandaids to make physics work on avatars. アバターで物理を機能さ
 >
 > Testing in Unity requires the [3.0 emulator by Lyuma](https://github.com/lyuma/Av3Emulator).
 > 
-> Merge the FX, Gesture controllers to your own FX, Gesture controllers, using the Avatars 3.0 Manager tool.
+> Merge the FX controller to your own FX controller, using the [Avatars 3.0 Manager](https://github.com/VRLabs/VRChat-Avatars-3.0/releases/download/1/AV3Manager.unitypackage) tool.
 > 
 > The World Physics.prefab should go to the base of your Unity scene, which will give it base Unity scaling.
 >
