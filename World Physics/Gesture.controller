@@ -149,9 +149,6 @@ AnimatorStateTransition:
   - m_ConditionMode: 2
     m_ConditionEvent: IsLocal
     m_EventTreshold: 0
-  - m_ConditionMode: 2
-    m_ConditionEvent: Physics
-    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102859082201076602}
   m_Solo: 0
@@ -176,9 +173,6 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 1
     m_ConditionEvent: IsLocal
-    m_EventTreshold: 0
-  - m_ConditionMode: 2
-    m_ConditionEvent: Physics
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102507309758711220}
