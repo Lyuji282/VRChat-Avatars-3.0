@@ -533,9 +533,9 @@ Some bandaids to make physics work on avatars. アバターで物理を機能さ
 >
 > Unpack the prefab by right-clicking it and move the prefab to base of your avatar.
 > 
-> The World Physics/Rigidbody is set up for a physics demo. A rigidbody with a Cube falls and collides with the world.
+> World Physics/Rigidbody is set up for a physics demo. It falls and collides with the world.
 >
-> If you want to observe the demo, move World Physics/RigidbodyTarget outside of the prefab to the base of the avatar, and raise the height. When the scene starts the rigidbody will have the constraint disabled, and Is Kinematic set inactive, enabling it to fall and collide. You can take this in-game for testing.
+> If you want to see the demo, move World Physics/RigidbodyTarget outside of the World Physics hierarchy, to the base of the avatar, and raise the height. When the scene starts the rigidbody will have the constraint disabled, and Is Kinematic set inactive, enabling it to fall and collide. You can take this in-game for testing.
 >
 > Look at World Physics/Rigidbody/Collider. There is a particle system component on this object. Copy and paste this particle system onto any object with a physics collider. Every object with this particle system will be deleted in the local mirror.
 >
