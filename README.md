@@ -523,6 +523,8 @@ Some bandaids to make physics work on avatars. アバターで物理を機能さ
 <details>
   <summary>Install notes</summary>
 
+> This package fixes two problems that break avatar physics in VRChat. First, it destroys colliders in the mirror copy of your avatar to prevent physics collisions from breaking locally. Second, it fixes incorrect movement with rigidbodies in world space non-locally.
+>
 > Testing in Unity requires the 3.0 Emulator by Lyuma.
 > 
 > Merge the FX, Gesture controllers to your own FX, Gesture controllers, using the Avatars 3.0 Manager tool.
@@ -531,23 +533,19 @@ Some bandaids to make physics work on avatars. アバターで物理を機能さ
 >
 > Unpack the prefab by right-clicking it and move the prefab to base of your avatar.
 > 
-> Expand the prefab, and locate World Physics/Fix Colliders. Keep this object off while testing in Unity. Before uploading to VRChat, enable this object. It is required for collision to work.
+> If you want to observe the demo, move World Physics/RigidbodyTarget outside of the prefab to the base of the avatar, and raise the height. When the scene starts the rigidbody will have the constraint disabled, and Is Kinematic set inactive, enabling it to fall and collide. You can take this in-game for testing.
 >
-> Look at World Physics/Rigidbody/Collider. There is a particle system component on this object. Copy and paste this particle system onto any object with a physics collider. Every object with this particle system will be deleted in the local mirror when Fix Colliders is enabled, which will prevent your simulation from locally freaking out.
+> Look at World Physics/Rigidbody/Collider. There is a particle system component on this object. Copy and paste this particle system onto any object with a physics collider. Every object with this particle system will be deleted in the local mirror.
 >
-> The mirror collider destroy process happens at avatar load in, takes about 1 second, and requires that the colliders' hierarchy be enabled by default, so the particle systems can be awake. The hierarchy can be disabled after this process. You should be always be conscious of what you are disabling when doing physics simulations, as rigidbodies and joint connections are sensitive to object disables.
+> The mirror collider destroy process happens at avatar load in. It requires that the colliders' hierarchy be enabled by default, so the particle systems can be awake. The hierarchy can be disabled after this process.
 >
-> The World Physics/Rigidbody is set up for a physics demo, where it just falls and collides with the world.
+> The World Physics/Rigidbody is set up for a physics demo. A rigidbody with a Cube falls and collides with the world.
+>
+> Review the handlePhysics layer that was merged into your FX controller. This is for the demo. The layer waits for the "Physics" parameter to be True. You should similarly wait for the "Physics" parameter to be True before animating physics in your layers.
 > 
-> If you want to observe the demo, move World Physics/RigidbodyTarget outside of the prefab to the base of the avatar, and raise the height. When the scene starts the rigidbody will have the constraint disabled, and Is Kinematic set inactive, enabling it to fall.
->
-> Review the handlePhysics layer that was merged into your FX controller. This is for the demo. The layer waits a second before doing any animating, because the mirror collider destroy process takes about 1 second when you first load your avatar. You should similarly wait 1 second at the start for any layer that is animating physics.
-> 
-> An important note is that the "Is Kinematic" property doesn't seem to persist, so you must constantly animate this property to the desired state.
+> An important note is that the "Is Kinematic" property doesn't seem to persist, so you must constantly animate this property to the desired state. The demo layer is split between Local and Remote animation sets because I am constantly animating the World Physics rigidbody as kinematic depending on which type of client is active. You should do something similar.
 >
 > Using gravity seems to have some minor local-only issues on the Y axis and with culling. Not really a big deal, hard to even notice. Doesn't happen if you don't use gravity on a given rigidbody.
->
-> The setKinematic FX layer, and the Mirror-Copy Destroy Gesture layer should not be edited unless you know what you are doing by editing them.
 >
 > This package just fixes VRChat-related physics problems. Unity physics is rather open-ended and making things work as you intend beyond these fixes is your responsibility.
 
