@@ -13,8 +13,8 @@ AnimatorController:
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
-    m_DefaultBool: 1
-    m_Controller: {fileID: 9100000}
+    m_DefaultBool: 0
+    m_Controller: {fileID: 0}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Follow
@@ -58,7 +58,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parameters:
   - name: IsStopping
-    value: 0
+    value: 1
   debugString: 
 --- !u!114 &114557505218278540
 MonoBehaviour:
@@ -90,7 +90,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parameters:
   - name: IsStopping
-    value: 1
+    value: 0
   debugString: 
 --- !u!1101 &1101248401824567898
 AnimatorStateTransition:
@@ -121,7 +121,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: IsStopping to True
+  m_Name: IsStopping to False
   m_Speed: 10
   m_CycleOffset: 0
   m_Transitions:
@@ -136,7 +136,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: b6653c92ab609364ea4ea7840672b01b, type: 2}
+  m_Motion: {fileID: 7400000, guid: 2ef5a3684e5268249b259f1594f13fe0, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -149,7 +149,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: IsStopping to False
+  m_Name: IsStopping to True
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -163,7 +163,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: b6653c92ab609364ea4ea7840672b01b, type: 2}
+  m_Motion: {fileID: 7400000, guid: 2ef5a3684e5268249b259f1594f13fe0, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
