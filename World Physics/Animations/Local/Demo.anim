@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Fix Colliders
+  m_Name: Demo
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -30,7 +30,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.5
+        time: 0.016666668
         value: 0
         inSlope: Infinity
         outSlope: Infinity
@@ -41,9 +41,37 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: m_Enabled
-    path: World Physics/Fix Colliders
-    classID: 65
+    attribute: m_Active
+    path: World Physics/Rigidbody
+    classID: 1773428102
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 0.016666668
+        value: 0
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_IsKinematic
+    path: World Physics/Rigidbody
+    classID: 54
     script: {fileID: 0}
   - curve:
       serializedVersion: 2
@@ -55,10 +83,10 @@ AnimationClip:
         outSlope: Infinity
         tangentMode: 103
         weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
+        inWeight: 0
+        outWeight: 0
       - serializedVersion: 3
-        time: 0.5
+        time: 0.016666668
         value: 1
         inSlope: Infinity
         outSlope: Infinity
@@ -69,9 +97,9 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: m_IsActive
-    path: World Physics/Fix Colliders
-    classID: 1
+    attribute: m_IsKinematic
+    path: World Physics
+    classID: 54
     script: {fileID: 0}
   m_PPtrCurves: []
   m_SampleRate: 60
@@ -82,17 +110,24 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 521457710
-      attribute: 3305885265
+      path: 4238237493
+      attribute: 4294967287
       script: {fileID: 0}
-      typeID: 65
+      typeID: 1773428102
+      customType: 35
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 4238237493
+      attribute: 2041097263
+      script: {fileID: 0}
+      typeID: 54
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 521457710
-      attribute: 2086281974
+      path: 1053243617
+      attribute: 2041097263
       script: {fileID: 0}
-      typeID: 1
+      typeID: 54
       customType: 0
       isPPtrCurve: 0
     pptrCurveMapping: []
@@ -101,7 +136,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.5
+    m_StopTime: 0.016666668
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -130,7 +165,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.5
+        time: 0.016666668
         value: 0
         inSlope: Infinity
         outSlope: Infinity
@@ -141,9 +176,37 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: m_Enabled
-    path: World Physics/Fix Colliders
-    classID: 65
+    attribute: m_Active
+    path: World Physics/Rigidbody
+    classID: 1773428102
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 0.016666668
+        value: 0
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_IsKinematic
+    path: World Physics/Rigidbody
+    classID: 54
     script: {fileID: 0}
   - curve:
       serializedVersion: 2
@@ -155,10 +218,10 @@ AnimationClip:
         outSlope: Infinity
         tangentMode: 103
         weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
+        inWeight: 0
+        outWeight: 0
       - serializedVersion: 3
-        time: 0.5
+        time: 0.016666668
         value: 1
         inSlope: Infinity
         outSlope: Infinity
@@ -169,9 +232,9 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: m_IsActive
-    path: World Physics/Fix Colliders
-    classID: 1
+    attribute: m_IsKinematic
+    path: World Physics
+    classID: 54
     script: {fileID: 0}
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
