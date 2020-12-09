@@ -547,7 +547,7 @@ Some bandaids to make physics work on avatars. アバターで物理を機能さ
 >
 > The World Physics rigidbody should have "Is Kinematic" enabled locally(IsLocal True), and disabled remotely(IsLocal False), or physics will break.
 >
-> The demo layer is split between Local and Remote animation sets because I am constantly animating the World Physics rigidbody "Is Kinematic" property depending on which type of client(Local or Remote) is active. You should do something similar.
+> The demo layer is split between Local and Remote animation sets because I am constantly animating the World Physics rigidbody "Is Kinematic" property depending on which type of client(IsLocal True or False) is active. You should do something similar.
 >
 > Using gravity seems to have some minor local-only issues on the Y axis and with culling. Not really a big deal, hard to even notice. Doesn't happen if you don't use gravity on a given rigidbody.
 >
