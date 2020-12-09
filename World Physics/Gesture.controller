@@ -67,6 +67,22 @@ MonoBehaviour:
   blendDuration: 0
   debugString: 
   outputParamHash: 0
+--- !u!114 &114385661597093312
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -706344726, guid: 67cc4cb7839cd3741b63733d5adf0442, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parameters:
+  - name: Physics
+    value: 1
+  debugString: 
 --- !u!114 &114557505218278540
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -83,7 +99,7 @@ MonoBehaviour:
   - name: ParticleDeath
     value: 0
   debugString: 
---- !u!114 &114717708504826764
+--- !u!114 &114772468718461492
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -92,13 +108,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -706344726, guid: 67cc4cb7839cd3741b63733d5adf0442, type: 3}
+  m_Script: {fileID: 1852460640, guid: 67cc4cb7839cd3741b63733d5adf0442, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parameters:
-  - name: Physics
-    value: 1
+  layer: 1
+  goalWeight: 1
+  blendDuration: 0
   debugString: 
+  outputParamHash: 0
 --- !u!114 &114776653762043740
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -298,7 +315,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: FX Weight 1
+  m_Name: Physics to True
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -326,12 +343,13 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Stop
+  m_Name: 'Physics to True '
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
   m_StateMachineBehaviours:
-  - {fileID: 114717708504826764}
+  - {fileID: 114772468718461492}
+  - {fileID: 114385661597093312}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 0
