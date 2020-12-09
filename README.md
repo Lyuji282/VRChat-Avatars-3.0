@@ -533,13 +533,13 @@ Some bandaids to make physics work on avatars. アバターで物理を機能さ
 >
 > Unpack the prefab by right-clicking it and move the prefab to base of your avatar.
 > 
+> The World Physics/Rigidbody is set up for a physics demo. A rigidbody with a Cube falls and collides with the world.
+>
 > If you want to observe the demo, move World Physics/RigidbodyTarget outside of the prefab to the base of the avatar, and raise the height. When the scene starts the rigidbody will have the constraint disabled, and Is Kinematic set inactive, enabling it to fall and collide. You can take this in-game for testing.
 >
 > Look at World Physics/Rigidbody/Collider. There is a particle system component on this object. Copy and paste this particle system onto any object with a physics collider. Every object with this particle system will be deleted in the local mirror.
 >
 > The mirror collider destroy process happens at avatar load in. It requires that the colliders' hierarchy be enabled by default, so the particle systems can be awake. The hierarchy can be disabled after this process.
->
-> The World Physics/Rigidbody is set up for a physics demo. A rigidbody with a Cube falls and collides with the world.
 >
 > Review the handlePhysics layer that was merged into your FX controller. This is for the demo. The layer waits for the "Physics" parameter to be True. You should similarly wait for the "Physics" parameter to be True before animating physics in your layers.
 > 
