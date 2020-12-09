@@ -64,7 +64,7 @@ A world space follower, driven by constraints. Constraintによってワール�
 <details>
   <summary>Install notes</summary>
   
-> Testing in Unity requires the 3.0 Emulator by Lyuma.
+> Testing in Unity requires the [3.0 emulator by Lyuma](https://github.com/lyuma/Av3Emulator).
 > 
 > Merge the FX controller to your own FX controller, using the Avatars 3.0 Manager tool.
 > 
@@ -106,7 +106,7 @@ Ten grabbable avatar objects. つかむことができる10個のアバターオ
 <details>
   <summary>Install notes</summary>
   
-> Testing in Unity requires the 3.0 Emulator by Lyuma.
+> Testing in Unity requires the [3.0 emulator by Lyuma](https://github.com/lyuma/Av3Emulator).
 >
 > Merge the FX controller to your own FX controller, using the Avatars 3.0 Manager tool.
 >
@@ -193,7 +193,7 @@ Play an effect when the target object is jiggled or shaken. 対象オブジェ�
 <details>
   <summary>Install notes</summary>
   
-> Testing in Unity requires the 3.0 Emulator by Lyuma.
+> Testing in Unity requires the [3.0 emulator by Lyuma](https://github.com/lyuma/Av3Emulator).
 > 
 > Merge the FX controller to your own FX controller, using the Avatars 3.0 Manager tool.
 > 
@@ -235,7 +235,7 @@ Perform consecutive slashes with motion. モーションからのスラッシュ
 <details>
   <summary>Install notes</summary>
   
-> Testing in Unity requires the 3.0 Emulator by Lyuma.
+> Testing in Unity requires the [3.0 emulator by Lyuma](https://github.com/lyuma/Av3Emulator).
 > 
 > Merge the FX controller to your own FX controller, using the Avatars 3.0 Manager tool.
 > 
@@ -289,7 +289,7 @@ A pen for drawing. お絵描き用のペン。
 <details>
   <summary>Install notes</summary>
   
-> Testing in Unity requires the 3.0 Emulator by Lyuma.
+> Testing in Unity requires the [3.0 emulator by Lyuma](https://github.com/lyuma/Av3Emulator).
 > 
 > Merge the FX controller to your own FX controller, using the Avatars 3.0 Manager tool.
 > 
@@ -327,7 +327,7 @@ A method for animating on particle death. パーティクルによるデスア�
 <details>
   <summary>Install notes</summary>
   
-> Testing in Unity requires the 3.0 Emulator by Lyuma.
+> Testing in Unity requires the [3.0 emulator by Lyuma](https://github.com/lyuma/Av3Emulator).
 > 
 > Merge the FX controller to your own FX controller, using the Avatars 3.0 Manager tool.
 > 
@@ -385,7 +385,7 @@ Player-local proximity effects. プレイヤー近接発動エフェクト。
 <details>
   <summary>Install notes</summary>
   
-> Testing in Unity requires the 3.0 Emulator by Lyuma. Test with a non-local clone and the testDummy.
+> Testing in Unity requires the [3.0 emulator by Lyuma](https://github.com/lyuma/Av3Emulator). Test with a non-local clone and the testDummy.
 > 
 > Merge the FX controller to your own FX controller, using the Avatars 3.0 Manager tool.
 > 
@@ -471,7 +471,7 @@ A world fixed object, held in place with a constraint. Constraintを使ってオ
 
 > The world constraining method itself is 1 constraint and simple. Look at it and profit.
 >
-> Testing in Unity requires the 3.0 Emulator by Lyuma.
+> Testing in Unity requires the [3.0 emulator by Lyuma](https://github.com/lyuma/Av3Emulator).
 > 
 > Merge the FX controller to your own FX controller, using the Avatars 3.0 Manager tool.
 > 
@@ -525,7 +525,7 @@ Some bandaids to make physics work on avatars. アバターで物理を機能さ
 
 > This package fixes two problems that break avatar physics in VRChat. First, it destroys colliders in the mirror copy of your avatar to fix local collision. Second, it fixes incorrect movement with rigidbodies in world space.
 >
-> Testing in Unity requires the 3.0 Emulator by Lyuma.
+> Testing in Unity requires the [3.0 emulator by Lyuma](https://github.com/lyuma/Av3Emulator).
 > 
 > Merge the FX, Gesture controllers to your own FX, Gesture controllers, using the Avatars 3.0 Manager tool.
 > 
