@@ -25,7 +25,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2964867142897612174}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -93,6 +93,7 @@ GameObject:
   - component: {fileID: 3542135162953571391}
   - component: {fileID: 3542135162953571388}
   - component: {fileID: 3542135162953571367}
+  - component: {fileID: 3384443466078676997}
   - component: {fileID: 3542135162953571389}
   m_Layer: 0
   m_Name: "\uA730\u1D0F\u029F\u029F\u1D0F\u1D21"
@@ -109,7 +110,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3542135162953571366}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 10000, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2968397870316896226}
@@ -205,8 +206,8 @@ PositionConstraint:
   m_GameObject: {fileID: 3542135162953571366}
   m_Enabled: 1
   m_Weight: 1
-  m_TranslationAtRest: {x: 0, y: 0, z: 0}
-  m_TranslationOffset: {x: 0, y: 0, z: 0}
+  m_TranslationAtRest: {x: 0, y: 10000, z: 0}
+  m_TranslationOffset: {x: 0, y: 10000, z: 0}
   m_AffectTranslationX: 1
   m_AffectTranslationY: 1
   m_AffectTranslationZ: 1
@@ -214,6 +215,26 @@ PositionConstraint:
   m_IsLocked: 1
   m_Sources:
   - sourceTransform: {fileID: 8746243131874329396}
+    weight: 1
+--- !u!1818360610 &3384443466078676997
+ScaleConstraint:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3542135162953571366}
+  m_Enabled: 1
+  m_Weight: 1
+  m_ScaleAtRest: {x: 1, y: 1, z: 1}
+  m_ScaleOffset: {x: 1, y: 1, z: 1}
+  m_AffectScalingX: 1
+  m_AffectScalingY: 1
+  m_AffectScalingZ: 1
+  m_IsContraintActive: 1
+  m_IsLocked: 1
+  m_Sources:
+  - sourceTransform: {fileID: 1720321125886419532, guid: 355dc5cb6e259b34a93ff6c598a91240,
+      type: 3}
     weight: 1
 --- !u!198 &3542135162953571389
 ParticleSystem:
@@ -5062,6 +5083,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8746243131874760047}
   - component: {fileID: 8746243131874760046}
+  - component: {fileID: 3165962666235469746}
   m_Layer: 12
   m_Name: FollowerTarget
   m_TagString: Untagged
@@ -5096,4 +5118,24 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.2, y: 0.2, z: 0.2}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 10000, z: 0}
+--- !u!1818360610 &3165962666235469746
+ScaleConstraint:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8746243131874760044}
+  m_Enabled: 1
+  m_Weight: 1
+  m_ScaleAtRest: {x: 1, y: 1, z: 1}
+  m_ScaleOffset: {x: 1, y: 1, z: 1}
+  m_AffectScalingX: 1
+  m_AffectScalingY: 1
+  m_AffectScalingZ: 1
+  m_IsContraintActive: 1
+  m_IsLocked: 1
+  m_Sources:
+  - sourceTransform: {fileID: 1720321125886419532, guid: 355dc5cb6e259b34a93ff6c598a91240,
+      type: 3}
+    weight: 1
