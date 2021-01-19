@@ -193,7 +193,7 @@ namespace VRLabs.AV3Manager
             Parameters = new List<(AnimatorControllerParameter, bool)>();
             if (Controller != null)
             {
-                foreach (var p in Controller.parameters.Where(x => x.type == AnimatorControllerParameterType.Int || x.type == AnimatorControllerParameterType.Float))
+                foreach (var p in Controller.parameters.Where(x => x.type == AnimatorControllerParameterType.Int || x.type == AnimatorControllerParameterType.Float || x.type == AnimatorControllerParameterType.Bool))
                 {
                     if (AV3ManagerWindow.VRCParameters.Count(x => x.Equals(p.name)) <= 0)
                     {

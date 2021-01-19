@@ -1,4 +1,5 @@
 #if VRC_SDK_VRCSDK3
+using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
@@ -104,7 +105,7 @@ namespace VRLabs.AV3Manager
                         GenerateNewExpressionMenuAsset();
                     }
 
-                    HasFreeParameterSlots = _avatar.expressionParameters.parameters.Count(x => string.IsNullOrEmpty(x.name)) > 0;
+                    HasFreeParameterSlots = _avatar.expressionParameters.CalcTotalCost() < VRCExpressionParameters.MAX_PARAMETER_COST;
 
                     _layers = new LayerOptions[_avatar.baseAnimationLayers.Length];
                     for (int i = 0; i < _avatar.baseAnimationLayers.Length; i++)
@@ -140,23 +141,30 @@ namespace VRLabs.AV3Manager
             string uniquePath = AssetDatabase.GenerateUniqueAssetPath(_standardNewAnimatorFolder + "Parameters.asset");
             _avatar.expressionParameters = ScriptableObject.CreateInstance<VRCExpressionParameters>();
             // Initialize vrc parameters array
-            _avatar.expressionParameters.parameters = new Parameter[VRCExpressionParameters.MAX_PARAMETERS];
-            for (int i = 0; i < _avatar.expressionParameters.parameters.Length; i++)
-            {
-                _avatar.expressionParameters.parameters[i] = new Parameter
-                {
-                    name = "",
-                    valueType = VRCExpressionParameters.ValueType.Int
-                };
-            }
+            _avatar.expressionParameters.parameters = new Parameter[3];
 
             // Add default parameters
-            _avatar.expressionParameters.parameters[0].name = "VRCEmote";
-            _avatar.expressionParameters.parameters[0].valueType = VRCExpressionParameters.ValueType.Int;
-            _avatar.expressionParameters.parameters[1].name = "VRCFaceBlendH";
-            _avatar.expressionParameters.parameters[1].valueType = VRCExpressionParameters.ValueType.Float;
-            _avatar.expressionParameters.parameters[2].name = "VRCFaceBlendV";
-            _avatar.expressionParameters.parameters[2].valueType = VRCExpressionParameters.ValueType.Float;
+            _avatar.expressionParameters.parameters[0] = new Parameter
+            {
+                name = "VRCEmote",
+                valueType = VRCExpressionParameters.ValueType.Int,
+                defaultValue = 0,
+                saved = false
+            };
+            _avatar.expressionParameters.parameters[1] = new Parameter
+            {
+                name = "VRCFaceBlendH",
+                valueType = VRCExpressionParameters.ValueType.Float,
+                defaultValue = 0,
+                saved = false
+            };
+            _avatar.expressionParameters.parameters[2] = new Parameter
+            {
+                name = "VRCFaceBlendV",
+                valueType = VRCExpressionParameters.ValueType.Float,
+                defaultValue = 0,
+                saved = false
+            };
 
             AssetDatabase.CreateAsset(_avatar.expressionParameters, uniquePath);
             EditorUtility.SetDirty(_avatar.expressionParameters);
@@ -194,30 +202,28 @@ namespace VRLabs.AV3Manager
         // Adds or removes a parameter based on the enabled boolean.
         public void UpdateParameter(AnimatorControllerParameter parameter, bool enabled)
         {
-            if (parameter.type == AnimatorControllerParameterType.Int || parameter.type == AnimatorControllerParameterType.Float)
+            if (parameter.type == AnimatorControllerParameterType.Int || parameter.type == AnimatorControllerParameterType.Float || parameter.type == AnimatorControllerParameterType.Bool)
             {
+                List<Parameter> param = new List<Parameter>(_avatar.expressionParameters.parameters);
                 bool somethingModified = false;
                 if (enabled)
                 {
-                    foreach (var par in _avatar.expressionParameters.parameters)
+                    param.Add(new Parameter
                     {
-                        if (string.IsNullOrEmpty(par.name))
-                        {
-                            par.name = parameter.name;
-                            par.valueType = parameter.type == AnimatorControllerParameterType.Int ? ValueType.Int : ValueType.Float;
-                            somethingModified = true;
-                            break;
-                        }
-                    }
+                        name = parameter.name,
+                        valueType = parameter.type == AnimatorControllerParameterType.Int ? ValueType.Int : (parameter.type == AnimatorControllerParameterType.Bool ? ValueType.Bool : ValueType.Float),
+                        defaultValue = 0,
+                        saved = false
+                    });
+                    somethingModified = true;
                 }
                 else
                 {
-                    foreach (var par in _avatar.expressionParameters.parameters)
+                    for (int i = 0; i < param.Count; i++)
                     {
-                        if (par.name.Equals(parameter.name))
+                        if (param[i].name.Equals(parameter.name))
                         {
-                            par.name = "";
-                            par.valueType = ValueType.Int;
+                            param.RemoveAt(i);
                             somethingModified = true;
                         }
                     }
@@ -225,6 +231,7 @@ namespace VRLabs.AV3Manager
 
                 if (somethingModified)
                 {
+                    _avatar.expressionParameters.parameters = param.ToArray();
                     foreach (var layer in _layers)
                     {
                         layer.UpdateParameterList();
@@ -232,7 +239,7 @@ namespace VRLabs.AV3Manager
                 }
                 EditorUtility.SetDirty(_avatar.expressionParameters);
             }
-            HasFreeParameterSlots = _avatar.expressionParameters.parameters.Count(x => string.IsNullOrEmpty(x.name)) > 0;
+            HasFreeParameterSlots = _avatar.expressionParameters.CalcTotalCost() < VRCExpressionParameters.MAX_PARAMETER_COST;
         }
 
         // Check if a specific parameter is a duplicate
