@@ -1,0 +1,219 @@
+{
+    "Properties": [
+        {
+            "Name": "_REQUIRE_UV2",
+            "DisplayName": "Flip-Book Frame Blending",
+            "Tooltip": ""
+        },
+        {
+            "Name": "_EMISSION",
+            "DisplayName": "Emission",
+            "Tooltip": ""
+        },
+        {
+            "Name": "VertexStreams",
+            "DisplayName": "Required Vertex Streams",
+            "Tooltip": ""
+        },
+        {
+            "Name": "VertexStreams_ApplyVertexStreamsButton",
+            "DisplayName": "Apply to Systems",
+            "Tooltip": "Apply the vertex stream layout to all Particle Systems using this material"
+        },
+        {
+            "Name": "_EmissionEnabled",
+            "DisplayName": "Emission",
+            "Tooltip": "Emission"
+        },
+        {
+            "Name": "_EmissionMap",
+            "DisplayName": "Color",
+            "Tooltip": "Color"
+        },
+        {
+            "Name": "_MainTex2Enabled",
+            "DisplayName": "Albedo2",
+            "Tooltip": "Albedo2"
+        },
+        {
+            "Name": "_MainTex2Blend",
+            "DisplayName": "Blend Mode",
+            "Tooltip": "Blend Mode"
+        },
+        {
+            "Name": "_MainTex",
+            "DisplayName": "Albedo",
+            "Tooltip": "Albedo"
+        },
+        {
+            "Name": "_UVScroll",
+            "DisplayName": "Albedo Scroll",
+            "Tooltip": "Albedo Scroll"
+        },
+        {
+            "Name": "_MainTex2",
+            "DisplayName": "Albedo2",
+            "Tooltip": "Albedo2"
+        },
+        {
+            "Name": "Albedo2ScrollSpeed",
+            "DisplayName": "Albedo2 Scroll (Scale ZW)",
+            "Tooltip": "Albedo2 Scroll (Scale ZW)"
+        },
+        {
+            "Name": "Albedo2ScrollScale",
+            "DisplayName": "Albedo2 Scroll (Scale ZW)",
+            "Tooltip": "Albedo2 Scroll (Scale ZW)"
+        },
+        {
+            "Name": "MapsOptionsLabel",
+            "DisplayName": "Maps",
+            "Tooltip": ""
+        },
+        {
+            "Name": "UVScrollSpeed",
+            "DisplayName": "Speed (Scale ZW)",
+            "Tooltip": "Speed (Scale ZW)"
+        },
+        {
+            "Name": "UVScrollScale",
+            "DisplayName": "Speed (Scale ZW)",
+            "Tooltip": "Speed (Scale ZW)"
+        },
+        {
+            "Name": "_UVDistEnable",
+            "DisplayName": "UV Distortion",
+            "Tooltip": "UV Distortion"
+        },
+        {
+            "Name": "_UVDisTex",
+            "DisplayName": "Distortion Texture",
+            "Tooltip": "Distortion Texture"
+        },
+        {
+            "Name": "_RimEn",
+            "DisplayName": "Rim Effect",
+            "Tooltip": "Rim Effect"
+        },
+        {
+            "Name": "_RimVal",
+            "DisplayName": "Power",
+            "Tooltip": "Power"
+        },
+        {
+            "Name": "_RimColor",
+            "DisplayName": "Color",
+            "Tooltip": "Color"
+        },
+        {
+            "Name": "VertexUVScroll",
+            "DisplayName": "Modulation Scroll (Scale ZW)",
+            "Tooltip": "Modulation Scroll (Scale ZW)"
+        },
+        {
+            "Name": "VertexUVScale",
+            "DisplayName": "Modulation Scroll (Scale ZW)",
+            "Tooltip": "Modulation Scroll (Scale ZW)"
+        },
+        {
+            "Name": "_VUVScroll",
+            "DisplayName": "Modulation Scroll (Scale ZW)",
+            "Tooltip": "Modulation Scroll (Scale ZW)"
+        },
+        {
+            "Name": "_VertexMod",
+            "DisplayName": "Vertex Modulation",
+            "Tooltip": "Vertex Modulation"
+        },
+        {
+            "Name": "_NoiseTex",
+            "DisplayName": "Vertex Noise",
+            "Tooltip": "Vertex Noise"
+        },
+        {
+            "Name": "_Amplitude",
+            "DisplayName": "Amplitude",
+            "Tooltip": "Amplitude"
+        },
+        {
+            "Name": "_DissolveEnabled",
+            "DisplayName": "Dissolve",
+            "Tooltip": "Dissolve"
+        },
+        {
+            "Name": "_DissolveTex",
+            "DisplayName": "Dissolve Texture",
+            "Tooltip": "Dissolve Texture"
+        },
+        {
+            "Name": "_DCutoff",
+            "DisplayName": "Alpha Cutoff",
+            "Tooltip": "Alpha Cutoff"
+        },
+        {
+            "Name": "_DissolveScale",
+            "DisplayName": "Dissolve Scale",
+            "Tooltip": "Dissolve Scale"
+        },
+        {
+            "Name": "_Cull",
+            "DisplayName": "Two Sided",
+            "Tooltip": "Two Sided"
+        },
+        {
+            "Name": "_SoftParticlesEnabled",
+            "DisplayName": "Soft Particles",
+            "Tooltip": "Soft Particles"
+        },
+        {
+            "Name": "_SoftParticlesNearFadeDistance",
+            "DisplayName": "Near fade",
+            "Tooltip": "Near fade"
+        },
+        {
+            "Name": "_SoftParticlesFarFadeDistance",
+            "DisplayName": "Far fade",
+            "Tooltip": "Far fade"
+        },
+        {
+            "Name": "_CameraFadingEnabled",
+            "DisplayName": "Camera Fading",
+            "Tooltip": "Camera Fading"
+        },
+        {
+            "Name": "_CameraNearFadeDistance",
+            "DisplayName": "Near fade",
+            "Tooltip": "Near fade"
+        },
+        {
+            "Name": "_CameraFarFadeDistance",
+            "DisplayName": "Far fade",
+            "Tooltip": "Far fade"
+        },
+        {
+            "Name": "_FlipbookMode",
+            "DisplayName": "Flip-Book Frame Blending",
+            "Tooltip": "Flip-Book Frame Blending"
+        },
+        {
+            "Name": "BlendingOptionsLabel",
+            "DisplayName": "Blending Options",
+            "Tooltip": ""
+        },
+        {
+            "Name": "MainOptionsLabel",
+            "DisplayName": "Main Options",
+            "Tooltip": ""
+        },
+        {
+            "Name": "_Mode",
+            "DisplayName": "Rendering Mode",
+            "Tooltip": "Rendering Mode"
+        },
+        {
+            "Name": "_ColorMode",
+            "DisplayName": "Color Mode",
+            "Tooltip": "Color Mode"
+        }
+    ]
+}

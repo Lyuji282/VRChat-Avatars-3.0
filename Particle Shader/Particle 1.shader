@@ -1,6 +1,6 @@
 // Unity built-in shader source. Copyright (c) 2016 Unity Technologies. MIT license (see license.txt)
 
-Shader "VRLabs/Particle Shader"
+Shader "VRLabs/Particle Shader1"
 {
     Properties
     {
@@ -174,5 +174,5 @@ Shader "VRLabs/Particle Shader"
     }
 
     Fallback "VertexLit"
-    CustomEditor "ParticleShaderGUI"
+    CustomEditor "VRLabs.ParticleShader.ParticleShaderGUITest"
 }
