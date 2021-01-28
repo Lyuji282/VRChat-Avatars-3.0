@@ -14,34 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parameters:
   - name: WorldFX
-    valueType: 0
-  - name: 
-    valueType: 0
-  - name: 
-    valueType: 0
-  - name: 
-    valueType: 0
-  - name: 
-    valueType: 0
-  - name: 
-    valueType: 0
-  - name: 
-    valueType: 0
-  - name: 
-    valueType: 0
-  - name: 
-    valueType: 0
-  - name: 
-    valueType: 0
-  - name: 
-    valueType: 0
-  - name: 
-    valueType: 0
-  - name: 
-    valueType: 0
-  - name: 
-    valueType: 0
-  - name: 
-    valueType: 0
-  - name: 
-    valueType: 0
+    valueType: 2
+    saved: 1
+    defaultValue: 0
