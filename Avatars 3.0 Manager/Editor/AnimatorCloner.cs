@@ -248,10 +248,11 @@ namespace VRLabs.AV3Manager
                         var d = old as VRCAvatarParameterDriver;
                         l.ApplySettings = d.ApplySettings;
                         l.debugString = d.debugString;
+                        l.localOnly = d.localOnly;
                         l.parameters = d.parameters.Select(p =>
                         {
                             string name = _parametersNewName.ContainsKey(p.name) ? _parametersNewName[p.name] : p.name;
-                            return new VRC_AvatarParameterDriver.Parameter { name = name, value = p.value };
+                            return new VRC_AvatarParameterDriver.Parameter { name = name, value = p.value, chance = p.chance, valueMin = p.valueMin, valueMax = p.valueMax, type = p.type };
                         }).ToList();
                         break;
                     }
