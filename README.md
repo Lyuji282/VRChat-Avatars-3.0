@@ -57,6 +57,52 @@ Constraints with damping effects. Damping（制動、減衰）エフェクト付
 
 </details>
 
+## [Follower](https://github.com/VRLabs/VRChat-Avatars-3.0/releases/download/1/Follower.unitypackage)
+
+A world space follower, driven by constraints. Constraintによってワールドスペースでついてくるfollower。
+
+<details>
+  <summary>Install notes</summary>
+  
+> Testing in Unity requires the [3.0 emulator by Lyuma](https://github.com/lyuma/Av3Emulator).
+> 
+> Merge the FX controller to your own FX controller, using the [Avatars 3.0 Manager](https://github.com/VRLabs/VRChat-Avatars-3.0/releases/download/1/AV3Manager.unitypackage) tool. 
+> 
+> The Follower.prefab should go to the base of your Unity scene, which will give it base Unity scaling.
+> 
+> Unpack the prefab by right-clicking it and move the prefab to base of your avatar.
+> 
+> Expand the prefab, and locate Follower/FollowerTarget. Move this object out of the Follower hierarchy. Position the FollowerTarget where you want.
+> 
+> Follower/Container is where you place your objects that you want to follow.
+> 
+> To change the speed of the follower, you can edit the Speed.anim clip inside the Animations folder.
+>
+> As a result of breaking changes, a hotfix has been applied to this package so it will continue to work in 3.0.
+>
+> You must make sure the layers "IsStopping-1" and "IsStopping1" are below your base layer(in layer slots 1 and 2 if base layer is 0), otherwise the hotfix will not work properly.
+
+</details>
+
+<details>
+  <summary>導入手順</summary>
+  
+> ※Unity内でテストプレイする場合は[Lyuma](https://github.com/lyuma/Av3Emulator)さん作成の3.0エミュレーターが必要となります。
+> 
+> アバター3.0の[Manager tool](https://github.com/VRLabs/VRChat-Avatars-3.0/releases/download/1/AV3Manager.unitypackage)を使用し、FX controllerを自身のFX controllerとマージしてください。
+> 
+> "Follower.prefab"はUnity sceneのベース（一番下）に置くとbase Unityのスケールが使用できます。
+> 
+> Prefabを右クリックして"Unpack the prefab"を選択してからPrefabごとアバターのベースに追加してください。
+> 
+> Prefabを開き、Follower/FollowerTargetを探し、そのオブジェクトをFollowerのヒエラルキーから抜いてください。FollowerTargetを任意の場所に移動させてください。
+> 
+> Follower/Containerには追尾したいオブジェクトを置いてください
+> 
+> Followerのスピードを変えたい場合はAnimationsのフォルダー内にあるSpeed.animのクリップを編集してください。
+
+</details>
+
 ## [Marker](https://github.com/VRLabs/VRChat-Avatars-3.0/releases/download/1/Marker.unitypackage)
 
 A pen for drawing. お絵描き用のペン。
