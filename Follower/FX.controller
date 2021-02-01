@@ -17,7 +17,7 @@ AnimatorController:
     m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
-    m_Name: IsStopping0
+    m_Name: IsStopping-1
     m_StateMachine: {fileID: 1107648840775220834}
     m_Mask: {fileID: 0}
     m_Motions: []
