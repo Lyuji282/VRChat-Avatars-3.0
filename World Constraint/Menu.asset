@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Menu
   m_EditorClassIdentifier: 
   controls:
-  - name: WorldFX On
+  - name: WorldFX
     icon: {fileID: 0}
     type: 102
     parameter:
