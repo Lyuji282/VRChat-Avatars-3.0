@@ -80,7 +80,7 @@ A world space follower, driven by constraints. Constraintによってワール�
 >
 > As a result of breaking changes, a hotfix has been applied to this package so it will continue to work in 3.0.
 >
-> You must make sure the layers "IsStopping0" and "IsStopping1" are below your base layer(in layer slots 1 and 2 if base layer is 0), otherwise the hotfix will not work properly.
+> You must make sure the layers "IsStopping-1" and "IsStopping1" are below your base layer(in layer slots 1 and 2 if base layer is 0), otherwise the hotfix will not work properly.
 
 </details>
 
