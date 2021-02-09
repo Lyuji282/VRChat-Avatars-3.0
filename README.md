@@ -144,6 +144,24 @@ A pen for drawing. お絵描き用のペン。
 ## [Particle Shader](https://github.com/VRLabs/VRChat-Avatars-3.0/releases/download/1/ParticleShader.unitypackage)
 
 A shader for particle effects. パーティクルエフェクト用のシェーダー。
+
+## [Raycast Prefab](https://github.com/VRLabs/VRChat-Avatars-3.0/releases/download/1/RaycastPrefab.unitypackage)
+
+Grounder IK prefab. Requires Final IK.
+
+<details>
+  <summary>Install notes</summary>
+
+> Add Raycast.prefab to your scene and enter play mode. Rotate Raycast/CastingTarget.
+
+</details>
+
+<details>
+  <summary>導入手順</summary>
+
+> 近日公開。
+
+</details>
  
 ## [Spring Constraint](https://github.com/VRLabs/VRChat-Avatars-3.0/releases/download/1/SpringConstraint.unitypackage)
 
@@ -178,6 +196,7 @@ A constraint with spring behavior. バネモーションの入ったConstraint�
 > Sources > Motion (デフォルト値 4)は加速を減衰、数値が高ければ高いほどSpring Constraint/Containerの加速がゆっくりになります。
 
 </details>
+
 
 ## [World Constraint](https://github.com/VRLabs/VRChat-Avatars-3.0/releases/download/1/WorldConstraint.unitypackage)
 
