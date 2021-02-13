@@ -181,9 +181,9 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: m_Center.y
-    path: FollowerTarget
-    classID: 65
+    attribute: m_TranslationOffset.y
+    path: Follower/Collider
+    classID: 1818360608
     script: {fileID: 0}
   m_PPtrCurves: []
   m_SampleRate: 60
@@ -229,11 +229,11 @@ AnimationClip:
       customType: 31
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 2433153736
-      attribute: 1394318531
+      path: 2224719530
+      attribute: 4294967285
       script: {fileID: 0}
-      typeID: 65
-      customType: 0
+      typeID: 1818360608
+      customType: 31
       isPPtrCurve: 0
     pptrCurveMapping: []
   m_AnimationClipSettings:
@@ -421,9 +421,9 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: m_Center.y
-    path: FollowerTarget
-    classID: 65
+    attribute: m_TranslationOffset.y
+    path: Follower/Collider
+    classID: 1818360608
     script: {fileID: 0}
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
