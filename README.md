@@ -25,7 +25,35 @@ These assets follow the VRChat animation standard with write defaults turned off
 
 ## [Avatars 3.0 Manager](https://github.com/VRLabs/VRChat-Avatars-3.0/releases/download/1/AV3Manager.unitypackage)
 
- A tool for managing playable layers and parameters for Avatars 3.0. アバター3.0でプレイするレイヤーやパラメターを管理するツール。
+A tool for managing playable layers and parameters for Avatars 3.0. アバター3.0でプレイするレイヤーやパラメターを管理するツール。
+ 
+<details>
+  <summary>Install notes</summary>
+
+> This tool merges animator controllers to your avatar's playable layer controllers and syncs to your avatar's expression parameters.
+>
+> Open VRLabs > Avatars 3.0 Manager from the menu bar.
+> 
+> Place your avatar in the "Avatar" field within the opened window.
+> 
+> Expand the playable layer to merge on and click "Add animator to merge".
+> 
+> Place the animator controller to merge in the "Controller" field.
+> 
+> A suffix is appended to a new parameter if it shares its name with an existing parameter. Modify or remove suffixes as needed.
+> 
+> Click "Merge on current" to merge into the avatar's existing controller. Sync parameters as needed.
+
+</details>
+
+</details>
+
+<details>
+  <summary>導入手順</summary>
+
+> 近日公開。
+
+</details>
 
 ## [Damping Constraints](https://github.com/VRLabs/VRChat-Avatars-3.0/releases/download/1/DampingConstraints.unitypackage)
 
