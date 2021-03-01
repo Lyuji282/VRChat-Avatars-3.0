@@ -165,7 +165,17 @@ namespace VRLabs.AV3Manager
 
         private static AnimatorState CloneAnimatorState(AnimatorState old)
         {
-            var n = new AnimatorState
+            // Checks if the motion is a blend tree, to avoid accidental blend tree sharing between animator assets
+            Motion motion = old.motion;
+            if (motion is BlendTree oldTree)
+            {
+                var tree = CloneBlendTree(null, oldTree);
+                motion = tree;
+                tree.hideFlags = HideFlags.HideInHierarchy;
+                AssetDatabase.AddObjectToAsset(motion, _assetPath);
+            }
+            
+            var n = new AnimatorState 
             {
                 cycleOffset = old.cycleOffset,
                 cycleOffsetParameter = old.cycleOffsetParameter,
@@ -175,7 +185,7 @@ namespace VRLabs.AV3Manager
                 mirror = old.mirror,
                 mirrorParameter = old.mirrorParameter,
                 mirrorParameterActive = old.mirrorParameterActive,
-                motion = old.motion,
+                motion = motion,
                 name = old.name,
                 speed = old.speed,
                 speedParameter = old.speedParameter,
@@ -187,6 +197,37 @@ namespace VRLabs.AV3Manager
             };
             AssetDatabase.AddObjectToAsset(n, _assetPath);
             return n;
+        }
+        
+        // Taken from here: https://gist.github.com/phosphoer/93ca8dcbf925fc006e4e9f6b799c13b0
+        private static BlendTree CloneBlendTree(BlendTree newTree, BlendTree oldTree)
+        {
+            // Create a child tree in the destination parent, this seems to be the only way to correctly 
+            // add a child tree as opposed to AddChild(motion)
+            BlendTree pastedTree = newTree is null ? new BlendTree() : newTree.CreateBlendTreeChild(newTree.maxThreshold);
+            pastedTree.name = oldTree.name;
+            pastedTree.blendType = oldTree.blendType;
+            pastedTree.blendParameter = oldTree.blendParameter;
+            pastedTree.blendParameterY = oldTree.blendParameterY;
+            pastedTree.minThreshold = oldTree.minThreshold;
+            pastedTree.maxThreshold = oldTree.maxThreshold;
+            pastedTree.useAutomaticThresholds = oldTree.useAutomaticThresholds;
+
+            // Recursively duplicate the tree structure
+            // Motions can be directly added as references while trees must be recursively to avoid accidental sharing
+            foreach (var child in oldTree.children)
+            {
+                if (child.motion is BlendTree tree)
+                {
+                    CloneBlendTree(pastedTree, tree);
+                }
+                else
+                {
+                    pastedTree.AddChild(child.motion);
+                }
+            }
+
+            return pastedTree;
         }
 
         private static void CloneBehaviourParameters(StateMachineBehaviour old, StateMachineBehaviour n)
