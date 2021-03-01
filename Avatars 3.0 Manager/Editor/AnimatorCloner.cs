@@ -171,6 +171,7 @@ namespace VRLabs.AV3Manager
             {
                 var tree = CloneBlendTree(null, oldTree);
                 motion = tree;
+                // need to save the blend tree into the animator
                 tree.hideFlags = HideFlags.HideInHierarchy;
                 AssetDatabase.AddObjectToAsset(motion, _assetPath);
             }
@@ -219,7 +220,10 @@ namespace VRLabs.AV3Manager
             {
                 if (child.motion is BlendTree tree)
                 {
-                    CloneBlendTree(pastedTree, tree);
+                    var childTree = CloneBlendTree(pastedTree, tree);
+                    // need to save the blend tree into the animator
+                    childTree.hideFlags = HideFlags.HideInHierarchy;
+                    AssetDatabase.AddObjectToAsset(childTree, _assetPath);
                 }
                 else
                 {
