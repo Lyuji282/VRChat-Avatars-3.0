@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controls:
   - name: Marker
-    icon: {fileID: 0}
+    icon: {fileID: 2800000, guid: 3fbf0dd0286008143ab4bacc99e8ad62, type: 3}
     type: 102
     parameter:
       name: M_Marker
@@ -24,7 +24,7 @@ MonoBehaviour:
     subParameters: []
     labels: []
   - name: Color
-    icon: {fileID: 2800000, guid: 30891e000b76dfc4db977fc2238911a0, type: 3}
+    icon: {fileID: 2800000, guid: 32351865350622549a90b3ef1c5ffe47, type: 3}
     type: 203
     parameter:
       name: 
@@ -35,7 +35,7 @@ MonoBehaviour:
     - name: M_Color
     labels: []
   - name: Brush Size
-    icon: {fileID: 0}
+    icon: {fileID: 2800000, guid: 505f1630ba294e048b0337e9e05876e5, type: 3}
     type: 203
     parameter:
       name: 
@@ -46,7 +46,7 @@ MonoBehaviour:
     - name: M_Size
     labels: []
   - name: Eraser
-    icon: {fileID: 0}
+    icon: {fileID: 2800000, guid: 1909144485fdc8f4389abe745c1570ae, type: 3}
     type: 102
     parameter:
       name: M_Eraser
@@ -56,7 +56,7 @@ MonoBehaviour:
     subParameters: []
     labels: []
   - name: Eraser Size
-    icon: {fileID: 0}
+    icon: {fileID: 2800000, guid: 505f1630ba294e048b0337e9e05876e5, type: 3}
     type: 203
     parameter:
       name: 
@@ -67,7 +67,7 @@ MonoBehaviour:
     - name: M_EraserSize
     labels: []
   - name: Clear
-    icon: {fileID: 0}
+    icon: {fileID: 2800000, guid: f5bf5118da750fc419cfc73052c28045, type: 3}
     type: 101
     parameter:
       name: M_Clear
@@ -77,7 +77,7 @@ MonoBehaviour:
     subParameters: []
     labels: []
   - name: Local Space
-    icon: {fileID: 0}
+    icon: {fileID: 2800000, guid: 2580a69106593de4b883fabea42c98ea, type: 3}
     type: 103
     parameter:
       name: 

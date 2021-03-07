@@ -53,7 +53,6 @@ namespace VRLabs.AV3Manager
             "Assets/VRCSDK/Examples3/Animation/Controllers/vrc_AvatarV3HandsLayer.controller",
             "Assets/VRCSDK/Examples3/Animation/Controllers/vrc_AvatarV3ActionLayer.controller"
         };
-
         public enum PlayableLayer // for function MergeToLayer
         {
             Base = 0,
@@ -62,7 +61,6 @@ namespace VRLabs.AV3Manager
             Action = 3,
             FX = 4
         }
-
 
         /// <summary>
         /// Creates a copy of the avatar descriptor's parameter asset or creates one if it doesn't exist, adds a provided parameter,
@@ -115,7 +113,7 @@ namespace VRLabs.AV3Manager
                 parameters = AssetDatabase.LoadAssetAtPath(path, typeof(VRCExpressionParameters)) as VRCExpressionParameters;
             }
 
-            if (descriptor.expressionParameters.FindParameter(parameter.name) == null)
+            if (parameters.FindParameter(parameter.name) == null)
             {
                 int count = parameters.parameters.Length;
                 VRCExpressionParameters.Parameter[] parameterArray = new VRCExpressionParameters.Parameter[count + 1];
@@ -132,7 +130,6 @@ namespace VRLabs.AV3Manager
             AssetDatabase.Refresh();
             descriptor.expressionParameters = parameters;
         }
-
 
         /// <summary>
         /// Creates a copy of the avatar descriptor's topmost menu asset or creates one if it doesn't exist, adds the provided menu as a submenu,
@@ -168,11 +165,11 @@ namespace VRLabs.AV3Manager
             {
                 AssetDatabase.CreateAsset(topMenu, directory + "Menu Topmost.asset");
             }
-            else if (descriptor.expressionsMenu != null)
+            else
             {
                 if (descriptor.expressionsMenu.controls.Count == 8)
                 {
-                    Debug.LogError("Couldn't add menu. Please have an available slot in your avatar's topmost Expression Menu.");
+                    Debug.LogWarning("Couldn't add menu. Please have an available slot in your avatar's topmost Expression Menu.");
                     return;
                 }
 
@@ -187,11 +184,11 @@ namespace VRLabs.AV3Manager
 
             List<VRCExpressionsMenu.Control> controlList = topMenu.controls;
 
-            foreach (VRCExpressionsMenu.Control ctrl in controlList)
+            for (int i = 0; i < controlList.Count; i++)
             {
-                if (ctrl.name.Equals(controlName) && ctrl.type.Equals(VRCExpressionsMenu.Control.ControlType.SubMenu))
+                if (controlList[i].name.Equals(controlName) && controlList[i].type.Equals(VRCExpressionsMenu.Control.ControlType.SubMenu))
                 { // if a control for a submenu exists with the same name, replace the submenu
-                    ctrl.subMenu = menuToAdd;
+                    controlList[i].subMenu = menuToAdd;
                     EditorUtility.SetDirty(topMenu);
                     AssetDatabase.SaveAssets();
                     AssetDatabase.Refresh();
@@ -201,11 +198,7 @@ namespace VRLabs.AV3Manager
             }
 
             VRCExpressionsMenu.Control control = new VRCExpressionsMenu.Control
-            {
-                name = controlName,
-                type = VRCExpressionsMenu.Control.ControlType.SubMenu,
-                subMenu = menuToAdd
-            };
+                { name = controlName, type = VRCExpressionsMenu.Control.ControlType.SubMenu, subMenu = menuToAdd };
             controlList.Add(control);
             topMenu.controls = controlList;
 
@@ -214,7 +207,6 @@ namespace VRLabs.AV3Manager
             AssetDatabase.Refresh();
             descriptor.expressionsMenu = topMenu;
         }
-
 
         /// <summary>
         /// Merges a controller "as new" with the specified playable layer on an avatar's descriptor,
@@ -294,17 +286,6 @@ namespace VRLabs.AV3Manager
             AssetDatabase.Refresh();
         }
 
-        /*foreach (ChildAnimatorState childState in stateMachine.states)
-         {
-             childState.state.writeDefaultValues = wd;
-
-         }
-         foreach (ChildAnimatorStateMachine childStateMachine in stateMachine.stateMachines)
-         {
-             SetInStateMachine(childStateMachine.stateMachine, wd);
-
-         }*/
-
         /// <summary>
         /// Sets the "Write Defaults" value of all the states in an entire animator controller to true or false.
         /// Will modify the controller directly.
@@ -319,9 +300,9 @@ namespace VRLabs.AV3Manager
                 Debug.LogError("Couldn't set Write Defaults value, the controller is null!");
                 return;
             }
-            foreach (AnimatorControllerLayer layer in controller.layers)
+            for (int i = 0; i < controller.layers.Length; i++)
             {
-                SetInStateMachine(layer.stateMachine, writeDefaults);
+                SetInStateMachine(controller.layers[i].stateMachine, writeDefaults);
             }
             EditorUtility.SetDirty(controller);
             AssetDatabase.SaveAssets();
@@ -329,8 +310,14 @@ namespace VRLabs.AV3Manager
         }
         private static AnimatorStateMachine SetInStateMachine (AnimatorStateMachine stateMachine, bool wd)
         {
-            stateMachine.states.Select(x => x.state.writeDefaultValues = wd).ToArray();
-            stateMachine.stateMachines.Select(x => SetInStateMachine(x.stateMachine, wd)).ToArray();        
+            for (int i = 0; i < stateMachine.states.Length; i++)
+            {
+                stateMachine.states[i].state.writeDefaultValues = wd;
+            }
+            for (int i = 0; i < stateMachine.stateMachines.Length; i++)
+            {
+                SetInStateMachine(stateMachine.stateMachines[i].stateMachine, wd);
+            }
             return stateMachine;
         }
     }

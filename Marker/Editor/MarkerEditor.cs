@@ -1,4 +1,4 @@
-﻿// Marker and script by ksivl / VRLabs 3.0 Assets - https://vrlabs.dev
+﻿// Marker by ksivl / VRLabs 3.0 Assets https://vrlabs.dev
 #if UNITY_EDITOR
 
 using System;
@@ -11,6 +11,7 @@ using Vector3 = UnityEngine.Vector3;
 using VRC.SDK3.Avatars.Components;
 using VRC.SDK3.Avatars.ScriptableObjects;
 using VRLabs.AV3Manager;
+using System.Linq;
 
 namespace MarkerSystem
 {
@@ -24,14 +25,15 @@ namespace MarkerSystem
 		public System.Collections.Generic.List<string> warnings = new System.Collections.Generic.List<string>();
 		public int bitCount;
 
-		public bool leftHanded, writeDefaults, brushSize, eraserSize, localSpace;
+		public bool leftHanded, writeDefaults, useIndexFinger, brushSize, eraserSize, localSpace;
 		public int localSpaceFullBody;
+
+		private readonly string path_defaultGesture = "Assets/VRCSDK/Examples3/Animation/Controllers/vrc_AvatarV3HandsLayer.controller";
+		private readonly string path_defaultMaskL = "Assets/VRCSDK/Examples3/Animation/Masks/vrc_Hand Left.mask";
+		private readonly string path_defaultMaskR = "Assets/VRCSDK/Examples3/Animation/Masks/vrc_Hand Right.mask";
 
 		public void Reset()
 		{
-
-
-
 			if (((Marker)target).gameObject.GetComponent<VRCAvatarDescriptor>() != null)
 			{
 				descriptor = ((Marker)target).gameObject.GetComponent<VRCAvatarDescriptor>();
@@ -43,7 +45,7 @@ namespace MarkerSystem
 			eraserSize = ((Marker)target).eraserSize;
 			localSpace = ((Marker)target).localSpace;
 			localSpaceFullBody = ((Marker)target).localSpaceFullBody;
-
+			useIndexFinger = ((Marker)target).useIndexFinger;
 		}
 
 
@@ -74,7 +76,8 @@ namespace MarkerSystem
 
 				brushSize = EditorGUILayout.ToggleLeft("Adjustable brush size", brushSize);
 				eraserSize = EditorGUILayout.ToggleLeft("Adjustable eraser size", eraserSize);
-				localSpace = EditorGUILayout.ToggleLeft(new GUIContent("Customize Local Space", "Check this if you want to attach your drawings to various locations on your body (recommended)! If unchecked, you can only attach your drawing to your player capsule."), localSpace);
+				useIndexFinger = EditorGUILayout.ToggleLeft(new GUIContent("Use index finger to draw", "By default, you draw with a shiny pen. Check this to draw with your index finger instead."), useIndexFinger);
+				localSpace = EditorGUILayout.ToggleLeft(new GUIContent("Enable local space", "Check this to be able to attach your drawings to various locations on your body (recommended)! If unchecked, you can only attach your drawing to your player capsule."), localSpace);
 
 				if (localSpace)
 				{
@@ -93,10 +96,7 @@ namespace MarkerSystem
 
 				if (warnings.Count == 0)
 				{
-					GUIStyle buttonStyle = new GUIStyle(GUI.skin.button)
-					{
-						fontStyle = FontStyle.Bold
-					};
+					GUIStyle buttonStyle = new GUIStyle(GUI.skin.button) { fontStyle = FontStyle.Bold };
 					if (GUILayout.Button("Generate Marker", buttonStyle))
 					{
 						Debug.Log("Generating Marker...");
@@ -119,7 +119,7 @@ namespace MarkerSystem
 			}
 			else if (((Marker)target).finished == true)
 			{
-				if (GUILayout.Button(new GUIContent("Adjust MarkerTarget", "Move and rotate MarkerTarget so it's positioned at the tip of your index finger.")))
+				if (GUILayout.Button(new GUIContent("Adjust MarkerTarget transform", "Move, rotate, or scale MarkerTarget so it's either in your hand (marker model) or at the tip of your index finger (no marker model), if needed.")))
 				{
 					if (((Marker)target).markerTarget.gameObject == null)
 					{
@@ -127,21 +127,22 @@ namespace MarkerSystem
 					} 
 					else
 					{
-
 						Selection.activeGameObject = ((Marker)target).markerTarget.gameObject;
 					}
 				}
 
 				GUILayout.Space(8);
 
-				GUIStyle buttonStyle = new GUIStyle(GUI.skin.button)
-				{
-					fontStyle = FontStyle.Bold
-				};
+				GUIStyle buttonStyle = new GUIStyle(GUI.skin.button) { fontStyle = FontStyle.Bold };
 				if (GUILayout.Button("Finish Setup", buttonStyle))
 				{
+					if (!((Marker)target).useIndexFinger) // turn off marker model by default
+					{
+						((Marker)target).markerModel.GetComponent<MeshRenderer>().enabled = false;
+					}
 					Debug.Log("Finished, destroying Marker script!");
 					DestroyImmediate((Marker)target);
+					// END SCRIPT
 				}
 			}
 
@@ -151,124 +152,50 @@ namespace MarkerSystem
 			((Marker)target).eraserSize = eraserSize;
 			((Marker)target).localSpace = localSpace;
 			((Marker)target).localSpaceFullBody = localSpaceFullBody;
+			((Marker)target).useIndexFinger = useIndexFinger;
 		}
 
 		public void Generate()
 		{
-			// Unique folder and file name setup
-			string directory = "Assets/ksivl/Marker/Generated/" + DateTime.Now.ToString("MM.dd HH.mm.ss") + "/";
+			// Unique directory setup
+			string directory = "Assets/VRLabs/Marker/Generated/" + DateTime.Now.ToString("MM.dd HH.mm.ss") + "/";
 			Directory.CreateDirectory(directory);
 
-			// Install FX layer, parameters, and menu
-
-			// FX layer 
+			// Install layers, parameters, and menu before prefab setup
+			// FX layer
 			if (leftHanded)
 			{
-				AssetDatabase.CopyAsset("Assets/ksivl/Marker/Resources/FX_Left.controller", directory + "FXtemp.controller");
+				AssetDatabase.CopyAsset("Assets/VRLabs/Marker/Resources/FX_Left.controller", directory + "FXtemp.controller");
 			}
 			else
 			{
-				AssetDatabase.CopyAsset("Assets/ksivl/Marker/Resources/FX_Right.controller", directory + "FXtemp.controller");
+				AssetDatabase.CopyAsset("Assets/VRLabs/Marker/Resources/FX_Right.controller", directory + "FXtemp.controller");
 			}
 			AnimatorController FX = AssetDatabase.LoadAssetAtPath(directory + "FXtemp.controller", typeof(AnimatorController)) as AnimatorController;
 
+			// remove controller layers before merging to avatar, corresponding to setup
+			if (!brushSize)
+			{
+				RemoveLayerAndParameter(FX, "M_Size");
+			}
+
+			if (!eraserSize)
+			{
+				RemoveLayerAndParameter(FX, "M_EraserSize");
+			}
+
+			if (!localSpace)
+			{
+				RemoveLayerAndParameter(FX, "M_Space");
+			}
+			else
+			{
+				RemoveLayerAndParameter(FX, "M_SpaceSimple");
+			}
+
 			if (writeDefaults)
 			{
-				AV3ManagerFunctions.SetWriteDefaults(FX, true);
-			}
-
-			if (!brushSize)
-			{
-				for (int i = 0; i < FX.layers.Length; i++)
-				{
-					if (FX.layers[i].name.Equals("M_Size"))
-					{
-						FX.RemoveLayer(i);
-						break;
-					}
-				}
-			}
-
-			if (!eraserSize)
-			{
-				for (int i = 0; i < FX.layers.Length; i++)
-				{
-					if (FX.layers[i].name.Equals("M_EraserSize"))
-					{
-						FX.RemoveLayer(i);
-						break;
-					}
-				}
-			}
-
-			if (!localSpace)
-			{
-				for (int i = 0; i < FX.layers.Length; i++)
-				{
-					if (FX.layers[i].name.Equals("M_Space"))
-					{
-						FX.RemoveLayer(i);
-						break;
-					}
-				}
-			}
-			else
-			{
-				for (int i = 0; i < FX.layers.Length; i++)
-				{
-					if (FX.layers[i].name.Equals("M_SpaceSimple"))
-					{
-						FX.RemoveLayer(i);
-						break;
-					}
-				}
-			}
-			
-			if (!brushSize)
-			{
-				for (int i = 0; i < FX.parameters.Length; i++)
-				{
-					if (FX.parameters[i].name.Equals("M_Size"))
-					{
-						FX.RemoveParameter(i);
-						break;
-					}
-				}
-			}
-
-			if (!eraserSize)
-			{
-				for (int i = 0; i < FX.parameters.Length; i++)
-				{
-					if (FX.parameters[i].name.Equals("M_EraserSize"))
-					{
-						FX.RemoveParameter(i);
-						break;
-					}
-				}
-			}
-
-			if (!localSpace)
-			{
-				for (int i = 0; i < FX.parameters.Length; i++)
-				{
-					if (FX.parameters[i].name.Equals("M_Space"))
-					{
-						FX.RemoveParameter(i);
-						break;
-					}
-				}
-			} 
-			else
-			{
-				for (int i = 0; i < FX.parameters.Length; i++)
-				{
-					if (FX.parameters[i].name.Equals("M_SpaceSimple"))
-					{
-						FX.RemoveParameter(i);
-						break;
-					}
-				}
+				AV3ManagerFunctions.SetWriteDefaults(FX);
 			}
 
 			EditorUtility.SetDirty(FX);
@@ -276,35 +203,92 @@ namespace MarkerSystem
 			AssetDatabase.Refresh();
 
 			AV3ManagerFunctions.MergeToLayer(descriptor, FX, AV3ManagerFunctions.PlayableLayer.FX, directory);
-
 			AssetDatabase.DeleteAsset(AssetDatabase.GetAssetPath(FX)); // remove modified temporary FX layer
 
-			// Parameters
+			// Gesture layer
+			AssetDatabase.CopyAsset(path_defaultGesture, directory + "Gesture.controller");
+			AnimatorController gestureOriginal = AssetDatabase.LoadAssetAtPath(directory + "Gesture.controller", typeof(AnimatorController)) as AnimatorController;
 
-			VRCExpressionParameters.Parameter p_marker = new VRCExpressionParameters.Parameter
+			AssetDatabase.CopyAsset("Assets/VRLabs/Marker/Resources/Gesture.controller", directory + "gestureTemp.controller"); // to modify
+			AnimatorController gesture = AssetDatabase.LoadAssetAtPath(directory + "gestureTemp.controller", typeof(AnimatorController)) as AnimatorController;
+			descriptor.customExpressions = true;
+			descriptor.baseAnimationLayers[2].isDefault = false;
+			descriptor.baseAnimationLayers[2].animatorController = gestureOriginal;
+
+			if (writeDefaults)
 			{
-				name = "M_Marker",
-				valueType = VRCExpressionParameters.ValueType.Bool,
-				saved = false
-			};
-			VRCExpressionParameters.Parameter p_eraser = new VRCExpressionParameters.Parameter
+				AV3ManagerFunctions.SetWriteDefaults(gestureOriginal);
+				EditorUtility.SetDirty(gestureOriginal);
+				AssetDatabase.SaveAssets();
+				AssetDatabase.Refresh();
+			}
+
+			int layerRemove = (leftHanded) ? 1 : 0;
+			if (useIndexFinger)
+			{   // use the other set of hand animations
+				gesture.RemoveLayer(layerRemove);
+				for (int i = 0; i < 3; i++)
+				{
+					if (gesture.layers[0].stateMachine.states[i].state.motion.name == "M_Gesture")
+					{
+						gesture.layers[0].stateMachine.states[i].state.motion = AssetDatabase.LoadAssetAtPath("Assets/VRLabs/Marker/Resources/Animations/Gesture/M_Gesture (Finger).anim", typeof(AnimationClip)) as AnimationClip;
+					}
+					else if (gesture.layers[0].stateMachine.states[i].state.motion.name == "M_Gesture Draw")
+					{
+						gesture.layers[0].stateMachine.states[i].state.motion = AssetDatabase.LoadAssetAtPath("Assets/VRLabs/Marker/Resources/Animations/Gesture/M_Gesture Draw (Finger).anim", typeof(AnimationClip)) as AnimationClip;
+					}
+				}
+			}
+			else
 			{
-				name = "M_Eraser",
-				valueType = VRCExpressionParameters.ValueType.Bool,
-				saved = false
-			};
-			VRCExpressionParameters.Parameter p_clear = new VRCExpressionParameters.Parameter
+				gesture.RemoveLayer(layerRemove);
+			}
+
+			EditorUtility.SetDirty(gesture);
+			AssetDatabase.SaveAssets();
+			AssetDatabase.Refresh();
+
+			AV3ManagerFunctions.MergeToLayer(descriptor, gesture, AV3ManagerFunctions.PlayableLayer.Gesture, directory);
+			AssetDatabase.DeleteAsset(AssetDatabase.GetAssetPath(gesture)); // remove modified temporary gesture layer
+
+			// layer weight control from merged layer may need index set correctly
+			AnimatorController avatarGesture = (AnimatorController)descriptor.baseAnimationLayers[2].animatorController;
+			for (int i = 0; i < avatarGesture.layers.Length; i++)
 			{
-			    name = "M_Clear",
-				valueType = VRCExpressionParameters.ValueType.Bool,
-				saved = false
-			};
-			VRCExpressionParameters.Parameter p_color = new VRCExpressionParameters.Parameter
+				if (avatarGesture.layers[i].name.Contains("M_Marker") && (i != 3))
+				{   // the controls' layer is set to 3 by default (AllParts, LeftHand, RightHand, >>>M_Marker<<<)
+					for (int j = 0; j < 3; j++)
+					{
+						if (avatarGesture.layers[i].stateMachine.states[j].state.behaviours[0] != null)
+						{
+							VRCAnimatorLayerControl ctrl = (VRCAnimatorLayerControl)avatarGesture.layers[i].stateMachine.states[j].state.behaviours[0];
+							ctrl.layer = i;
+						}
+					}
+				}
+				else
+				{
+					break;
+				}
+			}
+			if (writeDefaults)
 			{
-				name = "M_Color",
-				valueType = VRCExpressionParameters.ValueType.Float,
-				saved = false
-			};
+				AV3ManagerFunctions.SetWriteDefaults(avatarGesture, true);
+			}
+			EditorUtility.SetDirty(avatarGesture);
+			AssetDatabase.SaveAssets();
+			AssetDatabase.Refresh();
+
+			// Parameters
+			VRCExpressionParameters.Parameter
+			p_marker = new VRCExpressionParameters.Parameter
+				{ name = "M_Marker", valueType = VRCExpressionParameters.ValueType.Bool, saved = false },
+			p_eraser = new VRCExpressionParameters.Parameter
+				{ name = "M_Eraser", valueType = VRCExpressionParameters.ValueType.Bool, saved = false },
+			p_clear = new VRCExpressionParameters.Parameter
+				{ name = "M_Clear", valueType = VRCExpressionParameters.ValueType.Bool, saved = false },
+			p_color = new VRCExpressionParameters.Parameter
+				{ name = "M_Color", valueType = VRCExpressionParameters.ValueType.Float, saved = false };
 			AV3ManagerFunctions.AddParameter(descriptor, p_marker, directory);
 			AV3ManagerFunctions.AddParameter(descriptor, p_eraser, directory);
 			AV3ManagerFunctions.AddParameter(descriptor, p_clear, directory);
@@ -313,65 +297,49 @@ namespace MarkerSystem
 			if (localSpace)
 			{
 				VRCExpressionParameters.Parameter p_localSpace = new VRCExpressionParameters.Parameter
-				{
-					name = "M_Space",
-					valueType = VRCExpressionParameters.ValueType.Int,
-					saved = false
-				};
+					{ name = "M_Space", valueType = VRCExpressionParameters.ValueType.Int, saved = false };
 				AV3ManagerFunctions.AddParameter(descriptor, p_localSpace, directory);
-
 			}
 			else
 			{
 				VRCExpressionParameters.Parameter p_localSpaceSimple = new VRCExpressionParameters.Parameter
-				{
-					name = "M_SpaceSimple",
-					valueType = VRCExpressionParameters.ValueType.Bool,
-					saved = false
-				};
+					{ name = "M_SpaceSimple", valueType = VRCExpressionParameters.ValueType.Bool, saved = false };
 				AV3ManagerFunctions.AddParameter(descriptor, p_localSpaceSimple, directory);
 			}
 
 			if (brushSize)
 			{
 				VRCExpressionParameters.Parameter p_size = new VRCExpressionParameters.Parameter
-				{
-					name = "M_Size",
-					valueType = VRCExpressionParameters.ValueType.Float,
-					saved = false
-				};
+					{ name = "M_Size", valueType = VRCExpressionParameters.ValueType.Float, saved = false };
 				AV3ManagerFunctions.AddParameter(descriptor, p_size, directory);
 			}
 			if (eraserSize)
 			{
 				VRCExpressionParameters.Parameter p_eraserSize = new VRCExpressionParameters.Parameter
-				{
-					name = "M_EraserSize",
-					valueType = VRCExpressionParameters.ValueType.Float,
-					saved = false
-				};
+					{ name = "M_EraserSize", valueType = VRCExpressionParameters.ValueType.Float, saved = false };
 				AV3ManagerFunctions.AddParameter(descriptor, p_eraserSize, directory);
 			}
 
 			// handle menu instancing
-			AssetDatabase.CopyAsset("Assets/ksivl/Marker/Resources/Menu - Marker.asset", directory + "Menu - Marker.asset");
+			AssetDatabase.CopyAsset("Assets/VRLabs/Marker/Resources/Menu - Marker.asset", directory + "Menu - Marker.asset");
 			VRCExpressionsMenu markerMenu = AssetDatabase.LoadAssetAtPath(directory + "Menu - Marker.asset", typeof(VRCExpressionsMenu)) as VRCExpressionsMenu;
-
-			if (!localSpace)
+			
+			if (!localSpace) // change from submenu to 1 toggle
 			{
-				VRCExpressionsMenu.Control.Parameter p_spaceSimple = new VRCExpressionsMenu.Control.Parameter
-				{
-					name = "M_SpaceSimple"
-				};
+				VRCExpressionsMenu.Control.Parameter p_spaceSimple = new VRCExpressionsMenu.Control.Parameter 
+					{ name = "M_SpaceSimple" };
 				markerMenu.controls[6].type = VRCExpressionsMenu.Control.ControlType.Toggle;
 				markerMenu.controls[6].parameter = p_spaceSimple;
+				EditorUtility.SetDirty(markerMenu);
+				AssetDatabase.SaveAssets();
+				AssetDatabase.Refresh();
 			}
 			else
 			{
-				AssetDatabase.CopyAsset("Assets/ksivl/Marker/Resources/Menu - Marker Space.asset", directory + "Menu - Marker Space.asset");
+				AssetDatabase.CopyAsset("Assets/VRLabs/Marker/Resources/Menu - Marker Space.asset", directory + "Menu - Marker Space.asset");
 				VRCExpressionsMenu subMenu = AssetDatabase.LoadAssetAtPath(directory + "Menu - Marker Space.asset", typeof(VRCExpressionsMenu)) as VRCExpressionsMenu;
 
-				if (localSpaceFullBody == 0)
+				if (localSpaceFullBody == 0) // remove left and right foot controls
 				{
 					subMenu.controls.RemoveAt(7);
 					subMenu.controls.RemoveAt(6);
@@ -384,68 +352,82 @@ namespace MarkerSystem
 
 			if (!brushSize)
 			{
-				for (int i = 0; i < 8; i++)
-				{
-					if (markerMenu.controls[i].name.Equals("Brush Size"))
-					{
-						markerMenu.controls.RemoveAt(i);
-						break;
-					}
-				}
+				RemoveMenuControl(markerMenu, "Brush Size");
 			}
 
 			if (!eraserSize)
 			{
-				for (int i = 0; i < 8; i++)
-				{
-					if (markerMenu.controls[i].name.Equals("Eraser Size"))
-					{
-						markerMenu.controls.RemoveAt(i);
-						break;
-					}
-				}
+				RemoveMenuControl(markerMenu, "Eraser Size");
 			}
 
 			EditorUtility.SetDirty(markerMenu);
 			AssetDatabase.SaveAssets();
 			AssetDatabase.Refresh();
-			AV3ManagerFunctions.AddSubMenu(descriptor, markerMenu, "Marker System", directory);
+			AV3ManagerFunctions.AddSubMenu(descriptor, markerMenu, "Marker", directory);
 
-			// Setup in scene
+			// icon
+			VRCExpressionsMenu.Control markerControl = descriptor.expressionsMenu.controls.FirstOrDefault(x => x.name.Equals("Marker"));
+			markerControl.icon = AssetDatabase.LoadAssetAtPath("Assets/VRLabs/Marker/Resources/Icons/M_Icon_MarkerTop.png", typeof(Texture2D)) as Texture2D;
 
-			GameObject marker = PrefabUtility.InstantiatePrefab(AssetDatabase.LoadAssetAtPath("Assets/ksivl/Marker/Resources/Marker.prefab", typeof(GameObject))) as GameObject;
+			// setup in scene
+			GameObject marker = PrefabUtility.InstantiatePrefab(AssetDatabase.LoadAssetAtPath("Assets/VRLabs/Marker/Resources/Marker.prefab", typeof(GameObject))) as GameObject;
 			PrefabUtility.UnpackPrefabInstance(marker, PrefabUnpackMode.Completely, InteractionMode.AutomatedAction);
-			marker.transform.SetParent(avatar.transform);
+			marker.transform.SetParent(avatar.transform, false);
 
 			Transform targets = marker.transform.Find("Targets");
 		    Transform markerTarget = targets.Find("MarkerTarget");
+			Transform markerModel = targets.Find("MarkerModel");
 			Transform eraser = marker.transform.Find("Eraser");
-			
-			// prefer the end bone of the index finger if it exists
-			if (leftHanded)
-			{
-				Transform leftIndexDistal = avatar.GetBoneTransform(HumanBodyBones.LeftIndexDistal);
-				if (leftIndexDistal.Find(leftIndexDistal.gameObject.name + "_end") != null)
-				{
-					markerTarget.SetParent(leftIndexDistal.Find(leftIndexDistal.gameObject.name + "_end"), false);
-				}
-				else
-				{
-					markerTarget.SetParent(leftIndexDistal, false);
-				}		
-			} 
-			else
-			{
-				Transform rightIndexDistal = avatar.GetBoneTransform(HumanBodyBones.RightIndexDistal);
+			Transform eraserTarget = markerModel.GetChild(0);
 
-				if (rightIndexDistal.Find(rightIndexDistal.gameObject.name + "_end") != null)
-				{			
-					markerTarget.SetParent(rightIndexDistal.Find(rightIndexDistal.gameObject.name + "_end"), false);
+			if (useIndexFinger) 
+			{   // eraserTarget not needed, constrain eraser to markerTarget
+				ParentConstraint eraserConstraint = eraser.GetComponent<ParentConstraint>();
+				eraserConstraint.SetSource(0, new ConstraintSource { sourceTransform = markerTarget, weight = 1.0f });
+				eraser.localPosition = Vector3.zero; // reset offset
+
+				if (leftHanded)
+				{   // prefer the end bone of the index finger if it exists
+					Transform leftIndexDistal = avatar.GetBoneTransform(HumanBodyBones.LeftIndexDistal);
+					if (leftIndexDistal.Find(leftIndexDistal.gameObject.name + "_end") != null)
+					{
+						markerTarget.SetParent(leftIndexDistal.Find(leftIndexDistal.gameObject.name + "_end"), false);
+					}
+					else
+					{
+						markerTarget.SetParent(leftIndexDistal, false);
+					}
 				}
 				else
 				{
-					markerTarget.SetParent(rightIndexDistal, false);
+					Transform rightIndexDistal = avatar.GetBoneTransform(HumanBodyBones.RightIndexDistal);
+
+					if (rightIndexDistal.Find(rightIndexDistal.gameObject.name + "_end") != null)
+					{
+						markerTarget.SetParent(rightIndexDistal.Find(rightIndexDistal.gameObject.name + "_end"), false);
+					}
+					else
+					{
+						markerTarget.SetParent(rightIndexDistal, false);
+					}
 				}
+			}
+			else // using model
+			{
+				markerModel.SetParent(marker.transform); // move it out of Targets hierarchy
+				if (leftHanded)
+				{   // keep scale
+					Transform leftWrist = avatar.GetBoneTransform(HumanBodyBones.LeftHand);
+					markerTarget.SetParent(leftWrist, true);
+				}
+				else
+				{
+					Transform rightWrist = avatar.GetBoneTransform(HumanBodyBones.RightHand);
+					markerTarget.SetParent(rightWrist, true);
+				}
+				markerTarget.localPosition = Vector3.zero;
+				markerTarget.localRotation = Quaternion.Euler(0f, 0f, 0f);
+				((Marker)target).markerModel = markerModel; // to turn its mesh renderer off when script is finished
 			}
 
 			if (localSpace)
@@ -453,15 +435,11 @@ namespace MarkerSystem
 				targets.Find("LocalSpace2").SetParent(avatar.GetBoneTransform(HumanBodyBones.Hips), false);
 				targets.Find("LocalSpace3").SetParent(avatar.GetBoneTransform(HumanBodyBones.Chest), false);
 
-				Transform headRef = targets.Find("HeadRef"); // special head setup b/c local shrink
-				headRef.SetParent(avatar.GetBoneTransform(HumanBodyBones.Head), false); // get head position but be parented to neck
-				headRef.SetParent(avatar.GetBoneTransform(HumanBodyBones.Neck), true);
-				ConstraintSource headConstraintSrc = new ConstraintSource
-				{
-					sourceTransform = avatar.GetBoneTransform(HumanBodyBones.Head),
-					weight = 1f
-				};
-				headRef.GetComponent<RotationConstraint>().SetSource(0, headConstraintSrc);
+				Transform headRef = targets.Find("HeadRef"); // special setup for head bone b/c local shrink
+				headRef.SetParent(avatar.GetBoneTransform(HumanBodyBones.Head), false); // get head position,
+				headRef.SetParent(avatar.GetBoneTransform(HumanBodyBones.Neck), true); // but parent to neck
+				headRef.GetComponent<RotationConstraint>().SetSource(0, new ConstraintSource
+					{ sourceTransform = avatar.GetBoneTransform(HumanBodyBones.Head), weight = 1f} );
 
 				targets.Find("LocalSpace5").SetParent(avatar.GetBoneTransform(HumanBodyBones.LeftHand), false);
 				targets.Find("LocalSpace6").SetParent(avatar.GetBoneTransform(HumanBodyBones.RightHand), false);
@@ -473,9 +451,9 @@ namespace MarkerSystem
 				}
 			} 
 			targets.Find("LocalSpace1").SetParent(avatar.transform);
-			//DestroyImmediate(targets); // remove the unnecessary "Targets" container GameObject when finished
+			DestroyImmediate(targets.gameObject); // remove the "Targets" container object when finished
 
-			if (!eraserSize) // set the eraser size to an average amount
+			if (!eraserSize) // set size to a medium-ish amount
 			{
 				eraser.transform.localScale = new Vector3(0.06f, 0.06f, 0.06f);
 			}
@@ -505,7 +483,36 @@ namespace MarkerSystem
 						warnings.Add("Your avatar's topmost menu is full. Please have at least one empty control slot available.");
 					}
 				}
-			}
+
+				if (AssetDatabase.LoadAssetAtPath(path_defaultGesture, typeof(AnimatorController)) as AnimatorController == null)
+				{
+					warnings.Add("VRCSDK Gesture controller at path '" + path_defaultGesture + "' could not be found. Please place the default Gesture controller there.");
+				}
+				if (AssetDatabase.LoadAssetAtPath(path_defaultMaskL, typeof(AvatarMask)) as AvatarMask == null)
+				{
+					warnings.Add("VRCSDK default avatar mask for the left hand at path '" + path_defaultMaskL + "' could not be found. Please place the default left hand mask there.");
+				}
+				if (AssetDatabase.LoadAssetAtPath(path_defaultMaskR, typeof(AvatarMask)) as AvatarMask == null)
+				{
+					warnings.Add("VRCSDK default avatar mask for the right hand at path '" + path_defaultMaskR + "' could not be found. Please place the default left hand mask there.");
+				}
+
+				if (!descriptor.baseAnimationLayers[2].isDefault) // check gesture layer validity
+				{
+					if (descriptor.baseAnimationLayers[2].animatorController != null && descriptor.baseAnimationLayers[2].animatorController.name != "")
+					{
+						AnimatorController gesture = (AnimatorController)descriptor.baseAnimationLayers[2].animatorController;
+						if (gesture.layers[0] == null || gesture.layers[0].name == "")
+						{
+							warnings.Add("Your avatar's gesture layer is empty. Try using a copy of the VRCSDK gesture controller or removing the controller from your avatar descriptor.");
+						}
+						else if (gesture.layers[0].avatarMask == null || gesture.layers[0].avatarMask.name == "")
+						{
+							warnings.Add("The first layer of your avatar's gesture layer is missing a mask. Try setting a mask, or using a copy of the VRCSDK gesture controller, or removing the controller from your avatar descriptor.");
+						}
+					}
+				}
+			}	
 
 			if (avatar == null)
 			{
@@ -517,32 +524,38 @@ namespace MarkerSystem
 			}
 			else
 			{
-				if ((avatar.GetBoneTransform(HumanBodyBones.LeftIndexDistal).gameObject == null) || (avatar.GetBoneTransform(HumanBodyBones.RightIndexDistal).gameObject == null))
+				if (!avatar.isHuman)
 				{
-					warnings.Add("Your humanoid rig's left index distal and/or right index distal is unmapped!");
+					warnings.Add("Please use this script on an avatar with a humanoid rig.");
 				}
-				if (localSpace)
+
+				else
 				{
-					if ((avatar.GetBoneTransform(HumanBodyBones.Hips).gameObject == null) || (avatar.GetBoneTransform(HumanBodyBones.Chest).gameObject == null) || (avatar.GetBoneTransform(HumanBodyBones.Head).gameObject == null) || (avatar.GetBoneTransform(HumanBodyBones.LeftHand).gameObject == null) || (avatar.GetBoneTransform(HumanBodyBones.RightHand).gameObject == null) || (avatar.GetBoneTransform(HumanBodyBones.Neck).gameObject == null))
+					if (useIndexFinger && ((avatar.GetBoneTransform(HumanBodyBones.LeftIndexDistal).gameObject == null) || (avatar.GetBoneTransform(HumanBodyBones.RightIndexDistal).gameObject == null)))
 					{
-						warnings.Add("Your humanoid rig's wrists, hips, chest, neck, and/or head is unmapped!");
+						warnings.Add("Your avatar rig's left and/or right index finger's 3rd bone is unmapped!");
 					}
-					if (localSpaceFullBody == 1)
+					if (localSpace)
 					{
-						if ((avatar.GetBoneTransform(HumanBodyBones.LeftFoot).gameObject == null) || (avatar.GetBoneTransform(HumanBodyBones.RightFoot).gameObject == null))
+						if ((avatar.GetBoneTransform(HumanBodyBones.Hips).gameObject == null) || (avatar.GetBoneTransform(HumanBodyBones.Chest).gameObject == null) || (avatar.GetBoneTransform(HumanBodyBones.Head).gameObject == null) || (avatar.GetBoneTransform(HumanBodyBones.LeftHand).gameObject == null) || (avatar.GetBoneTransform(HumanBodyBones.RightHand).gameObject == null) || (avatar.GetBoneTransform(HumanBodyBones.Neck).gameObject == null))
 						{
-							warnings.Add("Your humanoid rig's left foot and/or right foot is unmapped!");
+							warnings.Add("Your avatar rig's wrists, hips, chest, neck, and/or head is unmapped!");
+						}
+						if (localSpaceFullBody == 1)
+						{
+							if ((avatar.GetBoneTransform(HumanBodyBones.LeftFoot).gameObject == null) || (avatar.GetBoneTransform(HumanBodyBones.RightFoot).gameObject == null))
+							{
+								warnings.Add("Your avatar rig's left foot and/or right foot is unmapped!");
+							}
 						}
 					}
 				}
 			}
-
 		}
+
 		private int GetBitCount()
 		{
-			// M_Marker, M_Clear, and M_Eraser are bools(1+1+1); M_Color is a float(+8). always included
-			bitCount = 11;
-
+			bitCount = 11; // M_Marker, M_Clear, and M_Eraser are bools(1+1+1); M_Color is a float(+8). always included
 			if (brushSize) // float
 			{
 				bitCount += 8;
@@ -551,7 +564,6 @@ namespace MarkerSystem
 			{
 				bitCount += 8;
 			}
-
 			if (localSpace) // int
 			{
 				bitCount += 8;
@@ -560,8 +572,42 @@ namespace MarkerSystem
 			{
 				bitCount += 1;
 			}
-
 			return bitCount;
+		}
+
+		private void RemoveLayerAndParameter(AnimatorController controller , string name, bool layerOnly = false)
+		{   // helper function: remove layer and parameter of same name
+			for (int i = 0; i < controller.layers.Length; i++)
+			{
+				if (controller.layers[i].name.Equals(name))
+				{
+					controller.RemoveLayer(i);
+					break;
+				}
+			}
+			if (!layerOnly)
+			{
+				for (int i = 0; i < controller.parameters.Length; i++)
+				{
+					if (controller.parameters[i].name.Equals(name))
+					{
+						controller.RemoveParameter(i);
+						break;
+					}
+				}
+			}
+		}
+
+		private void RemoveMenuControl(VRCExpressionsMenu menu, string name)
+		{	// helper function: remove menu control
+			for (int i = 0; i < menu.controls.Count; i++)
+			{
+				if (menu.controls[i].name.Equals(name))
+				{
+					menu.controls.RemoveAt(i);
+					break;
+				}
+			}
 		}
 
 	}
