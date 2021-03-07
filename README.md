@@ -133,39 +133,33 @@ A world space follower, driven by constraints. Constraintによってワール�
 
 ## [Marker](https://github.com/VRLabs/VRChat-Avatars-3.0/releases/download/1/Marker.unitypackage)
 
-A pen for drawing. お絵描き用のペン。
+A marker for drawing. お絵描き用のペン。
 
 <details>
   <summary>Install notes</summary>
   
 > Testing in Unity requires the [3.0 emulator by Lyuma](https://github.com/lyuma/Av3Emulator).
 > 
-> Merge the FX controller to your own FX controller, using the [Avatars 3.0 Manager](https://github.com/VRLabs/VRChat-Avatars-3.0/releases/download/1/AV3Manager.unitypackage) tool.
+> The [Avatars 3.0 Manager](https://github.com/VRLabs/VRChat-Avatars-3.0/releases/download/1/AV3Manager.unitypackage) is a required dependency.
+>
+> Drag the Marker.cs script onto your avatar. You can customize settings for installing the marker. Some settings have tooltips for explanation.
 > 
-> The Marker.prefab should go to the base of your Unity scene, which will give it base Unity scaling.
+> After generating the marker, the marker 'ink' emits from the MarkerTarget. Adjust the MarkerTarget transform if needed. 
 > 
-> Unpack the prefab by right-clicking it and move the prefab to base of your avatar.
+> For the index finger setup, position MarkerTarget on the tip of your avatar's index finger.
 > 
-> Expand the prefab, and locate Marker/DrawingTarget. Move this object under your drawing wrist bone, then adjust it's position and rotation.
-> 
-> Review the markerLeft and markerRight layers that were merged into your FX controller. Unmute the transition for the gestures you would like for drawing and erasing.
+> For the handheld marker setup, enter playmode and enable the marker via the emulator to position, rotate, and scale MarkerTarget so it fits in your avatar's hand. When finished, copy MarkerTarget's transform component to paste its values outside of playmode. 
+>
+> Click "Finish Setup" to finalize your marker and remove the script from your avatar.
+>
+> In-game, use Rock 'n Roll to draw for the handheld marker setup or Fingerpoint using the index finger setup.
 
 </details>
 
 <details>
   <summary>導入手順</summary>
   
-> ※Unity内でテストプレイする場合は[Lyuma](https://github.com/lyuma/Av3Emulator)さん作成の3.0エミュレーターが必要となります。
-> 
-> アバター3.0の[Manager tool](https://github.com/VRLabs/VRChat-Avatars-3.0/releases/download/1/AV3Manager.unitypackage)を使用し、FX controllerを自身のFX controllerとマージしてください。
-> 
-> "The Marker.prefab"はUnity sceneのベース（一番下）に置くとbase Unityのスケールが使用できます。
-> 
-> Prefabを右クリックして"Unpack the prefab"を選択してからプレハブごとアバターのベースに追加してください。
-> 
-> Prefabを開き、Marker/DrawingTargetを探してください。このオブジェクトを利き手のwristボーンに入れ子してから位置と回転を調整してください。
-> 
-> FX Controllerに追加したmarkerLeftとmarkerRightのレイヤーをご確認ください。使用したいお絵描き、消しゴム用のジェスチャーのtransitionをunmuteしてください。
+> 近日公開。
 
 </details>
 
