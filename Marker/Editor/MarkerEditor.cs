@@ -12,6 +12,8 @@ using VRC.SDK3.Avatars.Components;
 using VRC.SDK3.Avatars.ScriptableObjects;
 using VRLabs.AV3Manager;
 using System.Linq;
+using Boo.Lang;
+using System.CodeDom;
 
 namespace MarkerSystem
 {
@@ -81,7 +83,7 @@ namespace MarkerSystem
 
 				if (localSpace)
 				{
-					GUIContent[] layoutOptions = { new GUIContent("Half-Body (Hips, Chest, Head, Hands)", "You can attach the drawing to your hips, chest, head, or either hand."), new GUIContent("Full-Body (Half-Body Plus Feet)", "You can also attach the drawing to your feet! (This will work without full-body tracking; the drawing will just follow the automatic footstep IK of VRChat)") };
+					GUIContent[] layoutOptions = { new GUIContent("Half-Body (Hips, Chest, Head, Hands)", "You can attach the drawing to your hips, chest, head, or either hand."), new GUIContent("Full-Body (Half-Body Plus Feet)", "You can also attach the drawing to your feet! (For half-body users, the drawing will follow VRChat's auto-footstep IK)") };
 					GUILayout.BeginVertical("Box");
 					localSpaceFullBody = GUILayout.SelectionGrid(localSpaceFullBody, layoutOptions, 1);
 					GUILayout.EndVertical();
@@ -165,11 +167,11 @@ namespace MarkerSystem
 			// FX layer
 			if (leftHanded)
 			{
-				AssetDatabase.CopyAsset("Assets/VRLabs/Marker/Resources/FX_Left.controller", directory + "FXtemp.controller");
+				AssetDatabase.CopyAsset("Assets/VRLabs/Marker/Resources/M_FX (L).controller", directory + "FXtemp.controller");
 			}
 			else
 			{
-				AssetDatabase.CopyAsset("Assets/VRLabs/Marker/Resources/FX_Right.controller", directory + "FXtemp.controller");
+				AssetDatabase.CopyAsset("Assets/VRLabs/Marker/Resources/M_FX (R).controller", directory + "FXtemp.controller");
 			}
 			AnimatorController FX = AssetDatabase.LoadAssetAtPath(directory + "FXtemp.controller", typeof(AnimatorController)) as AnimatorController;
 
@@ -198,6 +200,11 @@ namespace MarkerSystem
 				AV3ManagerFunctions.SetWriteDefaults(FX);
 			}
 
+			if (!useIndexFinger) // rocknroll to draw if using model, not fingerpoint
+			{
+				ChangeGestureCondition(FX, 0, 3, 5);
+			}
+
 			EditorUtility.SetDirty(FX);
 			AssetDatabase.SaveAssets();
 			AssetDatabase.Refresh();
@@ -209,7 +216,7 @@ namespace MarkerSystem
 			AssetDatabase.CopyAsset(path_defaultGesture, directory + "Gesture.controller");
 			AnimatorController gestureOriginal = AssetDatabase.LoadAssetAtPath(directory + "Gesture.controller", typeof(AnimatorController)) as AnimatorController;
 
-			AssetDatabase.CopyAsset("Assets/VRLabs/Marker/Resources/Gesture.controller", directory + "gestureTemp.controller"); // to modify
+			AssetDatabase.CopyAsset("Assets/VRLabs/Marker/Resources/M_Gesture.controller", directory + "gestureTemp.controller"); // to modify
 			AnimatorController gesture = AssetDatabase.LoadAssetAtPath(directory + "gestureTemp.controller", typeof(AnimatorController)) as AnimatorController;
 			descriptor.customExpressions = true;
 			descriptor.baseAnimationLayers[2].isDefault = false;
@@ -242,6 +249,11 @@ namespace MarkerSystem
 			else
 			{
 				gesture.RemoveLayer(layerRemove);
+			}
+
+			if (!useIndexFinger) // rocknroll to draw if using model, not fingerpoint
+			{
+				ChangeGestureCondition(gesture, 0, 3, 5);
 			}
 
 			EditorUtility.SetDirty(gesture);
@@ -321,8 +333,8 @@ namespace MarkerSystem
 			}
 
 			// handle menu instancing
-			AssetDatabase.CopyAsset("Assets/VRLabs/Marker/Resources/Menu - Marker.asset", directory + "Menu - Marker.asset");
-			VRCExpressionsMenu markerMenu = AssetDatabase.LoadAssetAtPath(directory + "Menu - Marker.asset", typeof(VRCExpressionsMenu)) as VRCExpressionsMenu;
+			AssetDatabase.CopyAsset("Assets/VRLabs/Marker/Resources/M_Menu.asset", directory + "Marker Menu.asset");
+			VRCExpressionsMenu markerMenu = AssetDatabase.LoadAssetAtPath(directory + "Marker Menu.asset", typeof(VRCExpressionsMenu)) as VRCExpressionsMenu;
 			
 			if (!localSpace) // change from submenu to 1 toggle
 			{
@@ -336,8 +348,8 @@ namespace MarkerSystem
 			}
 			else
 			{
-				AssetDatabase.CopyAsset("Assets/VRLabs/Marker/Resources/Menu - Marker Space.asset", directory + "Menu - Marker Space.asset");
-				VRCExpressionsMenu subMenu = AssetDatabase.LoadAssetAtPath(directory + "Menu - Marker Space.asset", typeof(VRCExpressionsMenu)) as VRCExpressionsMenu;
+				AssetDatabase.CopyAsset("Assets/VRLabs/Marker/Resources/M_Menu Space.asset", directory + "Marker Space Submenu.asset");
+				VRCExpressionsMenu subMenu = AssetDatabase.LoadAssetAtPath(directory + "Marker Space Submenu.asset", typeof(VRCExpressionsMenu)) as VRCExpressionsMenu;
 
 				if (localSpaceFullBody == 0) // remove left and right foot controls
 				{
@@ -367,10 +379,10 @@ namespace MarkerSystem
 
 			// icon
 			VRCExpressionsMenu.Control markerControl = descriptor.expressionsMenu.controls.FirstOrDefault(x => x.name.Equals("Marker"));
-			markerControl.icon = AssetDatabase.LoadAssetAtPath("Assets/VRLabs/Marker/Resources/Icons/M_Icon_MarkerTop.png", typeof(Texture2D)) as Texture2D;
+			markerControl.icon = AssetDatabase.LoadAssetAtPath("Assets/VRLabs/Marker/Resources/Icons/M_Icon_Menu.png", typeof(Texture2D)) as Texture2D;
 
 			// setup in scene
-			GameObject marker = PrefabUtility.InstantiatePrefab(AssetDatabase.LoadAssetAtPath("Assets/VRLabs/Marker/Resources/Marker.prefab", typeof(GameObject))) as GameObject;
+			GameObject marker = PrefabUtility.InstantiatePrefab(AssetDatabase.LoadAssetAtPath("Assets/VRLabs/Marker/Resources/M_Prefab.prefab", typeof(GameObject))) as GameObject;
 			PrefabUtility.UnpackPrefabInstance(marker, PrefabUnpackMode.Completely, InteractionMode.AutomatedAction);
 			marker.transform.SetParent(avatar.transform, false);
 
@@ -453,9 +465,20 @@ namespace MarkerSystem
 			targets.Find("LocalSpace1").SetParent(avatar.transform);
 			DestroyImmediate(targets.gameObject); // remove the "Targets" container object when finished
 
-			if (!eraserSize) // set size to a medium-ish amount
+			// set anything not adjustable to a medium-ish amount
+			if (!eraserSize) 
 			{
 				eraser.transform.localScale = new Vector3(0.06f, 0.06f, 0.06f);
+			}
+			if (!brushSize)
+			{
+				ParticleSystem.MinMaxCurve size = new ParticleSystem.MinMaxCurve(0.024f);
+				Transform draw = marker.transform.Find("Draw");
+				Transform preview = draw.GetChild(0);
+				ParticleSystem.MainModule main = draw.GetComponent<ParticleSystem>().main;
+				main.startSize = size;
+				main = preview.GetComponent<ParticleSystem>().main;
+				main.startSize = size;
 			}
 
 			((Marker)target).markerTarget = markerTarget;
@@ -610,6 +633,31 @@ namespace MarkerSystem
 			}
 		}
 
+		private void ChangeGestureCondition(AnimatorController controller, int layerToModify, int oldGesture, int newGesture)
+		{   // helper function: change gesture condition, in all transitions of 1 layer of controller
+			AnimatorStateMachine stateMachine = controller.layers[layerToModify].stateMachine;
+			ChildAnimatorState[] states = stateMachine.states;
+			List<AnimatorStateTransition> transitions = new List<AnimatorStateTransition>();
+			for (int i = 0; i < states.Length; i++)
+			{
+				transitions.AddRange(states[i].state.transitions);
+			}
+			AnimatorCondition[] conditions;
+			for (int i = 0; i < transitions.Count; i++)
+			{
+				conditions = transitions[i].conditions;
+				for (int j = 0; j < conditions.Length; j++)
+				{
+					if (conditions[j].threshold == oldGesture)
+					{
+						AnimatorCondition conditionToRemove = conditions[j];
+						transitions[i].RemoveCondition(conditionToRemove);
+						transitions[i].AddCondition(conditionToRemove.mode, newGesture, conditionToRemove.parameter);
+						break; // in my case, only one condition per transition includes GestureLeft / GestureRight
+					}
+				}
+			}
+		}
 	}
 }
 #endif
