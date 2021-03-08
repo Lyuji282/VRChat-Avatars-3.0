@@ -14,6 +14,7 @@ using VRLabs.AV3Manager;
 using System.Linq;
 using Boo.Lang;
 using System.CodeDom;
+using BestHTTP.SecureProtocol.Org.BouncyCastle.Crypto;
 
 namespace MarkerSystem
 {
@@ -213,23 +214,28 @@ namespace MarkerSystem
 			AssetDatabase.DeleteAsset(AssetDatabase.GetAssetPath(FX)); // remove modified temporary FX layer
 
 			// Gesture layer
-			AssetDatabase.CopyAsset(path_defaultGesture, directory + "Gesture.controller");
-			AnimatorController gestureOriginal = AssetDatabase.LoadAssetAtPath(directory + "Gesture.controller", typeof(AnimatorController)) as AnimatorController;
 
 			AssetDatabase.CopyAsset("Assets/VRLabs/Marker/Resources/M_Gesture.controller", directory + "gestureTemp.controller"); // to modify
 			AnimatorController gesture = AssetDatabase.LoadAssetAtPath(directory + "gestureTemp.controller", typeof(AnimatorController)) as AnimatorController;
-			descriptor.customExpressions = true;
-			descriptor.baseAnimationLayers[2].isDefault = false;
-			descriptor.baseAnimationLayers[2].animatorController = gestureOriginal;
 
-			if (writeDefaults)
+			if (descriptor.baseAnimationLayers[2].isDefault == true || descriptor.baseAnimationLayers[2].animatorController == null)
 			{
-				AV3ManagerFunctions.SetWriteDefaults(gestureOriginal);
-				EditorUtility.SetDirty(gestureOriginal);
-				AssetDatabase.SaveAssets();
-				AssetDatabase.Refresh();
-			}
+				AssetDatabase.CopyAsset(path_defaultGesture, directory + "Gesture.controller");
+				AnimatorController gestureOriginal = AssetDatabase.LoadAssetAtPath(directory + "Gesture.controller", typeof(AnimatorController)) as AnimatorController;
 
+				descriptor.customExpressions = true;
+				descriptor.baseAnimationLayers[2].isDefault = false;
+				descriptor.baseAnimationLayers[2].animatorController = gestureOriginal;
+
+				if (writeDefaults)
+				{
+					AV3ManagerFunctions.SetWriteDefaults(gestureOriginal);
+					EditorUtility.SetDirty(gestureOriginal);
+					AssetDatabase.SaveAssets();
+					AssetDatabase.Refresh();
+				}
+			}
+			
 			int layerRemove = (leftHanded) ? 1 : 0;
 			if (useIndexFinger)
 			{   // use the other set of hand animations
@@ -267,11 +273,11 @@ namespace MarkerSystem
 			AnimatorController avatarGesture = (AnimatorController)descriptor.baseAnimationLayers[2].animatorController;
 			for (int i = 0; i < avatarGesture.layers.Length; i++)
 			{
-				if (avatarGesture.layers[i].name.Contains("M_Marker") && (i != 3))
+				if (avatarGesture.layers[i].name.Contains("M_Gesture") && (i != 3))
 				{   // the controls' layer is set to 3 by default (AllParts, LeftHand, RightHand, >>>M_Marker<<<)
 					for (int j = 0; j < 3; j++)
 					{
-						if (avatarGesture.layers[i].stateMachine.states[j].state.behaviours[0] != null)
+						if (avatarGesture.layers[i].stateMachine.states[j].state.behaviours.Length != 0)
 						{
 							VRCAnimatorLayerControl ctrl = (VRCAnimatorLayerControl)avatarGesture.layers[i].stateMachine.states[j].state.behaviours[0];
 							ctrl.layer = i;
