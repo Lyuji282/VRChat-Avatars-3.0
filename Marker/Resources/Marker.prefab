@@ -252,9 +252,9 @@ ParentConstraint:
     weight: 1
   - sourceTransform: {fileID: 1839907484896274089}
     weight: 0
-  - sourceTransform: {fileID: 1839907482992092074}
-    weight: 0
   - sourceTransform: {fileID: 1839907483188135754}
+    weight: 0
+  - sourceTransform: {fileID: 1839907482992092074}
     weight: 0
   - sourceTransform: {fileID: 1839907484188516714}
     weight: 0
