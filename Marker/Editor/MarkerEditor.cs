@@ -278,10 +278,6 @@ namespace MarkerSystem
 						}
 					}
 				}
-				else
-				{
-					break;
-				}
 			}
 			if (writeDefaults)
 			{
@@ -382,7 +378,7 @@ namespace MarkerSystem
 			markerControl.icon = AssetDatabase.LoadAssetAtPath("Assets/VRLabs/Marker/Resources/Icons/M_Icon_Menu.png", typeof(Texture2D)) as Texture2D;
 
 			// setup in scene
-			GameObject marker = PrefabUtility.InstantiatePrefab(AssetDatabase.LoadAssetAtPath("Assets/VRLabs/Marker/Resources/M_Prefab.prefab", typeof(GameObject))) as GameObject;
+			GameObject marker = PrefabUtility.InstantiatePrefab(AssetDatabase.LoadAssetAtPath("Assets/VRLabs/Marker/Resources/Marker.prefab", typeof(GameObject))) as GameObject;
 			PrefabUtility.UnpackPrefabInstance(marker, PrefabUnpackMode.Completely, InteractionMode.AutomatedAction);
 			marker.transform.SetParent(avatar.transform, false);
 
