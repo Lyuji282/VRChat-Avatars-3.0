@@ -301,7 +301,7 @@ Some bandaids to make physics work on avatars. アバターで物理を機能さ
 >
 > The handlePhysics layer is for the physics demo. The layer waits for the "Physics" local parameter to be True. You should similarly wait for the "Physics" parameter to be True before animating physics in your custom layers.
 > 
-> A local "IsMirror" boolean parameter is exposed in the case that you need to animate your colliders, or anything else, conditionally with the mirror.
+> A local "IsMirror" float parameter is exposed in the case that you need to animate conditionally with the mirror. 0.0 = Outside Mirror, 1.0 = Inside Mirror
 >
 > The "Is Kinematic" property doesn't seem to persist, so you must constantly animate this property if you want it to stay the way you animated it.
 >
