@@ -281,35 +281,31 @@ Some bandaids to make physics work on avatars. アバターで物理を機能さ
 <details>
   <summary>Install notes</summary>
 
-> This package fixes two problems that break avatar physics in VRChat. First, it destroys colliders in the mirror copy of your avatar to fix local collision. Second, it fixes incorrect movement with rigidbodies in world space.
+> This package fixes two problems that break avatar physics in VRChat. First, it turns off collider components in the mirror reflection copy of your avatar to fix local collision. Second, it fixes incorrect movement with rigidbodies in world space. Unity physics is rather open-ended and making things work as you intend beyond these fixes is your responsibility.
 >
 > Testing in Unity requires the [3.0 emulator by Lyuma](https://github.com/lyuma/Av3Emulator).
 > 
-> Merge the FX controller to your own FX controller and merge the Gesture controller to your own Gesture controller, using the [Avatars 3.0 Manager](https://github.com/VRLabs/VRChat-Avatars-3.0/releases/download/1/AV3Manager.unitypackage) tool.
+> Merge the FX controller to your own FX controller using the [Avatars 3.0 Manager](https://github.com/VRLabs/VRChat-Avatars-3.0/releases/download/1/AV3Manager.unitypackage) tool.
 > 
 > The World Physics.prefab should go to the base of your Unity scene, which will give it base Unity scaling.
 >
 > Unpack the prefab by right-clicking it and move the prefab to base of your avatar.
 > 
-> World Physics/Rigidbody is set up for a physics demo. It falls and collides with the world.
+> World Physics/Rigidbody and World Physics/Rigidbody/Collider are set up for a physics demo. A cube falls and collides with the world.
 >
-> If you want to see the demo, move World Physics/RigidbodyTarget outside of the World Physics hierarchy, to the base of the avatar, and raise the height. You can take this in-game or use the emulator for testing.
+> If you want to see the demo, move World Physics/RigidbodyTarget the World Physics hierarchy, to the base of the avatar, and raise the height. You can take this in-game or use the emulator for testing.
 >
-> Look at World Physics/Rigidbody/Collider. There is a particle system component on this object. Copy and paste this particle system onto any object with a physics collider. Every object with this particle system will be deleted in the local mirror.
->
-> The mirror collider destroy process happens at avatar load in. It requires that the colliders' hierarchy be enabled by default, so the particle systems can be awake. The hierarchy can be disabled after this process.
->
-> Review the handlePhysics layer that was merged into your FX controller. This is for the demo. The layer waits for the "Physics" parameter to be True. You should similarly wait for the "Physics" parameter to be True before animating physics in your layers.
+> Review the detectMirror and handlePhysics layers that were merged into your FX controller. 
 > 
-> A very important note is that the "Is Kinematic" property doesn't seem to persist, so you must constantly animate this property to the desired state.
+> The detectMirror layer is used to turn off the collider components on the mirror reflection copy of your avatar. Edit the "Fix Colliders.anim" to turn off any collider component you use for physics.
 >
-> The World Physics object has a world fixed joint on it. The rigidbody for this joint should have "Is Kinematic" enabled locally(IsLocal True), and disabled remotely(IsLocal False), or physics will break.
->
-> The demo layer is split between Local and Remote animation sets because I am constantly animating the World Physics "Is Kinematic" property depending on which type of client(IsLocal True or False) is active. You should do something similar.
+> The handlePhysics layer is for the physics demo. The layer waits for the "Physics" local parameter to be True. You should similarly wait for the "Physics" parameter to be True before animating physics in your custom layers.
+> 
+> The handlePhysics layer is split between Local and Remote animation sets because I am constantly animating the World Physics "Is Kinematic" property depending on which type of client(IsLocal True or False) is active. The "Is Kinematic" property doesn't seem to persist, so you must constantly animate this property to the desired state.
+> 
+> The World Physics object has a world fixed joint on it. The rigidbody for this joint should have "Is Kinematic" enabled locally, and disabled remotely, or physics will break.
 >
 > Using gravity seems to have some minor local-only issues on the Y axis and with culling. Not really a big deal, hard to even notice. Doesn't happen if you don't use gravity on a given rigidbody.
->
-> This package just fixes VRChat-related physics problems. Unity physics is rather open-ended and making things work as you intend beyond these fixes is your responsibility.
 
 </details>
 
