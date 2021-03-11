@@ -295,15 +295,15 @@ Some bandaids to make physics work on avatars. アバターで物理を機能さ
 >
 > If you want to see the demo, move World Physics/RigidbodyTarget out of the World Physics hierarchy, to the base of the avatar, and raise the height. You can take this in-game or use the emulator for testing.
 >
-> Review the detectMirror and handlePhysics layers that were merged into your FX controller. 
+> Review the readyPhysics and handlePhysics layers that were merged into your FX controller. 
 > 
-> The detectMirror layer is used to turn off the collider components on the mirror reflection copy of your avatar. Edit the "Fix Colliders.anim" to turn off any collider component you use for physics.
+> The readyPhysics layer is used to turn off the collider components on the mirror reflection copy of your avatar. Edit the "Fix Colliders.anim" to turn off any collider component you use for physics.
 >
 > The handlePhysics layer is for the physics demo. The layer waits for the "Physics" local parameter to be True. You should similarly wait for the "Physics" parameter to be True before animating physics in your custom layers.
 > 
-> The handlePhysics layer is split between Local and Remote animation sets because I am constantly animating the World Physics "Is Kinematic" property depending on which type of client(IsLocal True or False) is active. The "Is Kinematic" property doesn't seem to persist, so you must constantly animate this property to the desired state.
-> 
-> The World Physics object has a world fixed joint on it. The rigidbody for this joint should have "Is Kinematic" enabled locally, and disabled remotely, or physics will break.
+> A local "IsMirror" boolean parameter is exposed in the case that you need to animate your colliders, or anything else, conditionally with the mirror.
+>
+> The "Is Kinematic" property doesn't seem to persist, so you must constantly animate this property if you want it to stay the way you animated it.
 >
 > Using gravity seems to have some minor local-only issues on the Y axis and with culling. Not really a big deal, hard to even notice. Doesn't happen if you don't use gravity on a given rigidbody.
 
