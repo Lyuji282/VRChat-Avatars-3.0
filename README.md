@@ -281,7 +281,7 @@ Some bandaids to make physics work on avatars. アバターで物理を機能さ
 <details>
   <summary>Install notes</summary>
 
-> This package fixes two problems that break avatar physics in VRChat. First, it turns off collider components in the mirror reflection copy of your avatar to fix local collision. Second, it fixes incorrect movement with rigidbodies in world space. Unity physics is rather open-ended and making things work as you intend beyond these fixes is your responsibility.
+> This package fixes two problems that break avatar physics in VRChat. First, it disables collider components in the local mirror reflection copy of your avatar to fix rigidbody collisions. Second, it fixes incorrect movement with remote rigidbodies in world space. Unity physics is rather open-ended and making things work as you intend beyond these fixes is your responsibility.
 >
 > Testing in Unity requires the [3.0 emulator by Lyuma](https://github.com/lyuma/Av3Emulator).
 > 
@@ -293,11 +293,11 @@ Some bandaids to make physics work on avatars. アバターで物理を機能さ
 > 
 > World Physics/Rigidbody and World Physics/Rigidbody/Collider are set up for a physics demo. A cube falls and collides with the world.
 >
-> If you want to see the demo, move World Physics/RigidbodyTarget out of the World Physics hierarchy, to the base of the avatar, and raise the height. You can take this in-game or use the emulator for testing.
+> If you want to see the demo work, move World Physics/RigidbodyTarget out of the World Physics hierarchy and to the base of the avatar. Lift the RigidbodyTarget position on the Y axis, so there is room for the cube to fall. You use the emulator or test in-game.
 >
 > Review the readyPhysics and handlePhysics layers that were merged into your FX controller. 
 > 
-> The readyPhysics layer is used to turn off the collider components in the mirror reflection copy of your avatar. Edit the "Fix Colliders.anim" to turn off any collider component you use for physics.
+> The readyPhysics layer is used to turn off the collider components in the local mirror reflection copy of your avatar. Edit the "Fix Colliders.anim" to disable any collider component you use for physics.
 >
 > The handlePhysics layer is for the physics demo. The layer waits for the "Physics" local parameter to be True before animating the rigidbody. You should similarly wait for the "Physics" parameter to be True before starting your physics simulation.
 > 
