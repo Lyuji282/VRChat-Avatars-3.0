@@ -293,7 +293,7 @@ Some bandaids to make physics work on avatars. アバターで物理を機能さ
 > 
 > World Physics/Rigidbody and World Physics/Rigidbody/Collider are set up for a physics demo. A cube falls and collides with the world.
 >
-> If you want to see the demo work, move World Physics/RigidbodyTarget out of the World Physics hierarchy and to the base of the avatar. Lift the RigidbodyTarget position on the Y axis, so there is room for the cube to fall. You use the emulator or test in-game.
+> If you want to see the demo work, move World Physics/RigidbodyTarget out of the World Physics hierarchy and to the base of the avatar. Lift the RigidbodyTarget position on the Y axis, so there is room for the cube to fall. Use the emulator or test in-game.
 >
 > Review the readyPhysics and handlePhysics layers that were merged into your FX controller. 
 > 
