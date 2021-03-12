@@ -297,9 +297,9 @@ Some bandaids to make physics work on avatars. アバターで物理を機能さ
 >
 > Review the readyPhysics and handlePhysics layers that were merged into your FX controller. 
 > 
-> The readyPhysics layer is used to turn off the collider components on the mirror reflection copy of your avatar. Edit the "Fix Colliders.anim" to turn off any collider component you use for physics.
+> The readyPhysics layer is used to turn off the collider components in the mirror reflection copy of your avatar. Edit the "Fix Colliders.anim" to turn off any collider component you use for physics.
 >
-> The handlePhysics layer is for the physics demo. The layer waits for the "Physics" local parameter to be True. You should similarly wait for the "Physics" parameter to be True before animating physics in your custom layers.
+> The handlePhysics layer is for the physics demo. The layer waits for the "Physics" local parameter to be True before animating the rigidbody. You should similarly wait for the "Physics" parameter to be True before starting your physics simulation.
 > 
 > A local "IsMirror" float parameter is exposed in the case that you need to animate conditionally with the mirror. The "IsMirror" float value is resolved when "Physics" = True. 0.0 = Outside Mirror, 1.0 = Inside Mirror
 >
