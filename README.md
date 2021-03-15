@@ -108,7 +108,7 @@ A world space follower, driven by constraints. Constraintによってワール�
 >
 > As a result of breaking changes, a hotfix has been applied to this package so it will continue to work in 3.0.
 >
-> You must make sure the layers "ꜰᴏʟʟᴏᴡ+" and "ꜰᴏʟʟᴏᴡ-" are ordered below your base layer(base layer:0, ꜰᴏʟʟᴏᴡ+:1, ꜰᴏʟʟᴏᴡ-:2), otherwise the hotfix will not work properly.
+> You must make sure the layer "ꜰᴏʟʟᴏᴡ" is ordered below your base layer(base layer:0, ꜰᴏʟʟᴏᴡ+:1), otherwise the hotfix will not work properly.
 
 </details>
 
