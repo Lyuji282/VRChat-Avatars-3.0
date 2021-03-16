@@ -104,7 +104,7 @@ A world space follower, driven by constraints. Constraintによってワール�
 > 
 > Follower/Container is where you place your objects that you want to follow.
 > 
-> To change the speed of the follower, you can edit the Speed.anim clip inside the Animations folder.
+> To change the speed of the follower, you can edit the Speed.anim clips(Local and Remote) inside the Animations/Network folder.
 >
 > As a result of breaking changes, a hotfix has been applied to this package so it will continue to work in 3.0.
 >
