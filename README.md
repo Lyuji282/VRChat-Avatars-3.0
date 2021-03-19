@@ -33,17 +33,15 @@ A tool for managing playable layers and parameters for Avatars 3.0. アバター
 
 > This tool merges animator controllers to your avatar's playable layer controllers and syncs to your avatar's expression parameters.
 >
-> Open VRLabs > Avatars 3.0 Manager from the menu bar.
+> VRCSDK3 version 2021.01.19 or later is required.
+>
+> Open VRLabs > Avatars 3.0 Manager from the menu bar. Place your avatar in the "Avatar" field within the opened window.
 > 
-> Place your avatar in the "Avatar" field within the opened window.
-> 
-> Expand the playable layer to merge on and click "Add animator to merge".
-> 
-> Place the animator controller to merge in the "Controller" field.
+> Expand the playable layer to merge on and click "Add animator to merge". Place the animator controller to merge in the "Controller" field.
 > 
 > A suffix is appended to a new parameter if it shares its name with an existing parameter. Modify or remove suffixes as needed.
 > 
-> Click "Merge on current" to merge into the avatar's existing controller. Sync parameters as needed.
+> "Merge on current" merges on the avatar's controller, while "Merge on new" merges on a copy of it. Sync parameters as needed.
 
 </details>
 
