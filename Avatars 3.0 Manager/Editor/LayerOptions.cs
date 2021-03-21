@@ -5,6 +5,7 @@ using UnityEditor;
 using UnityEditor.Animations;
 using UnityEngine;
 using VRC.SDK3.Avatars.Components;
+using VRC.SDK3.Avatars.ScriptableObjects;
 using static VRC.SDK3.Avatars.Components.VRCAvatarDescriptor;
 
 namespace VRLabs.AV3Manager
@@ -25,7 +26,7 @@ namespace VRLabs.AV3Manager
 
         // Animator layer index.
         private readonly int _index;
-        // Window this object is displayer on.
+        // Window this object is displayed on.
         private readonly AV3ManagerWindow _window;
         // Show all content
         private bool _show;
@@ -175,7 +176,7 @@ namespace VRLabs.AV3Manager
                 EditorGUILayout.BeginHorizontal();
                 EditorGUILayout.LabelField(p.name);
                 EditorGUI.BeginChangeCheck();
-                EditorGUI.BeginDisabledGroup(!_window.HasFreeParameterSlots && !b);
+                EditorGUI.BeginDisabledGroup(!((_window.UsedParameterSlots + VRCExpressionParameters.TypeCost(AV3ManagerFunctions.GetValueTypeFromAnimatorParameterType(p.type))) <= VRCExpressionParameters.MAX_PARAMETER_COST) && !b);
                 b = EditorGUILayout.Toggle(b, GUILayout.Width(20));
                 EditorGUI.EndDisabledGroup();
                 if (EditorGUI.EndChangeCheck())

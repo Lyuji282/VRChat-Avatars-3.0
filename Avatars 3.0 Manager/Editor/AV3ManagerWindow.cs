@@ -44,7 +44,7 @@ namespace VRLabs.AV3Manager
 
         private const string _standardNewAnimatorFolder = "Assets/VRLabs/GeneratedAssets/";
 
-        public bool HasFreeParameterSlots { get; set; }
+        public int UsedParameterSlots { get; set; }
         // UI text
         private static class Content
         {
@@ -105,7 +105,7 @@ namespace VRLabs.AV3Manager
                         GenerateNewExpressionMenuAsset();
                     }
 
-                    HasFreeParameterSlots = _avatar.expressionParameters.CalcTotalCost() < VRCExpressionParameters.MAX_PARAMETER_COST;
+                    UsedParameterSlots = _avatar.expressionParameters.CalcTotalCost();
 
                     _layers = new LayerOptions[_avatar.baseAnimationLayers.Length];
                     for (int i = 0; i < _avatar.baseAnimationLayers.Length; i++)
@@ -211,7 +211,7 @@ namespace VRLabs.AV3Manager
                     param.Add(new Parameter
                     {
                         name = parameter.name,
-                        valueType = parameter.type == AnimatorControllerParameterType.Int ? ValueType.Int : (parameter.type == AnimatorControllerParameterType.Bool ? ValueType.Bool : ValueType.Float),
+                        valueType = AV3ManagerFunctions.GetValueTypeFromAnimatorParameterType(parameter.type),
                         defaultValue = 0,
                         saved = false
                     });
@@ -239,7 +239,7 @@ namespace VRLabs.AV3Manager
                 }
                 EditorUtility.SetDirty(_avatar.expressionParameters);
             }
-            HasFreeParameterSlots = _avatar.expressionParameters.CalcTotalCost() < VRCExpressionParameters.MAX_PARAMETER_COST;
+            UsedParameterSlots = _avatar.expressionParameters.CalcTotalCost();
         }
 
         // Check if a specific parameter is a duplicate

@@ -9,6 +9,7 @@ using UnityEngine;
 using VRC.SDK3.Avatars.Components;
 using VRC.SDKBase;
 using VRC.SDK3.Avatars.ScriptableObjects;
+using ValueType = VRC.SDK3.Avatars.ScriptableObjects.VRCExpressionParameters.ValueType;
 
 namespace VRLabs.AV3Manager
 {
@@ -308,6 +309,19 @@ namespace VRLabs.AV3Manager
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
         }
+        
+        /// <summary>
+        /// Return the VRC ValueType value based on the type of the animator paramerter given.
+        /// </summary>
+        /// <param name="type">Animator parameter type.</param>
+        /// <returns>VRC SDK3 ValueType that corresponds to the given animator ValueType.</returns>
+        public static ValueType GetValueTypeFromAnimatorParameterType(AnimatorControllerParameterType type)
+        {
+            return type == AnimatorControllerParameterType.Int
+                ? ValueType.Int
+                : (type == AnimatorControllerParameterType.Bool ? ValueType.Bool : ValueType.Float);
+        }
+        
         private static AnimatorStateMachine SetInStateMachine (AnimatorStateMachine stateMachine, bool wd)
         {
             for (int i = 0; i < stateMachine.states.Length; i++)
