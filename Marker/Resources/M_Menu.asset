@@ -24,7 +24,7 @@ MonoBehaviour:
     subParameters: []
     labels: []
   - name: Color
-    icon: {fileID: 2800000, guid: 32351865350622549a90b3ef1c5ffe47, type: 3}
+    icon: {fileID: 2800000, guid: a8b2bac8523ba074999c81cb867c4c13, type: 3}
     type: 203
     parameter:
       name: 
@@ -80,7 +80,7 @@ MonoBehaviour:
     icon: {fileID: 2800000, guid: 2580a69106593de4b883fabea42c98ea, type: 3}
     type: 103
     parameter:
-      name: 
+      name: M_Menu
     value: 1
     style: 0
     subMenu: {fileID: 11400000, guid: 9a2dadf382135c54884a79615a425e44, type: 2}

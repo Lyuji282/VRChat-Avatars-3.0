@@ -123,7 +123,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: InitialModule.startColor.maxColor.r
-    path: Marker/Draw
+    path: Marker/System/Draw
     classID: 198
     script: {fileID: 0}
   - curve:
@@ -232,7 +232,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: InitialModule.startColor.maxColor.g
-    path: Marker/Draw
+    path: Marker/System/Draw
     classID: 198
     script: {fileID: 0}
   - curve:
@@ -341,7 +341,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: InitialModule.startColor.maxColor.b
-    path: Marker/Draw
+    path: Marker/System/Draw
     classID: 198
     script: {fileID: 0}
   - curve:
@@ -450,7 +450,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: InitialModule.startColor.maxColor.r
-    path: Marker/Draw/Preview
+    path: Marker/System/Draw/Preview
     classID: 198
     script: {fileID: 0}
   - curve:
@@ -559,7 +559,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: InitialModule.startColor.maxColor.g
-    path: Marker/Draw/Preview
+    path: Marker/System/Draw/Preview
     classID: 198
     script: {fileID: 0}
   - curve:
@@ -668,7 +668,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: InitialModule.startColor.maxColor.b
-    path: Marker/Draw/Preview
+    path: Marker/System/Draw/Preview
     classID: 198
     script: {fileID: 0}
   m_PPtrCurves: []
@@ -680,42 +680,42 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 920348548
+      path: 1942260445
       attribute: 4078873663
       script: {fileID: 0}
       typeID: 198
       customType: 27
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 920348548
+      path: 1942260445
       attribute: 2663598292
       script: {fileID: 0}
       typeID: 198
       customType: 27
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 920348548
+      path: 1942260445
       attribute: 4004101211
       script: {fileID: 0}
       typeID: 198
       customType: 27
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 1641561792
+      path: 727021197
       attribute: 4078873663
       script: {fileID: 0}
       typeID: 198
       customType: 27
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 1641561792
+      path: 727021197
       attribute: 2663598292
       script: {fileID: 0}
       typeID: 198
       customType: 27
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 1641561792
+      path: 727021197
       attribute: 4004101211
       script: {fileID: 0}
       typeID: 198
@@ -849,7 +849,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: InitialModule.startColor.maxColor.r
-    path: Marker/Draw
+    path: Marker/System/Draw
     classID: 198
     script: {fileID: 0}
   - curve:
@@ -958,7 +958,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: InitialModule.startColor.maxColor.g
-    path: Marker/Draw
+    path: Marker/System/Draw
     classID: 198
     script: {fileID: 0}
   - curve:
@@ -1067,7 +1067,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: InitialModule.startColor.maxColor.b
-    path: Marker/Draw
+    path: Marker/System/Draw
     classID: 198
     script: {fileID: 0}
   - curve:
@@ -1176,7 +1176,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: InitialModule.startColor.maxColor.r
-    path: Marker/Draw/Preview
+    path: Marker/System/Draw/Preview
     classID: 198
     script: {fileID: 0}
   - curve:
@@ -1285,7 +1285,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: InitialModule.startColor.maxColor.g
-    path: Marker/Draw/Preview
+    path: Marker/System/Draw/Preview
     classID: 198
     script: {fileID: 0}
   - curve:
@@ -1394,7 +1394,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: InitialModule.startColor.maxColor.b
-    path: Marker/Draw/Preview
+    path: Marker/System/Draw/Preview
     classID: 198
     script: {fileID: 0}
   m_EulerEditorCurves: []

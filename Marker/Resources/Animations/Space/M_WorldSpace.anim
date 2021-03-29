@@ -42,7 +42,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Enabled
-    path: Marker/Reset
+    path: Marker/World/Reset
     classID: 1773428102
     script: {fileID: 0}
   - curve:
@@ -70,7 +70,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Enabled
-    path: Marker/Local/Space
+    path: Marker/World/Local/Space
     classID: 1773428102
     script: {fileID: 0}
   m_PPtrCurves: []
@@ -82,14 +82,14 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 716295231
+      path: 1342473298
       attribute: 3305885265
       script: {fileID: 0}
       typeID: 1773428102
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 3077420078
+      path: 407824396
       attribute: 3305885265
       script: {fileID: 0}
       typeID: 1773428102
@@ -142,7 +142,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Enabled
-    path: Marker/Reset
+    path: Marker/World/Reset
     classID: 1773428102
     script: {fileID: 0}
   - curve:
@@ -170,7 +170,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Enabled
-    path: Marker/Local/Space
+    path: Marker/World/Local/Space
     classID: 1773428102
     script: {fileID: 0}
   m_EulerEditorCurves: []

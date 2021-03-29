@@ -1,4 +1,4 @@
-﻿// Marker by ksivl / VRLabs 3.0 Assets https://vrlabs.dev
+﻿// Marker by ksivl / VRLabs 3.0 Assets https://github.com/VRLabs/VRChat-Avatars-3.0
 #if UNITY_EDITOR
 
 using System;
@@ -11,25 +11,20 @@ using Vector3 = UnityEngine.Vector3;
 using VRC.SDK3.Avatars.Components;
 using VRC.SDK3.Avatars.ScriptableObjects;
 using VRLabs.AV3Manager;
-using System.Linq;
 using Boo.Lang;
-using System.CodeDom;
-using BestHTTP.SecureProtocol.Org.BouncyCastle.Crypto;
 
 namespace MarkerSystem
 {
-
 	[CustomEditor(typeof(Marker))]
 	class MarkerEditor : Editor
 	{
-
 		public VRCAvatarDescriptor descriptor;
 		public Animator avatar;
 		public System.Collections.Generic.List<string> warnings = new System.Collections.Generic.List<string>();
 		public int bitCount;
 
 		public bool leftHanded, writeDefaults, useIndexFinger, brushSize, eraserSize, localSpace;
-		public int localSpaceFullBody;
+		public int localSpaceFullBody, gestureToDraw;
 
 		private readonly string path_defaultGesture = "Assets/VRCSDK/Examples3/Animation/Controllers/vrc_AvatarV3HandsLayer.controller";
 		private readonly string path_defaultMaskL = "Assets/VRCSDK/Examples3/Animation/Masks/vrc_Hand Left.mask";
@@ -49,31 +44,39 @@ namespace MarkerSystem
 			localSpace = ((Marker)target).localSpace;
 			localSpaceFullBody = ((Marker)target).localSpaceFullBody;
 			useIndexFinger = ((Marker)target).useIndexFinger;
+			gestureToDraw = ((Marker)target).gestureToDraw;
 		}
-
 
 		public override void OnInspectorGUI()
 		{
 			if (EditorApplication.isPlaying)
 			{
-				GUILayout.Space(10);
-				EditorGUILayout.LabelField("Please exit Play Mode to use this script.");
-				return;
+				if (((Marker)target).finished == false)
+				{
+					GUILayout.Space(10);
+					EditorGUILayout.LabelField("Please exit Play Mode to use this script.");
+					return;
+				}
 			}
-
-			GUILayout.Space(8);
-
-			descriptor = (VRCAvatarDescriptor)EditorGUILayout.ObjectField("Avatar", descriptor, typeof(VRCAvatarDescriptor), true);
-
-			avatar = descriptor.gameObject.GetComponent<Animator>();
-
-			GUILayout.Space(8);
 
 			if (((Marker)target).finished == false)
 			{
+				GUILayout.Space(8);
+
+				descriptor = (VRCAvatarDescriptor)EditorGUILayout.ObjectField("Avatar", descriptor, typeof(VRCAvatarDescriptor), true);
+
+				avatar = descriptor.gameObject.GetComponent<Animator>();
+
+				GUILayout.Space(8);
 
 				leftHanded = EditorGUILayout.ToggleLeft("Left-handed", leftHanded);
 				writeDefaults = EditorGUILayout.ToggleLeft(new GUIContent("Write Defaults", "Check this if you are animating your avatar with Write Defaults on. Otherwise, leave unchecked."), writeDefaults);
+
+				string[] gestureOptions = new string[]
+				{
+				null, "Fist", "Openhand", "Fingerpoint", "Victory", "Rock'n'Roll", "Handgun", "Thumbs up"
+				};
+				gestureToDraw = EditorGUILayout.Popup(new GUIContent("Gesture to draw", "Fingerpoint is recommended. Avoid Rock'n'Roll on Oculus controllers; you'll accidentally draw."), gestureToDraw, gestureOptions);
 
 				GUILayout.Space(8);
 
@@ -93,13 +96,13 @@ namespace MarkerSystem
 				GUILayout.Space(8);
 
 				GetBitCount();
-				EditorGUILayout.LabelField("Current bit count: " + bitCount);
+				EditorGUILayout.LabelField("Parameter memory bits needed: " + bitCount);
 
 				CheckRequirements();
 
+				GUIStyle buttonStyle = new GUIStyle(GUI.skin.button) { fontStyle = FontStyle.Bold };
 				if (warnings.Count == 0)
 				{
-					GUIStyle buttonStyle = new GUIStyle(GUI.skin.button) { fontStyle = FontStyle.Bold };
 					if (GUILayout.Button("Generate Marker", buttonStyle))
 					{
 						Debug.Log("Generating Marker...");
@@ -116,13 +119,13 @@ namespace MarkerSystem
 						GUILayout.Box(warnings[i], warningStyle);
 					}
 					GUI.enabled = false;
-					GUILayout.Button("Generate Marker");
+					GUILayout.Button("Generate Marker", buttonStyle);
 					GUI.enabled = true;
 				}
 			}
 			else if (((Marker)target).finished == true)
 			{
-				if (GUILayout.Button(new GUIContent("Adjust MarkerTarget transform", "Move, rotate, or scale MarkerTarget so it's either in your hand (marker model) or at the tip of your index finger (no marker model), if needed.")))
+				if (GUILayout.Button(new GUIContent("Adjust MarkerTarget transform", "If needed, move, rotate, or scale MarkerTarget so it's either in your hand (marker model) or at the tip of your index finger (no marker model).")))
 				{
 					if (((Marker)target).markerTarget.gameObject == null)
 					{
@@ -137,15 +140,25 @@ namespace MarkerSystem
 				GUILayout.Space(8);
 
 				GUIStyle buttonStyle = new GUIStyle(GUI.skin.button) { fontStyle = FontStyle.Bold };
-				if (GUILayout.Button("Finish Setup", buttonStyle))
+				if (EditorApplication.isPlaying)
 				{
-					if (!((Marker)target).useIndexFinger) // turn off marker model by default
+					GUI.enabled = false;
+					GUILayout.Button("Finish Setup", buttonStyle);
+					GUI.enabled = true;
+				}
+				else
+				{
+					if (GUILayout.Button("Finish Setup", buttonStyle))
 					{
-						((Marker)target).markerModel.GetComponent<MeshRenderer>().enabled = false;
+						if (!((Marker)target).useIndexFinger)
+						{
+							((Marker)target).markerModel.GetComponent<MeshRenderer>().enabled = false;  // turn off marker model
+						}
+						DestroyImmediate(((Marker)target).system.GetComponent<ScaleConstraint>()); // was used to scale Draw & Eraser
+						Debug.Log("Finished, destroying Marker script!");
+						DestroyImmediate((Marker)target);
+						// end script
 					}
-					Debug.Log("Finished, destroying Marker script!");
-					DestroyImmediate((Marker)target);
-					// END SCRIPT
 				}
 			}
 
@@ -156,6 +169,7 @@ namespace MarkerSystem
 			((Marker)target).localSpace = localSpace;
 			((Marker)target).localSpaceFullBody = localSpaceFullBody;
 			((Marker)target).useIndexFinger = useIndexFinger;
+			((Marker)target).gestureToDraw = gestureToDraw;
 		}
 
 		public void Generate()
@@ -166,17 +180,26 @@ namespace MarkerSystem
 
 			// Install layers, parameters, and menu before prefab setup
 			// FX layer
-			if (leftHanded)
+			if (useIndexFinger)
 			{
-				AssetDatabase.CopyAsset("Assets/VRLabs/Marker/Resources/M_FX (L).controller", directory + "FXtemp.controller");
+				AssetDatabase.CopyAsset("Assets/VRLabs/Marker/Resources/M_FX (Finger).controller", directory + "FXtemp.controller");
 			}
 			else
 			{
-				AssetDatabase.CopyAsset("Assets/VRLabs/Marker/Resources/M_FX (R).controller", directory + "FXtemp.controller");
+				AssetDatabase.CopyAsset("Assets/VRLabs/Marker/Resources/M_FX.controller", directory + "FXtemp.controller");
 			}
 			AnimatorController FX = AssetDatabase.LoadAssetAtPath(directory + "FXtemp.controller", typeof(AnimatorController)) as AnimatorController;
 
 			// remove controller layers before merging to avatar, corresponding to setup
+			if (leftHanded)
+			{
+				RemoveLayerAndParameter(FX, "M_Marker R", true);
+			}
+			else
+			{
+				RemoveLayerAndParameter(FX, "M_Marker L", true);
+			}
+
 			if (!brushSize)
 			{
 				RemoveLayerAndParameter(FX, "M_Size");
@@ -190,20 +213,22 @@ namespace MarkerSystem
 			if (!localSpace)
 			{
 				RemoveLayerAndParameter(FX, "M_Space");
+				RemoveLayerAndParameter(FX, "M_Cull", true);
 			}
 			else
 			{
 				RemoveLayerAndParameter(FX, "M_SpaceSimple");
+				RemoveLayerAndParameter(FX, "M_CullSimple", true);
 			}
 
 			if (writeDefaults)
 			{
 				AV3ManagerFunctions.SetWriteDefaults(FX);
 			}
-
-			if (!useIndexFinger) // rocknroll to draw if using model, not fingerpoint
+		
+			if (gestureToDraw != 3) // uses fingerpoint by default
 			{
-				ChangeGestureCondition(FX, 0, 3, 5);
+				ChangeGestureCondition(FX, 0, gestureToDraw);
 			}
 
 			EditorUtility.SetDirty(FX);
@@ -211,7 +236,7 @@ namespace MarkerSystem
 			AssetDatabase.Refresh();
 
 			AV3ManagerFunctions.MergeToLayer(descriptor, FX, AV3ManagerFunctions.PlayableLayer.FX, directory);
-			AssetDatabase.DeleteAsset(AssetDatabase.GetAssetPath(FX)); // remove modified temporary FX layer
+			AssetDatabase.DeleteAsset(AssetDatabase.GetAssetPath(FX)); // delete temporary FX layer
 
 			// Gesture layer
 
@@ -236,10 +261,9 @@ namespace MarkerSystem
 				}
 			}
 			
-			int layerRemove = (leftHanded) ? 1 : 0;
+			gesture.RemoveLayer((leftHanded) ? 1 : 0);
 			if (useIndexFinger)
-			{   // use the other set of hand animations
-				gesture.RemoveLayer(layerRemove);
+			{   // use different hand animations
 				for (int i = 0; i < 3; i++)
 				{
 					if (gesture.layers[0].stateMachine.states[i].state.motion.name == "M_Gesture")
@@ -252,14 +276,13 @@ namespace MarkerSystem
 					}
 				}
 			}
-			else
+			if (gestureToDraw != 3)
 			{
-				gesture.RemoveLayer(layerRemove);
+				ChangeGestureCondition(gesture, 0, gestureToDraw);
 			}
-
-			if (!useIndexFinger) // rocknroll to draw if using model, not fingerpoint
+			if (writeDefaults)
 			{
-				ChangeGestureCondition(gesture, 0, 3, 5);
+				AV3ManagerFunctions.SetWriteDefaults(gesture);
 			}
 
 			EditorUtility.SetDirty(gesture);
@@ -267,14 +290,14 @@ namespace MarkerSystem
 			AssetDatabase.Refresh();
 
 			AV3ManagerFunctions.MergeToLayer(descriptor, gesture, AV3ManagerFunctions.PlayableLayer.Gesture, directory);
-			AssetDatabase.DeleteAsset(AssetDatabase.GetAssetPath(gesture)); // remove modified temporary gesture layer
+			AssetDatabase.DeleteAsset(AssetDatabase.GetAssetPath(gesture)); // delete temporary gesture layer
 
 			// layer weight control from merged layer may need index set correctly
 			AnimatorController avatarGesture = (AnimatorController)descriptor.baseAnimationLayers[2].animatorController;
 			for (int i = 0; i < avatarGesture.layers.Length; i++)
-			{
+			{   // the controls' layer is normally 3 (AllParts, LeftHand, RightHand, >>>M_Gesture<<<)
 				if (avatarGesture.layers[i].name.Contains("M_Gesture") && (i != 3))
-				{   // the controls' layer is set to 3 by default (AllParts, LeftHand, RightHand, >>>M_Marker<<<)
+				{   
 					for (int j = 0; j < 3; j++)
 					{
 						if (avatarGesture.layers[i].stateMachine.states[j].state.behaviours.Length != 0)
@@ -310,15 +333,15 @@ namespace MarkerSystem
 
 			if (localSpace)
 			{
-				VRCExpressionParameters.Parameter p_localSpace = new VRCExpressionParameters.Parameter
+				VRCExpressionParameters.Parameter p_space = new VRCExpressionParameters.Parameter
 					{ name = "M_Space", valueType = VRCExpressionParameters.ValueType.Int, saved = false };
-				AV3ManagerFunctions.AddParameter(descriptor, p_localSpace, directory);
+				AV3ManagerFunctions.AddParameter(descriptor, p_space, directory);
 			}
 			else
 			{
-				VRCExpressionParameters.Parameter p_localSpaceSimple = new VRCExpressionParameters.Parameter
+				VRCExpressionParameters.Parameter p_spaceSimple = new VRCExpressionParameters.Parameter
 					{ name = "M_SpaceSimple", valueType = VRCExpressionParameters.ValueType.Bool, saved = false };
-				AV3ManagerFunctions.AddParameter(descriptor, p_localSpaceSimple, directory);
+				AV3ManagerFunctions.AddParameter(descriptor, p_spaceSimple, directory);
 			}
 
 			if (brushSize)
@@ -334,16 +357,21 @@ namespace MarkerSystem
 				AV3ManagerFunctions.AddParameter(descriptor, p_eraserSize, directory);
 			}
 
+			VRCExpressionParameters.Parameter p_menu = new VRCExpressionParameters.Parameter
+				{ name = "M_Menu", valueType = VRCExpressionParameters.ValueType.Bool, saved = false };
+			AV3ManagerFunctions.AddParameter(descriptor, p_menu, directory);
+
 			// handle menu instancing
 			AssetDatabase.CopyAsset("Assets/VRLabs/Marker/Resources/M_Menu.asset", directory + "Marker Menu.asset");
 			VRCExpressionsMenu markerMenu = AssetDatabase.LoadAssetAtPath(directory + "Marker Menu.asset", typeof(VRCExpressionsMenu)) as VRCExpressionsMenu;
 			
 			if (!localSpace) // change from submenu to 1 toggle
 			{
-				VRCExpressionsMenu.Control.Parameter p_spaceSimple = new VRCExpressionsMenu.Control.Parameter 
+				VRCExpressionsMenu.Control.Parameter pm_spaceSimple = new VRCExpressionsMenu.Control.Parameter 
 					{ name = "M_SpaceSimple" };
 				markerMenu.controls[6].type = VRCExpressionsMenu.Control.ControlType.Toggle;
-				markerMenu.controls[6].parameter = p_spaceSimple;
+				markerMenu.controls[6].parameter = pm_spaceSimple;
+				markerMenu.controls[6].subMenu = null; // or else the submenu is still there internally, SDK complains
 				EditorUtility.SetDirty(markerMenu);
 				AssetDatabase.SaveAssets();
 				AssetDatabase.Refresh();
@@ -377,72 +405,56 @@ namespace MarkerSystem
 			EditorUtility.SetDirty(markerMenu);
 			AssetDatabase.SaveAssets();
 			AssetDatabase.Refresh();
-			AV3ManagerFunctions.AddSubMenu(descriptor, markerMenu, "Marker", directory);
 
-			// icon
-			VRCExpressionsMenu.Control markerControl = descriptor.expressionsMenu.controls.FirstOrDefault(x => x.name.Equals("Marker"));
-			markerControl.icon = AssetDatabase.LoadAssetAtPath("Assets/VRLabs/Marker/Resources/Icons/M_Icon_Menu.png", typeof(Texture2D)) as Texture2D;
+			VRCExpressionsMenu.Control.Parameter pm_menu = new VRCExpressionsMenu.Control.Parameter
+				{ name = "M_Menu" };
+			Texture2D markerIcon = AssetDatabase.LoadAssetAtPath("Assets/VRLabs/Marker/Resources/Icons/M_Icon_Menu.png", typeof(Texture2D)) as Texture2D;
+			AV3ManagerFunctions.AddSubMenu(descriptor, markerMenu, "Marker", directory, pm_menu, markerIcon);
 
 			// setup in scene
 			GameObject marker = PrefabUtility.InstantiatePrefab(AssetDatabase.LoadAssetAtPath("Assets/VRLabs/Marker/Resources/Marker.prefab", typeof(GameObject))) as GameObject;
 			PrefabUtility.UnpackPrefabInstance(marker, PrefabUnpackMode.Completely, InteractionMode.AutomatedAction);
 			marker.transform.SetParent(avatar.transform, false);
 
+			Transform system = marker.transform.Find("System");
 			Transform targets = marker.transform.Find("Targets");
 		    Transform markerTarget = targets.Find("MarkerTarget");
-			Transform markerModel = targets.Find("MarkerModel");
-			Transform eraser = marker.transform.Find("Eraser");
-			Transform eraserTarget = markerModel.GetChild(0);
+			Transform markerModel = targets.Find("Model");
+			Transform eraser = system.Find("Eraser");
+
+			// move cull object to base of avatar
+			marker.transform.Find("Cull").SetParent(avatar.transform, false);
 
 			if (useIndexFinger) 
-			{   // eraserTarget not needed, constrain eraser to markerTarget
-				ParentConstraint eraserConstraint = eraser.GetComponent<ParentConstraint>();
-				eraserConstraint.SetSource(0, new ConstraintSource { sourceTransform = markerTarget, weight = 1.0f });
-				eraser.localPosition = Vector3.zero; // reset offset
+			{ 
+				DestroyImmediate(markerTarget.GetChild(0).gameObject); // destroy Flip
+				Transform indexDistal = leftHanded ? avatar.GetBoneTransform(HumanBodyBones.LeftIndexDistal) : avatar.GetBoneTransform(HumanBodyBones.RightIndexDistal);
 
-				if (leftHanded)
-				{   // prefer the end bone of the index finger if it exists
-					Transform leftIndexDistal = avatar.GetBoneTransform(HumanBodyBones.LeftIndexDistal);
-					if (leftIndexDistal.Find(leftIndexDistal.gameObject.name + "_end") != null)
-					{
-						markerTarget.SetParent(leftIndexDistal.Find(leftIndexDistal.gameObject.name + "_end"), false);
-					}
-					else
-					{
-						markerTarget.SetParent(leftIndexDistal, false);
-					}
+				 // prefer the end bone of the index finger if it exists
+				if (indexDistal.Find(indexDistal.gameObject.name + "_end") != null)
+				{
+					markerTarget.SetParent(indexDistal.Find(indexDistal.gameObject.name + "_end"), true);
 				}
 				else
 				{
-					Transform rightIndexDistal = avatar.GetBoneTransform(HumanBodyBones.RightIndexDistal);
-
-					if (rightIndexDistal.Find(rightIndexDistal.gameObject.name + "_end") != null)
-					{
-						markerTarget.SetParent(rightIndexDistal.Find(rightIndexDistal.gameObject.name + "_end"), false);
-					}
-					else
-					{
-						markerTarget.SetParent(rightIndexDistal, false);
-					}
+					markerTarget.SetParent(indexDistal, false);
 				}
 			}
-			else // using model
+			else // using model: scale Model to target freely, and until script is destroyed, scale System to target uniformly with X-axis 
 			{
 				markerModel.SetParent(marker.transform); // move it out of Targets hierarchy
 				if (leftHanded)
-				{   // keep scale
-					Transform leftWrist = avatar.GetBoneTransform(HumanBodyBones.LeftHand);
-					markerTarget.SetParent(leftWrist, true);
+				{
+					markerTarget.SetParent(avatar.GetBoneTransform(HumanBodyBones.LeftHand), true);
 				}
 				else
 				{
-					Transform rightWrist = avatar.GetBoneTransform(HumanBodyBones.RightHand);
-					markerTarget.SetParent(rightWrist, true);
+					markerTarget.SetParent(avatar.GetBoneTransform(HumanBodyBones.RightHand), true);
 				}
-				markerTarget.localPosition = Vector3.zero;
-				markerTarget.localRotation = Quaternion.Euler(0f, 0f, 0f);
 				((Marker)target).markerModel = markerModel; // to turn its mesh renderer off when script is finished
 			}
+			markerTarget.localPosition = Vector3.zero;
+			markerTarget.localRotation = Quaternion.Euler(0f, 0f, 0f);
 
 			if (localSpace)
 			{
@@ -464,18 +476,18 @@ namespace MarkerSystem
 					targets.Find("LocalSpace8").SetParent(avatar.GetBoneTransform(HumanBodyBones.RightFoot), false);
 				}
 			} 
-			targets.Find("LocalSpace1").SetParent(avatar.transform);
+			targets.Find("LocalSpace1").SetParent(avatar.transform, false);
 			DestroyImmediate(targets.gameObject); // remove the "Targets" container object when finished
 
 			// set anything not adjustable to a medium-ish amount
 			if (!eraserSize) 
 			{
-				eraser.transform.localScale = new Vector3(0.06f, 0.06f, 0.06f);
+				eraser.transform.localScale = new Vector3(0.05f, 0.05f, 0.05f);
 			}
 			if (!brushSize)
 			{
 				ParticleSystem.MinMaxCurve size = new ParticleSystem.MinMaxCurve(0.024f);
-				Transform draw = marker.transform.Find("Draw");
+				Transform draw = system.transform.Find("Draw");
 				Transform preview = draw.GetChild(0);
 				ParticleSystem.MainModule main = draw.GetComponent<ParticleSystem>().main;
 				main.startSize = size;
@@ -483,13 +495,20 @@ namespace MarkerSystem
 				main.startSize = size;
 			}
 
+			((Marker)target).system = system;
 			((Marker)target).markerTarget = markerTarget;
 			((Marker)target).finished = true;
 			Debug.Log("Successfully generated Marker!");
 		}
+
 		private void CheckRequirements()
 		{
 			warnings.Clear();
+
+			if (!AssetDatabase.IsValidFolder("Assets/VRLabs/Marker/Resources"))
+			{
+				warnings.Add("The folder at path 'Assets/VRLabs/Marker/Resources' could not be found. Make sure you are importing a Unity package and not moving the Assets/VRLabs/Marker folder.");
+			}
 
 			if (descriptor == null)
 			{
@@ -580,7 +599,7 @@ namespace MarkerSystem
 
 		private int GetBitCount()
 		{
-			bitCount = 11; // M_Marker, M_Clear, and M_Eraser are bools(1+1+1); M_Color is a float(+8). always included
+			bitCount = 12; // M_Marker, M_Clear, M_Eraser, and M_Menu are bools(1+1+1+1); M_Color is a float(+8). always included
 			if (brushSize) // float
 			{
 				bitCount += 8;
@@ -635,7 +654,7 @@ namespace MarkerSystem
 			}
 		}
 
-		private void ChangeGestureCondition(AnimatorController controller, int layerToModify, int oldGesture, int newGesture)
+		private void ChangeGestureCondition(AnimatorController controller, int layerToModify, int newGesture)
 		{   // helper function: change gesture condition, in all transitions of 1 layer of controller
 			AnimatorStateMachine stateMachine = controller.layers[layerToModify].stateMachine;
 			ChildAnimatorState[] states = stateMachine.states;
@@ -650,7 +669,7 @@ namespace MarkerSystem
 				conditions = transitions[i].conditions;
 				for (int j = 0; j < conditions.Length; j++)
 				{
-					if (conditions[j].threshold == oldGesture)
+					if (conditions[j].parameter.Contains("Gesture"))
 					{
 						AnimatorCondition conditionToRemove = conditions[j];
 						transitions[i].RemoveCondition(conditionToRemove);
