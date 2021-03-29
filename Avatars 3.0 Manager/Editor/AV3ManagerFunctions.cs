@@ -1,43 +1,36 @@
 ﻿#if VRC_SDK_VRCSDK3
-using System;
+
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using UnityEditor;
 using UnityEditor.Animations;
 using UnityEngine;
 using VRC.SDK3.Avatars.Components;
-using VRC.SDKBase;
 using VRC.SDK3.Avatars.ScriptableObjects;
 using ValueType = VRC.SDK3.Avatars.ScriptableObjects.VRCExpressionParameters.ValueType;
 
 namespace VRLabs.AV3Manager
 {
     /***
-       * The first three functions won't overwrite original assets! Copies are created first in your provided 'directory'.
-       * There, only inside 'directory' can a function overwrite the avatar descriptor's assets.
-       * This is so you can call the functions repeatedly, and it won't create multiple unneccessary assets:
+       * The first 3 functions won't overwrite original assets. Copies are created first in your provided directory.
+       * Only in that directory can a function overwrite the avatar descriptor's assets.
+       * This is so you can call the functions repeatedly without creating multiple unnecessary assets.
 
               // will create 1 new parameter asset, not 3
               AddParameter(myDescriptor, parameterA, uniqueDirectory);
               AddParameter(myDescriptor, parameterB, uniqueDirectory);
               AddParameter(myDescriptor, parameterC, uniqueDirectory);
 
-       * Consequently,always specify a unique directory per script-run! Otherwise you can accidentally overwrite the avatar descriptor's assets.
-       * A good method is to seed a folder name with the date and time, at the beginning of your script:
+       * Consequently, always specify a unique directory per script-run. 
+       * A good method is to seed a folder name with the date and time, at the beginning of your script.
        
-              // guarantees no assets are overwritten
               string uniqueDirectory = "Assets/MyCoolScript/Generated/" + DateTime.Now.ToString("MM.dd HH.mm.ss") + "/";
               Directory.CreateDirectory(uniqueDirectory);
 
-       * In an emergency case, set the "overwrite" parameter to false in your first instance of the call to the function:
-      
-              // also guarantees no assets are overwritten
+       * In an emergency case, set the "overwrite" parameter to false in your first call to the function.
+              
               AddParameter(myDescriptor, parameterA, someNotUniqueDirectory, false);
               AddParameter(myDescriptor, parameterB, someNotUniqueDirectory);
               AddParameter(myDescriptor, parameterC, someNotUniqueDirectory);
-       
-       * Contact ksivl#4278 if you experience problems or console errors with this class, and enjoy.
        ***/
 
     /// <summary>
@@ -140,8 +133,10 @@ namespace VRLabs.AV3Manager
         /// <param name="menuToAdd">The menu to add, which will become a submenu of the topmost menu.</param>
         /// <param name="controlName">The name of the submenu control for the menu to add.</param>
         /// <param name="directory">The unique directory to store the new topmost menu asset, ex. "Assets/MyCoolScript/GeneratedAssets/725638/".</param>
+        /// <param name="controlParameter">Optionally, the parameter to trigger when the submenu is opened.</param>
+        /// <param name="icon"> Optionally, the icon to display on this submenu. </param>
         /// <param name="overwrite">Optionally, choose to not overwrite an asset of the same name in directory. See class for more info.</param>
-        public static void AddSubMenu(VRCAvatarDescriptor descriptor, VRCExpressionsMenu menuToAdd, string controlName, string directory, bool overwrite = true)
+        public static void AddSubMenu(VRCAvatarDescriptor descriptor, VRCExpressionsMenu menuToAdd, string controlName, string directory, VRCExpressionsMenu.Control.Parameter controlParameter = null, Texture2D icon = null, bool overwrite = true)
         {
             if (descriptor == null)
             {
@@ -190,6 +185,8 @@ namespace VRLabs.AV3Manager
                 if (controlList[i].name.Equals(controlName) && controlList[i].type.Equals(VRCExpressionsMenu.Control.ControlType.SubMenu))
                 { // if a control for a submenu exists with the same name, replace the submenu
                     controlList[i].subMenu = menuToAdd;
+                    controlList[i].parameter = controlParameter;
+                    controlList[i].icon = icon;
                     EditorUtility.SetDirty(topMenu);
                     AssetDatabase.SaveAssets();
                     AssetDatabase.Refresh();
@@ -199,10 +196,9 @@ namespace VRLabs.AV3Manager
             }
 
             VRCExpressionsMenu.Control control = new VRCExpressionsMenu.Control
-                { name = controlName, type = VRCExpressionsMenu.Control.ControlType.SubMenu, subMenu = menuToAdd };
+            { name = controlName, type = VRCExpressionsMenu.Control.ControlType.SubMenu, subMenu = menuToAdd, parameter = controlParameter, icon = icon };
             controlList.Add(control);
             topMenu.controls = controlList;
-
             EditorUtility.SetDirty(topMenu);
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
