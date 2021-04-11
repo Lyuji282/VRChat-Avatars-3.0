@@ -372,6 +372,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1839907483144463022}
   - component: {fileID: 3207116982014176116}
+  - component: {fileID: 6538628723609795690}
   m_Layer: 0
   m_Name: Marker
   m_TagString: Untagged
@@ -422,6 +423,26 @@ ParentConstraint:
   m_IsLocked: 1
   m_Sources:
   - sourceTransform: {fileID: 6597001291009686119}
+    weight: 1
+--- !u!1818360610 &6538628723609795690
+ScaleConstraint:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1839907483144463008}
+  m_Enabled: 1
+  m_Weight: 1
+  m_ScaleAtRest: {x: 1, y: 1, z: 1}
+  m_ScaleOffset: {x: 1, y: 1, z: 1}
+  m_AffectScalingX: 1
+  m_AffectScalingY: 1
+  m_AffectScalingZ: 1
+  m_IsContraintActive: 1
+  m_IsLocked: 1
+  m_Sources:
+  - sourceTransform: {fileID: 8493073878236915824, guid: f45f46b3f860fe448ac0ef78a0c3bfd0,
+      type: 3}
     weight: 1
 --- !u!1 &1839907483188135755
 GameObject:

@@ -64,9 +64,10 @@ namespace MarkerSystem
 				GUILayout.Space(8);
 
 				descriptor = (VRCAvatarDescriptor)EditorGUILayout.ObjectField("Avatar", descriptor, typeof(VRCAvatarDescriptor), true);
-
-				avatar = descriptor.gameObject.GetComponent<Animator>();
-
+				if (descriptor != null)
+                {
+					avatar = descriptor.gameObject.GetComponent<Animator>();
+				}
 				GUILayout.Space(8);
 
 				leftHanded = EditorGUILayout.ToggleLeft("Left-handed", leftHanded);
@@ -193,39 +194,42 @@ namespace MarkerSystem
 			// remove controller layers before merging to avatar, corresponding to setup
 			if (leftHanded)
 			{
-				RemoveLayerAndParameter(FX, "M_Marker R", true);
+				RemoveLayer(FX, "M_Marker R");
 			}
 			else
 			{
-				RemoveLayerAndParameter(FX, "M_Marker L", true);
+				RemoveLayer(FX, "M_Marker L");
 			}
 
 			if (!brushSize)
 			{
-				RemoveLayerAndParameter(FX, "M_Size");
+				RemoveLayer(FX, "M_Size");
+				RemoveParameter(FX, "M_Size");
 			}
 
 			if (!eraserSize)
 			{
-				RemoveLayerAndParameter(FX, "M_EraserSize");
+				RemoveLayer(FX, "M_EraserSize");
+				RemoveParameter(FX, "M_EraserSize");
 			}
 
 			if (!localSpace)
 			{
-				RemoveLayerAndParameter(FX, "M_Space");
-				RemoveLayerAndParameter(FX, "M_Cull", true);
+				RemoveLayer(FX, "M_Space");
+				RemoveParameter(FX, "M_Space");
+				RemoveLayer(FX, "M_Cull");
 			}
 			else
 			{
-				RemoveLayerAndParameter(FX, "M_SpaceSimple");
-				RemoveLayerAndParameter(FX, "M_CullSimple", true);
+				RemoveLayer(FX, "M_SpaceSimple");
+				RemoveParameter(FX, "M_SpaceSimple");
+				RemoveLayer(FX, "M_CullSimple");
 			}
 
 			if (writeDefaults)
 			{
 				AV3ManagerFunctions.SetWriteDefaults(FX);
 			}
-		
 			if (gestureToDraw != 3) // uses fingerpoint by default
 			{
 				ChangeGestureCondition(FX, 0, gestureToDraw);
@@ -279,10 +283,6 @@ namespace MarkerSystem
 			if (gestureToDraw != 3)
 			{
 				ChangeGestureCondition(gesture, 0, gestureToDraw);
-			}
-			if (writeDefaults)
-			{
-				AV3ManagerFunctions.SetWriteDefaults(gesture);
 			}
 
 			EditorUtility.SetDirty(gesture);
@@ -546,55 +546,50 @@ namespace MarkerSystem
 					if (descriptor.baseAnimationLayers[2].animatorController != null && descriptor.baseAnimationLayers[2].animatorController.name != "")
 					{
 						AnimatorController gesture = (AnimatorController)descriptor.baseAnimationLayers[2].animatorController;
-						if (gesture.layers[0] == null || gesture.layers[0].name == "")
-						{
-							warnings.Add("Your avatar's gesture layer is empty. Try using a copy of the VRCSDK gesture controller or removing the controller from your avatar descriptor.");
-						}
-						else if (gesture.layers[0].avatarMask == null || gesture.layers[0].avatarMask.name == "")
+						if (gesture.layers[0].avatarMask == null || gesture.layers[0].avatarMask.name == "")
 						{
 							warnings.Add("The first layer of your avatar's gesture layer is missing a mask. Try setting a mask, or using a copy of the VRCSDK gesture controller, or removing the controller from your avatar descriptor.");
 						}
 					}
 				}
-			}	
-
-			if (avatar == null)
-			{
-				warnings.Add("There is no Animator on this avatar. Please add an Animator component on your avatar.");
-			}
-			else if (avatar.avatar == null)
-			{
-				warnings.Add("Please add an avatar in this avatar's Animator component.");
-			}
-			else
-			{
-				if (!avatar.isHuman)
+				if (avatar == null)
 				{
-					warnings.Add("Please use this script on an avatar with a humanoid rig.");
+					warnings.Add("There is no Animator on this avatar. Please add an Animator component on your avatar.");
 				}
-
+				else if (avatar.avatar == null)
+				{
+					warnings.Add("Please add an avatar in this avatar's Animator component.");
+				}
 				else
 				{
-					if (useIndexFinger && ((avatar.GetBoneTransform(HumanBodyBones.LeftIndexDistal).gameObject == null) || (avatar.GetBoneTransform(HumanBodyBones.RightIndexDistal).gameObject == null)))
+					if (!avatar.isHuman)
 					{
-						warnings.Add("Your avatar rig's left and/or right index finger's 3rd bone is unmapped!");
+						warnings.Add("Please use this script on an avatar with a humanoid rig.");
 					}
-					if (localSpace)
+
+					else
 					{
-						if ((avatar.GetBoneTransform(HumanBodyBones.Hips).gameObject == null) || (avatar.GetBoneTransform(HumanBodyBones.Chest).gameObject == null) || (avatar.GetBoneTransform(HumanBodyBones.Head).gameObject == null) || (avatar.GetBoneTransform(HumanBodyBones.LeftHand).gameObject == null) || (avatar.GetBoneTransform(HumanBodyBones.RightHand).gameObject == null) || (avatar.GetBoneTransform(HumanBodyBones.Neck).gameObject == null))
+						if (useIndexFinger && ((avatar.GetBoneTransform(HumanBodyBones.LeftIndexDistal) == null) || (avatar.GetBoneTransform(HumanBodyBones.RightIndexDistal) == null)))
 						{
-							warnings.Add("Your avatar rig's wrists, hips, chest, neck, and/or head is unmapped!");
+							warnings.Add("Your avatar rig's left and/or right index finger's 3rd bone is unmapped!");
 						}
-						if (localSpaceFullBody == 1)
+						if (localSpace)
 						{
-							if ((avatar.GetBoneTransform(HumanBodyBones.LeftFoot).gameObject == null) || (avatar.GetBoneTransform(HumanBodyBones.RightFoot).gameObject == null))
+							if ((avatar.GetBoneTransform(HumanBodyBones.Hips) == null) || (avatar.GetBoneTransform(HumanBodyBones.Chest) == null) || (avatar.GetBoneTransform(HumanBodyBones.Head) == null) || (avatar.GetBoneTransform(HumanBodyBones.LeftHand) == null) || (avatar.GetBoneTransform(HumanBodyBones.RightHand) == null) || (avatar.GetBoneTransform(HumanBodyBones.Neck) == null))
 							{
-								warnings.Add("Your avatar rig's left foot and/or right foot is unmapped!");
+								warnings.Add("Your avatar rig's wrists, hips, chest, neck, and/or head is unmapped!");
+							}
+							if (localSpaceFullBody == 1)
+							{
+								if ((avatar.GetBoneTransform(HumanBodyBones.LeftFoot) == null) || (avatar.GetBoneTransform(HumanBodyBones.RightFoot) == null))
+								{
+									warnings.Add("Your avatar rig's left foot and/or right foot is unmapped!");
+								}
 							}
 						}
 					}
 				}
-			}
+			}	
 		}
 
 		private int GetBitCount()
@@ -619,8 +614,8 @@ namespace MarkerSystem
 			return bitCount;
 		}
 
-		private void RemoveLayerAndParameter(AnimatorController controller , string name, bool layerOnly = false)
-		{   // helper function: remove layer and parameter of same name
+		private void RemoveLayer(AnimatorController controller, string name)
+		{   // helper function: remove layer by name
 			for (int i = 0; i < controller.layers.Length; i++)
 			{
 				if (controller.layers[i].name.Equals(name))
@@ -629,15 +624,16 @@ namespace MarkerSystem
 					break;
 				}
 			}
-			if (!layerOnly)
+		}
+
+		private void RemoveParameter(AnimatorController controller, string name)
+		{	// helper function: remove parameter by name
+			for (int i = 0; i < controller.parameters.Length; i++)
 			{
-				for (int i = 0; i < controller.parameters.Length; i++)
+				if (controller.parameters[i].name.Equals(name))
 				{
-					if (controller.parameters[i].name.Equals(name))
-					{
-						controller.RemoveParameter(i);
-						break;
-					}
+					controller.RemoveParameter(i);
+					break;
 				}
 			}
 		}
