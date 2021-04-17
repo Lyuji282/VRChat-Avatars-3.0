@@ -2,6 +2,7 @@
 #if UNITY_EDITOR
 
 using UnityEngine;
+using UnityEngine.Animations;
 
 namespace MarkerSystem
 {
@@ -18,16 +19,35 @@ namespace MarkerSystem
 
 		public void Update()
 		{
-			if (finished) // constantly uniformly scale Draw and Eraser with MarkerTarget
+			if (finished) // constantly uniformly scale Draw and Eraser (System) with MarkerTarget
 			{
-				UnityEngine.Vector3 scale = system.localScale;
+				Vector3 scale = system.localScale;
+				Transform eraser = system.Find("Eraser");
+				if (markerTarget.lossyScale.x < 1.0f) // don't scale down too much for small avatars, breaks
+                {
+					system.GetComponent<ScaleConstraint>().enabled = false;
+					scale.x = 1.0f;
+					if (!eraserSize) // but the eraser *does* need adjustment
+                    {
+						float f = 0.05f * markerTarget.lossyScale.x;
+						eraser.localScale =  new Vector3(f, f, f);
+					}
+                }
+                else
+                {
+					system.GetComponent<ScaleConstraint>().enabled = true;
+					if (!eraserSize)
+					{
+						eraser.localScale = new Vector3(0.05f,0.05f,0.05f);
+					}
+				}
 				scale.y = scale.x;
 				scale.z = scale.x;
 				system.localScale = scale;
 				// also scale Draw's triggers module radius scale
-				Transform draw = system.GetChild(0);
+				Transform draw = system.Find("Draw");
 				ParticleSystem.TriggerModule triggerModule = draw.GetComponent<ParticleSystem>().trigger;
-				triggerModule.radiusScale = system.localScale.x * 0.6f; // bit more than half is OK
+				triggerModule.radiusScale = scale.x * 0.6f; // bit more than half is OK
 			}
 		}
 	}
