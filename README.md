@@ -189,7 +189,7 @@ Ten grabbable avatar objects. つかむことができる10個のアバターオ
 >
 > An item is only grabbable when the Collision/#/Enable object is active. If you are using the prefab in the Resources folder, the object you should toggle is the #:Contact Area.
 >
-> You can change the grab radius per item by going into the Collision/Left or Collision/Right hierarchy and editing the start size of a numbered particle.
+> You can edit the grab radius per item by going into the Collision/Left or Collision/Right hierarchy and changing the start size of a numbered particle.
 >
 > Review the onLeftGrab and onRightGrab layers that were merged into your FX controller.
 >
