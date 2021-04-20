@@ -112,7 +112,7 @@ A world space follower, driven by constraints. Constraintによってワール�
   <summary>Install notes</summary>
   
 > Testing in Unity requires the [3.0 emulator by Lyuma](https://github.com/lyuma/Av3Emulator).
-> 
+>
 > Merge the FX controller to your own FX controller, using the [Avatars 3.0 Manager](https://github.com/VRLabs/VRChat-Avatars-3.0/releases/download/1/AV3Manager.unitypackage) tool. 
 > 
 > The Follower.prefab should go to the base of your Unity scene, which will give it base Unity scaling.
@@ -124,10 +124,8 @@ A world space follower, driven by constraints. Constraintによってワール�
 > Follower/Container is where you place your objects that you want to follow.
 > 
 > To change the speed of the follower, you can edit the Speed.anim clips(Local and Remote) inside the Animations/Network folder.
->
-> As a result of breaking changes, a hotfix has been applied to this package so it will continue to work in 3.0.
->
-> You must make sure the layer "ꜰᴏʟʟᴏᴡ" is ordered below your base layer(base layer:0, ꜰᴏʟʟᴏᴡ+:1), otherwise the hotfix will not work properly.
+> 
+> Use the [Fix Order](https://github.com/VRLabs/VRChat-Avatars-3.0/releases/download/1/FixOrder.unitypackage) script before uploading or testing. Run it again any time the layers related to this package change index order in your FX controller. This is so the particle death controllers can reference the correct layers in their VRC Animator Layer Control state behaviors.
 
 </details>
 
@@ -160,8 +158,6 @@ Ten grabbable avatar objects. つかむことができる10個のアバターオ
 > There are two prefabs in this package. The prefab in the Grab FX/Resources folder should be used instead of the main one if you have "Use Auto-Footsteps for 3 and 4 point tracking" disabled, or if you only use FBT.
 >  
 > Testing in Unity requires the [3.0 emulator by Lyuma](https://github.com/lyuma/Av3Emulator).
->
-> Use the [Fix Order](https://github.com/VRLabs/VRChat-Avatars-3.0/releases/download/1/FixOrder.unitypackage) script before uploading or testing. Run it again any time the layers related to this package change index order in your FX controller. This is so the particle death controllers can reference the correct layers in their VRC Animator Layer Control state behaviors.  
 >
 > Merge the FX controller to your own FX controller, using the [Avatars 3.0 Manager](https://github.com/VRLabs/VRChat-Avatars-3.0/releases/download/1/AV3Manager.unitypackage) tool.
 >
@@ -198,6 +194,8 @@ Ten grabbable avatar objects. つかむことができる10個のアバターオ
 > If you do not need one of these layers, delete it. If you want to prevent a certain hand from grabbing a certain item, select the Idle state and mute the "to" transition for your item number.
 >
 > If you want to make the prefab smaller, delete the objects you will not use.
+> 
+> Use the [Fix Order](https://github.com/VRLabs/VRChat-Avatars-3.0/releases/download/1/FixOrder.unitypackage) script before uploading or testing. Run it again any time the layers related to this package change index order in your FX controller. This is so the particle death controllers can reference the correct layers in their VRC Animator Layer Control state behaviors.
 
 </details>
 
