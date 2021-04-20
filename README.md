@@ -191,7 +191,7 @@ Ten grabbable avatar objects. つかむことができる10個のアバターオ
 >
 > Review the onLeftGrab and onRightGrab layers that were merged into your FX controller.
 >
-> If you do not need one of these layers, delete it. If you want to prevent a certain hand from grabbing a certain item, select the Idle state and mute the "to" transition for your item number.
+> If you do not need one hand at all, delete the corresponding layers. If you want to prevent a certain hand from grabbing a certain item, select the Idle state and mute the "to" transition for your item number.
 >
 > If you want to make the prefab smaller, delete the objects you will not use.
 > 
