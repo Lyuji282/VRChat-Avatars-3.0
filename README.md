@@ -84,6 +84,26 @@ Constraints with damping effects. Damping（制動、減衰）エフェクト付
 
 </details>
 
+## [Fix Order](https://github.com/VRLabs/VRChat-Avatars-3.0/releases/download/1/FixOrder.unitypackage)
+
+This is a script that will locate VRLabs particle death controllers and generate new ones with valid layer index references.
+
+<details>
+  <summary>Install notes</summary>
+
+> Open VRLabs from the menu bar. Click "Fix Order".
+> 
+> New particle death controllers are generated at "Assets/VRLabs/GeneratedAssets/".
+
+</details>
+
+<details>
+  <summary>導入手順</summary>
+  
+> 近日公開。
+
+</details>
+
 ## [Follower](https://github.com/VRLabs/VRChat-Avatars-3.0/releases/download/1/Follower.unitypackage)
 
 A world space follower, driven by constraints. Constraintによってワールドスペースでついてくるfollower。
@@ -127,6 +147,64 @@ A world space follower, driven by constraints. Constraintによってワール�
 > Follower/Containerには追尾したいオブジェクトを置いてください
 > 
 > Followerのスピードを変えたい場合はAnimationsのフォルダー内にあるSpeed.animのクリップを編集してください。
+
+</details>
+
+## [Grab FX](https://github.com/VRLabs/VRChat-Avatars-3.0/releases/download/1/GrabFX.unitypackage)
+
+Ten grabbable avatar objects. つかむことができる10個のアバターオブジェクト。
+
+<details>
+  <summary>Install notes</summary>
+
+> There are two prefabs in this package. The prefab in the Grab FX/Resources folder should be used instead of the main one if you have "Use Auto-Footsteps for 3 and 4 point tracking" disabled, or if you only use FBT.
+>  
+> Testing in Unity requires the [3.0 emulator by Lyuma](https://github.com/lyuma/Av3Emulator).
+>
+> Use the [Fix Order](https://github.com/VRLabs/VRChat-Avatars-3.0/releases/download/1/FixOrder.unitypackage) script before uploading or testing. Run it again any time the layers related to this package change index order in your FX controller. This is so the particle death controllers can reference the correct layers in their VRC Animator Layer Control state behaviors.  
+>
+> Merge the FX controller to your own FX controller, using the [Avatars 3.0 Manager](https://github.com/VRLabs/VRChat-Avatars-3.0/releases/download/1/AV3Manager.unitypackage) tool.
+>
+> "LeftGrabFX" and "RightGrabFX" are synced parameters, so click the checkbox within the tool to add them to your avatar's parameter asset. If you are using only one hand, sync only that parameter.
+>
+> The Grab FX.prefab should go to the base of your Unity scene, which will give it base Unity scaling.
+>
+> Unpack the prefab by right-clicking it and move the prefab to base of your avatar.
+>
+> Inside the Grab FX hierarchy is a Left Hand and a Right Hand object. Move these objects under your left and right wrist, and place them about on your palms.
+>
+> There is a numbered series from 1 to 10. Place your item prop under a number and reset the prop's transforms. Nested under each number are some objects that you will move.
+>
+> The #:Default object represents your item's default transforms while not grabbed. Move #:Default anywhere in your hierarchy, and adjust it's transforms until your item is where you want it.
+>
+> The #:Contact Area object represents the place you touch to grab the item. Enable the mesh renderer component on the #:Contact Area object. The mesh renderer component is for visualization, and can be turned off or deleted after setup.
+>
+> Move #:Contact Area to the same location in your hierarchy as the corresponding #:Default object. Scale the #:Contact Area object, and adjust it's transforms until it covers the handle of your item.
+>
+> Place the #:Left object under your left wrist bone, and reset the transform. Do the same thing for the #:Right object and your right wrist bone.
+>
+> Select the numbered parent object for your item. There will be a parent constraint. Within the parent constraint list of sources, set the #:Default source weight to 0, and set the #:Left source weight to 1. The item should appear under your left wrist.
+>
+> Adjust the transforms of the #:Left object until your item appears correctly in your hand.
+>
+> In the list of sources for your item, set the #:Left source weight back to 0, #:Right to 1, and repeat a similar process for the #:Right object. When finished, set the source weights back to their defaults. #:Default 1, #:Left 0, #:Right 0.
+>
+> The item numbers will be weighted to the #:Left or #:Right transforms as the Left Hand and Right Hand transforms touch the #:Contact Area bounds. 
+>
+> An item is only grabbable when the Collision/#/Enable object is active. If you are using the prefab in the Resources folder, the object you should toggle is the #:Contact Area.
+>
+> Review the onLeftGrab and onRightGrab layers that were merged into your FX controller.
+>
+> If you do not need one of these layers, delete it. If you want to prevent a certain hand from grabbing a certain item, select the Idle state and mute the "to" transition for your item number.
+>
+> If you want to make the prefab smaller, delete the objects you will not use.
+
+</details>
+
+<details>
+  <summary>導入手順</summary>
+  
+> 近日公開。
 
 </details>
 
