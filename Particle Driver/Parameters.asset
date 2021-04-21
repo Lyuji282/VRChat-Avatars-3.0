@@ -15,33 +15,5 @@ MonoBehaviour:
   parameters:
   - name: FX
     valueType: 1
-  - name: 
-    valueType: 0
-  - name: 
-    valueType: 0
-  - name: 
-    valueType: 0
-  - name: 
-    valueType: 0
-  - name: 
-    valueType: 0
-  - name: 
-    valueType: 0
-  - name: 
-    valueType: 0
-  - name: 
-    valueType: 0
-  - name: 
-    valueType: 0
-  - name: 
-    valueType: 0
-  - name: 
-    valueType: 0
-  - name: 
-    valueType: 0
-  - name: 
-    valueType: 0
-  - name: 
-    valueType: 0
-  - name: 
-    valueType: 0
+    saved: 0
+    defaultValue: 0
