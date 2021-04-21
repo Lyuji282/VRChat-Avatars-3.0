@@ -238,6 +238,46 @@ A marker for drawing. お絵描き用のペン。
 
 </details>
 
+## [Particle Driver](https://github.com/VRLabs/VRChat-Avatars-3.0/releases/download/1/ParticleDriver.unitypackage)
+
+A method for animating on particle death. パーティクルによるデスアニメーション用のツール。
+
+<details>
+  <summary>Install notes</summary>
+  
+> Testing in Unity requires the [3.0 emulator by Lyuma](https://github.com/lyuma/Av3Emulator).
+> 
+> Merge the FX controller to your own FX controller, using the [Avatars 3.0 Manager](https://github.com/VRLabs/VRChat-Avatars-3.0/releases/download/1/AV3Manager.unitypackage) tool.
+> 
+> "FX" is a synced parameter, so click the checkbox within the tool to add it to your avatar's parameter asset.
+>  
+> The Particle Driver.prefab should go to the base of your Unity scene, which will give it base Unity scaling.
+> 
+> Unpack the prefab by right-clicking it and move the prefab to base of your avatar.
+> 
+> Expand the prefab, and locate Particle Driver/ᴩᴀʀᴛɪᴄʟᴇᴅᴇᴀᴛʜ. ᴩᴀʀᴛɪᴄʟᴇᴅᴇᴀᴛʜ is a particle that when killed will change the weight of the ᴩᴀʀᴛɪᴄʟᴇᴅᴇᴀᴛʜ sublayer using VRC Animator Layer Control. The ᴩᴀʀᴛɪᴄʟᴇᴅᴇᴀᴛʜ float parameter will change with the weight of the ᴩᴀʀᴛɪᴄʟᴇᴅᴇᴀᴛʜ sublayer.
+>
+> Use the [Fix Order](https://github.com/VRLabs/VRChat-Avatars-3.0/releases/download/1/FixOrder.unitypackage) script before uploading or testing. Run it again any time the layers related to this package change index order in your FX controller. This is so the particle death controllers can reference the correct layers in their VRC Animator Layer Control state behaviors.
+> 
+> By default, the particle settings on ᴩᴀʀᴛɪᴄʟᴇᴅᴇᴀᴛʜ will have it die inside Particle Driver/Cube.
+>
+> ᴩᴀʀᴛɪᴄʟᴇᴅᴇᴀᴛʜ is constrained to ParticleTarget.
+> 
+> When the ᴩᴀʀᴛɪᴄʟᴇᴅᴇᴀᴛʜ parameter changes, the onParticleDeath layer in the FX controller transitions to drive the synced parameter, "FX".
+>
+> The handleFX layer will play the example Cube.anim clip, which will resize the cube and sync state.
+>
+> Animate what you want. This is a blank template.
+
+</details>
+
+<details>
+  <summary>導入手順</summary>
+  
+> 近日公開。
+
+</details>
+
 ## [Particle Shader](https://github.com/VRLabs/VRChat-Avatars-3.0/releases/download/1/ParticleShader.unitypackage)
 
 A shader for particle effects. パーティクルエフェクト用のシェーダー。
