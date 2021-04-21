@@ -199,7 +199,7 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 3
     m_ConditionEvent: "\uA730\u1D0F\u029F\u029F\u1D0F\u1D21"
-    m_EventTreshold: 0.01
+    m_EventTreshold: 0.1
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102982192070757744}
   m_Solo: 0
@@ -359,7 +359,7 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 3
     m_ConditionEvent: "\uA730\u1D0F\u029F\u029F\u1D0F\u1D21"
-    m_EventTreshold: 0.01
+    m_EventTreshold: 0.1
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102932123552106572}
   m_Solo: 0
