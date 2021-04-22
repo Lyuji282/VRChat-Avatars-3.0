@@ -86,14 +86,16 @@ Constraints with damping effects. Damping（制動、減衰）エフェクト付
 
 ## [Fix Order](https://github.com/VRLabs/VRChat-Avatars-3.0/releases/download/1/FixOrder.unitypackage)
 
-This is a script that will locate VRLabs particle death controllers and generate new ones with valid layer index references.
+This script recalculates the indices on layer weight controls within particle death controllers, so that the correct layer in the avatar's FX controller is referenced.
 
 <details>
   <summary>Install notes</summary>
 
-> Open VRLabs from the menu bar. Click "Fix Order".
+> Open VRLabs from the menu bar. Click "Fix Order". 
 > 
-> New particle death controllers are generated at "Assets/VRLabs/GeneratedAssets/".
+> All enabled avatars are evaluated. Fixed controllers are generated at "Assets/VRLabs/GeneratedAssets/" and reassigned automatically.
+>
+> To fix non-VRLabs particle death controllers in child Animators, name the layer containing the layer weight control as "Control ___" where ___ is the name of the FX layer to retarget.
 
 </details>
 
