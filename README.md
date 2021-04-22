@@ -95,7 +95,7 @@ This script recalculates the indices on layer weight controls within particle de
 > 
 > All enabled avatars are evaluated. Fixed controllers are generated at "Assets/VRLabs/GeneratedAssets/" and reassigned automatically.
 >
-> To fix non-VRLabs particle death controllers in child Animators, name the layer containing the layer weight control as "Control ___" where ___ is the name of the FX layer to retarget.
+> To fix non-VRLabs particle death controllers in child Animators, name the layer containing VRC Animator Layer Control as "Control ___" where ___ is the name of the FX layer to retarget.
 
 </details>
 
