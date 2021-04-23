@@ -127,7 +127,7 @@ A world space follower, driven by constraints. Constraintによってワール�
 > 
 > To change the speed of the follower, you can edit the Speed.anim clips(Local and Remote) inside the Animations/Network folder.
 > 
-> Use the [Fix Order](https://github.com/VRLabs/VRChat-Avatars-3.0/releases/download/1/FixOrder.unitypackage) script before uploading or testing. Run it again any time the layers related to this package change index order in your FX controller. This is so particle death controllers can reference the correct layers in their VRC Animator Layer Control state behaviors.
+> Use the [Fix Order](https://github.com/VRLabs/VRChat-Avatars-3.0/releases/download/1/FixOrder.unitypackage) script before uploading or testing. Open VRLabs from the menu bar. Click "Fix Order". Run it again any time the layers related to this package change index order in your FX controller. This is so particle death controllers can reference the correct layers in their VRC Animator Layer Control state behaviors.
 
 </details>
 
@@ -199,7 +199,7 @@ Ten grabbable avatar objects. つかむことができる10個のアバターオ
 >
 > If you want to make the prefab smaller, delete the objects you will not use.
 > 
-> Use the [Fix Order](https://github.com/VRLabs/VRChat-Avatars-3.0/releases/download/1/FixOrder.unitypackage) script before uploading or testing. Run it again any time the layers related to this package change index order in your FX controller. This is so particle death controllers can reference the correct layers in their VRC Animator Layer Control state behaviors.
+> Use the [Fix Order](https://github.com/VRLabs/VRChat-Avatars-3.0/releases/download/1/FixOrder.unitypackage) script before uploading or testing. Open VRLabs from the menu bar. Click "Fix Order". Run it again any time the layers related to this package change index order in your FX controller. This is so particle death controllers can reference the correct layers in their VRC Animator Layer Control state behaviors.
 
 </details>
 
@@ -237,7 +237,7 @@ Perform consecutive slashes with motion. モーションからのスラッシュ
 > 
 > The system is disabled when you animate off the Light Slash/Collider object.
 >
-> Use the [Fix Order](https://github.com/VRLabs/VRChat-Avatars-3.0/releases/download/1/FixOrder.unitypackage) script before uploading or testing. Run it again any time the layers related to this package change index order in your FX controller. This is so particle death controllers can reference the correct layers in their VRC Animator Layer Control state behaviors.
+> Use the [Fix Order](https://github.com/VRLabs/VRChat-Avatars-3.0/releases/download/1/FixOrder.unitypackage) script before uploading or testing. Open VRLabs from the menu bar. Click "Fix Order". Run it again any time the layers related to this package change index order in your FX controller. This is so particle death controllers can reference the correct layers in their VRC Animator Layer Control state behaviors.
 > 
 > [Write defaults](https://hai-vr.github.io/combo-gesture-expressions-av3/writedefaults) ON is not supported for this package. The handleSlashing layer complexity would skyrocket and the workflow of replacing the slashing effects would become worse.
 
@@ -299,7 +299,7 @@ A method for animating on particle death. パーティクルによるデスア�
 > 
 > Expand the prefab, and locate Particle Driver/ᴩᴀʀᴛɪᴄʟᴇᴅᴇᴀᴛʜ. ᴩᴀʀᴛɪᴄʟᴇᴅᴇᴀᴛʜ is a particle that when killed will change the weight of the ᴩᴀʀᴛɪᴄʟᴇᴅᴇᴀᴛʜ sublayer using VRC Animator Layer Control. The ᴩᴀʀᴛɪᴄʟᴇᴅᴇᴀᴛʜ float parameter will change with the weight of the ᴩᴀʀᴛɪᴄʟᴇᴅᴇᴀᴛʜ sublayer.
 >
-> Use the [Fix Order](https://github.com/VRLabs/VRChat-Avatars-3.0/releases/download/1/FixOrder.unitypackage) script before uploading or testing. Run it again any time the layers related to this package change index order in your FX controller. This is so particle death controllers can reference the correct layers in their VRC Animator Layer Control state behaviors.
+> Use the [Fix Order](https://github.com/VRLabs/VRChat-Avatars-3.0/releases/download/1/FixOrder.unitypackage) script before uploading or testing. Open VRLabs from the menu bar. Click "Fix Order". Run it again any time the layers related to this package change index order in your FX controller. This is so particle death controllers can reference the correct layers in their VRC Animator Layer Control state behaviors.
 > 
 > By default, the particle settings on ᴩᴀʀᴛɪᴄʟᴇᴅᴇᴀᴛʜ will have it die inside Particle Driver/Cube.
 >
