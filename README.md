@@ -239,7 +239,7 @@ Perform consecutive slashes with motion. モーションからのスラッシュ
 >
 > Use the [Fix Order](https://github.com/VRLabs/VRChat-Avatars-3.0/releases/download/1/FixOrder.unitypackage) script before uploading or testing. Run it again any time the layers related to this package change index order in your FX controller. This is so particle death controllers can reference the correct layers in their VRC Animator Layer Control state behaviors.
 > 
-> Write defaults ON is not supported for this package.
+> Write defaults ON is not supported for this package. The handleSlashing layer complexity would skyrocket and the workflow of replacing the slashing effects would become worse.
 
 </details>
 
