@@ -42,7 +42,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: "\uA731\u029F\u1D00\uA731\u029C"
+    path: "Collision/\uA731\u029F\u1D00\uA731\u029C"
     classID: 1
     script: {fileID: 0}
   m_PPtrCurves: []
@@ -54,7 +54,7 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 182521294
+      path: 891660366
       attribute: 2086281974
       script: {fileID: 0}
       typeID: 1
@@ -107,7 +107,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: "\uA731\u029F\u1D00\uA731\u029C"
+    path: "Collision/\uA731\u029F\u1D00\uA731\u029C"
     classID: 1
     script: {fileID: 0}
   m_EulerEditorCurves: []
