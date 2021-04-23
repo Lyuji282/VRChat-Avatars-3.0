@@ -229,15 +229,17 @@ Perform consecutive slashes with motion. モーションからのスラッシュ
 > 
 > Expand the prefab, and locate Light Slash/Sword. Move this object under your wrist hierarchy, then adjust it's position and rotation.
 > 
-> Sword/MotionOffset is for motion detection. The detection direction is X+, with the red arrow.  
+> Sword/Motion Offset is for motion detection. The detection direction is X+, with the red arrow.  
 > 
-> Sword/EffectOffset is where the slash effect will appear. Position and rotate this transform until you are happy with where the effect appears.
+> Sword/Effect Offset is where the slash effect will appear. Position and rotate this transform until you are happy with where the effect appears.
 > 
 > If you need to adjust difficulty of the motion, adjust the bottom constraint source on Light Slash/Collider. The default is .2, and .1 should be very hard to slash.
 > 
 > The system is disabled when you animate off the Light Slash/Collider object.
 >
 > Use the [Fix Order](https://github.com/VRLabs/VRChat-Avatars-3.0/releases/download/1/FixOrder.unitypackage) script before uploading or testing. Run it again any time the layers related to this package change index order in your FX controller. This is so particle death controllers can reference the correct layers in their VRC Animator Layer Control state behaviors.
+> 
+> Write defaults ON is not supported for this package.
 
 </details>
 
