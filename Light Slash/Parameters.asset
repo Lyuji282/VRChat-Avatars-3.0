@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parameters:
   - name: LightSlashFX
-    valueType: 0
+    valueType: 2
     saved: 0
     defaultValue: 0
