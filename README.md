@@ -233,13 +233,13 @@ Perform consecutive slashes with motion. モーションからのスラッシュ
 > 
 > Sword/Effect Offset is where the slash effect will appear. Position and rotate this transform until you are happy with where the effect appears.
 > 
+> You can trigger the slash in Unity(with the emulator) by quickly changing the Sword X position in a positive direction. It's much better to test in game with VR. You won't be able to tune difficulty in Unity alone.
+>
 > If you need to adjust difficulty of the motion, adjust the bottom constraint source on Light Slash/Collider. The default is .2, and .1 should be very hard to slash.
 > 
 > The system is disabled when you animate off the Light Slash/Collider object.
 >
 > Use the [Fix Order](https://github.com/VRLabs/VRChat-Avatars-3.0/releases/download/1/FixOrder.unitypackage) script before uploading or testing. Open VRLabs from the menu bar. Click "Fix Order". Run it again any time the layers related to this package change index order in your FX controller. This is so particle death controllers can reference the correct layers in their VRC Animator Layer Control state behaviors.
-> 
-> [Write defaults](https://hai-vr.github.io/combo-gesture-expressions-av3/writedefaults) ON is not supported for this package. The handleSlashing layer complexity would skyrocket and the workflow of replacing the slashing effects would become worse.
 
 </details>
 
