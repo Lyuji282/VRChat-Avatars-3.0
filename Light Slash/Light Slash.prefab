@@ -4812,7 +4812,6 @@ GameObject:
   m_Component:
   - component: {fileID: 702688471046985186}
   - component: {fileID: 702688471046985188}
-  - component: {fileID: 702688471046985187}
   m_Layer: 0
   m_Name: Audio
   m_TagString: Untagged
@@ -4930,24 +4929,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &702688471046985187
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 702688471046985185}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1610797297, guid: 67cc4cb7839cd3741b63733d5adf0442, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Gain: 10
-  Far: 40
-  Near: 0
-  VolumetricRadius: 0
-  EnableSpatialization: 1
-  UseAudioSourceVolumeCurve: 0
 --- !u!1 &702688471402982045
 GameObject:
   m_ObjectHideFlags: 0
@@ -15981,7 +15962,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6169697184445645457}
   - component: {fileID: 6169697184445645463}
-  - component: {fileID: 6169697184445645456}
   m_Layer: 0
   m_Name: Audio
   m_TagString: Untagged
@@ -16099,24 +16079,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &6169697184445645456
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6169697184445645458}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1610797297, guid: 67cc4cb7839cd3741b63733d5adf0442, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Gain: 10
-  Far: 40
-  Near: 0
-  VolumetricRadius: 0
-  EnableSpatialization: 1
-  UseAudioSourceVolumeCurve: 0
 --- !u!1 &6169697184864293547
 GameObject:
   m_ObjectHideFlags: 0
@@ -20915,7 +20877,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6169697185273587938}
   - component: {fileID: 6169697185273587936}
-  - component: {fileID: 6169697185273587937}
   m_Layer: 0
   m_Name: Audio
   m_TagString: Untagged
@@ -21033,24 +20994,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &6169697185273587937
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6169697185273587939}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1610797297, guid: 67cc4cb7839cd3741b63733d5adf0442, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Gain: 10
-  Far: 40
-  Near: 0
-  VolumetricRadius: 0
-  EnableSpatialization: 1
-  UseAudioSourceVolumeCurve: 0
 --- !u!1 &6169697185453897308
 GameObject:
   m_ObjectHideFlags: 0
