@@ -227,20 +227,20 @@ Perform consecutive slashes with motion. モーションからのスラッシュ
 > 
 > Unpack the prefab by right-clicking it and move the prefab to base of your avatar.
 > 
-> Expand the prefab, and locate Light Slash/Sword. Move this object under your wrist hierarchy, then adjust it's position and rotation.
+> Use the [Fix Order](https://github.com/VRLabs/VRChat-Avatars-3.0/releases/download/1/FixOrder.unitypackage) script before uploading or testing. Open VRLabs from the menu bar. Click "Fix Order". Run it again any time the layers related to this package change index order in your FX controller. This is so particle death controllers can reference the correct layers in their VRC Animator Layer Control state behaviors.
 > 
-> Sword/Motion Offset is for motion detection. The detection direction is X+, with the red arrow.  
+> You can trigger the slash in play mode(with the emulator active) by trying to disable the Light Slash/ꜱʟᴀꜱʜ object. This is useful to check if your install was successful and view the placement of your effects.
 > 
-> Sword/Effect Offset is where the slash effect will appear. Position and rotate this transform until you are happy with where the effect appears.
+> Expand the prefab, and locate Light Slash/Weapon. You can replace Light Slash/Weapon/キューブソード with your own prop. Keep your prop in the same placement and facing the same way as the default prop. Put Light Slash/Weapon under your wrist hierarchy. Set Weapon transforms so the prop appears correctly in your hand.
 > 
-> You can trigger the slash in Unity(with the emulator) by quickly changing the Sword X position in a positive direction. It's much better to test in game with VR. You won't be able to tune difficulty in Unity alone.
->
-> If you need to adjust difficulty of the motion, adjust the bottom constraint source on Light Slash/Collider. The default is .2, and .1 should be very hard to slash.
+> Weapon/Motion Offset is for motion detection. The detection direction is X+. Changing the transforms will greatly affect sensitivity to motion. I recommend only changing the offset if you need to make detection more sensitive to wrist rotations, which can be done by increasing the Y position.
+> 
+> The main way to scale sensitivity is to edit the Motion Offset source weight (Default value: 0.2) in the Light Slash/Collider parent constraint component. A lower value makes it more difficult to slash.
+> 
+> Under Light Slash/Effects are letter Containers. Place your effects within these Containers. Weapon/Effect Offset is where the effects will appear.
 > 
 > The system is disabled when you animate off the Light Slash/Collider object.
->
-> Use the [Fix Order](https://github.com/VRLabs/VRChat-Avatars-3.0/releases/download/1/FixOrder.unitypackage) script before uploading or testing. Open VRLabs from the menu bar. Click "Fix Order". Run it again any time the layers related to this package change index order in your FX controller. This is so particle death controllers can reference the correct layers in their VRC Animator Layer Control state behaviors.
-
+ 
 </details>
 
 <details>
