@@ -192,7 +192,7 @@ namespace MarkerSystem
 		{
 			// Unique directory setup, named after avatar
 			Directory.CreateDirectory("Assets/VRLabs/Marker/Generated/");
-
+			AssetDatabase.Refresh();
 			// Folder name cannot contain these chars
 			string cleanedName = string.Join("", descriptor.name.Split('/', '?', '<', '>', '\\', ':', '*', '|', '\"'));
 			string guid = AssetDatabase.CreateFolder("Assets/VRLabs/Marker/Generated", cleanedName);
@@ -562,10 +562,17 @@ namespace MarkerSystem
 				{
 					if (descriptor.baseAnimationLayers[2].animatorController != null && descriptor.baseAnimationLayers[2].animatorController.name != "")
 					{
-						AnimatorController gesture = (AnimatorController)descriptor.baseAnimationLayers[2].animatorController;
-						if (gesture.layers[0].avatarMask == null || gesture.layers[0].avatarMask.name == "")
-						{
-							warnings.Add("The first layer of your avatar's gesture layer is missing a mask. Try setting a mask, or using a copy of the VRCSDK gesture controller, or removing the controller from your avatar descriptor.");
+						if (descriptor.baseAnimationLayers[2].animatorController is AnimatorController)
+                        {
+							AnimatorController gesture = (AnimatorController)descriptor.baseAnimationLayers[2].animatorController;
+							if (gesture.layers[0].avatarMask == null || gesture.layers[0].avatarMask.name == "")
+							{
+								warnings.Add("The first layer of your avatar's gesture layer is missing a mask. Try setting a mask, or using a copy of the VRCSDK gesture controller, or removing the controller from your avatar descriptor.");
+							}
+						} 
+						else
+                        {
+							warnings.Add("The gesture layer on this avatar is not an animator controller.");
 						}
 					}
 				}
