@@ -438,11 +438,11 @@ Some bandaids to make physics work on avatars. アバターで物理を機能さ
 <details>
   <summary>Install notes</summary>
 
-> This package fixes two problems that break avatar physics in VRChat. First, it disables collider components in the local mirror copy of your avatar to fix rigidbody collisions. Second, it uses an animated world constraint to prevent incorrect movement over the network with rigidbodies in world space. Unity physics is complex and making things work as you intend beyond these fixes is your responsibility.
+> This package fixes two problems that break avatar physics in VRChat. First, it fixes a collision bug by enabling collider components only outside of the mirror. Second, it uses an animated world constraint to prevent incorrect movement over the network with rigidbodies in world space. Unity physics is complex and making things work as you intend beyond these fixes is your responsibility.
 >
 > Testing in Unity requires the [3.0 emulator by Lyuma](https://github.com/lyuma/Av3Emulator).
 > 
-> Merge the FX controller to your own FX controller using the [Avatars 3.0 Manager](https://github.com/VRLabs/VRChat-Avatars-3.0/releases/download/1/AV3Manager.unitypackage) tool.
+> Merge the FX and Gesture controllers using the [Avatars 3.0 Manager](https://github.com/VRLabs/VRChat-Avatars-3.0/releases/download/1/AV3Manager.unitypackage) tool.
 > 
 > The World Physics.prefab should go to the base of your Unity scene, which will give it base Unity scaling.
 >
@@ -452,15 +452,13 @@ Some bandaids to make physics work on avatars. アバターで物理を機能さ
 >
 > If you want to see the demo work, move World Physics/RigidbodyTarget out of the World Physics hierarchy and to the base of the avatar. Lift the RigidbodyTarget position on the Y axis, so there is room for the cube to fall. Use the emulator or test in-game.
 >
-> Review the readyPhysics and handlePhysics layers that were merged into your FX controller. 
-> 
-> The readyPhysics layer is used to turn off the collider components in the local mirror copy of your avatar. Edit the "Fix Colliders.anim" to disable any collider component you use for physics.
+> Select the World Physics object. The animator component references "Fix Colliders.controller", which plays "Fix Colliders.anim" outside of the local mirror.
 >
-> The handlePhysics layer is for the physics demo. The layer waits for the "Physics" local parameter to be True before animating the rigidbody. You should similarly wait for the "Physics" parameter to be True before starting your physics simulation.
-> 
-> A local "IsMirror" float parameter is exposed in the case that you need to animate conditionally with the mirror. Note: You can only animate components, not object active state or transforms. The mirror behavior will try to sync object state and transforms regardless.
+> Edit Fix Colliders to enable collider components used for physics. Collider components being used for physics should be off by default, or they'll be on in the mirror and break collision. Make sure you're animating using paths that properly reference children of the World Physics object. Your paths should not have the "World Physics" name in them. 
 >
-> The "IsMirror" float value is resolved when "Physics" = True. 0.0 = Outside Mirror, 1.0 = Inside Mirror
+> Animate the collider game object active or inactive if you need to handle the collider in your FX layer. Don't animate the collider component or you may undo the fix.
+>
+> Pay attention to the way the handlePhysics layer is split by IsLocal. The "Is Kinematic" rigidbody setting on the World Physics object should be on locally, and off remotely.
 >
 > The "Is Kinematic" property doesn't seem to persist, so you must constantly animate this property if you want it to stay the way you animated it.
 >
