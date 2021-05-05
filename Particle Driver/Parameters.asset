@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parameters:
   - name: FX
-    valueType: 1
+    valueType: 2
     saved: 0
     defaultValue: 0
