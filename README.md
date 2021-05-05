@@ -307,7 +307,7 @@ A method for animating on particle death. パーティクルによるデスア�
 > 
 > When the ᴩᴀʀᴛɪᴄʟᴇᴅᴇᴀᴛʜ parameter changes, the onParticleDeath layer in the FX controller transitions to drive the synced parameter, "FX".
 >
-> The handleFX layer will play the example Cube.anim clip, which will resize the cube and sync state.
+> The handleFX layer transition based on the FX parameter.
 >
 > Animate what you want. This is a blank template.
 
