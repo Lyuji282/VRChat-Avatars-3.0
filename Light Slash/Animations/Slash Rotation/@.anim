@@ -294,7 +294,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Enabled
-    path: Light Slash/Armature/Collider
+    path: Light Slash/Armature/Collider/Enable
     classID: 65
     script: {fileID: 0}
   m_PPtrCurves: []
@@ -369,7 +369,7 @@ AnimationClip:
       customType: 35
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 2791866044
+      path: 4142451100
       attribute: 3305885265
       script: {fileID: 0}
       typeID: 65
@@ -674,7 +674,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Enabled
-    path: Light Slash/Armature/Collider
+    path: Light Slash/Armature/Collider/Enable
     classID: 65
     script: {fileID: 0}
   m_EulerEditorCurves: []
