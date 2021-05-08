@@ -229,17 +229,19 @@ Perform consecutive slashes with motion. モーションからのスラッシュ
 > 
 > Use the [Fix Order](https://github.com/VRLabs/VRChat-Avatars-3.0/releases/download/1/FixOrder.unitypackage) script before uploading or testing. Open VRLabs from the menu bar. Click "Fix Order". Run it again any time the layers related to this package change index order in your FX controller. This is so particle death controllers can reference the correct layers in their VRC Animator Layer Control state behaviors.
 > 
-> You can trigger the slash in play mode(with the emulator active) by trying to disable the Light Slash/ꜱʟᴀꜱʜ object. This is useful to check if your install was successful and view the placement of your effects.
+> You can trigger the slash in play mode(with the emulator active) by trying to disable the Light Slash/Armature/ꜱʟᴀꜱʜ object. This is useful to check if your install was successful and view the placement of your effects.
 > 
-> Expand the prefab, and locate Light Slash/Weapon. You can replace Light Slash/Weapon/キューブソード with your own prop. Keep your prop in the same placement and facing the same way as the default prop. Put Light Slash/Weapon under your wrist hierarchy. Set Weapon transforms so the prop appears correctly in your hand.
+> Within the Light Slash/Armature hierarchy is the Upper Arm/Lower Arm/Wrist series of objects. Each of these objects has a parent constraint with None in the list of sources. Use the corresponding arm bones within your avatar's humanoid rig to provide a valid source for each constraint. 
+>
+> Locate Light Slash/Weapon. You can replace Light Slash/Weapon/キューブソード with your own prop. Keep your prop in the same placement and facing the same way as the default prop. Put Light Slash/Weapon under your avatar's wrist hierarchy(Not the LightSlash/Armature/.../Wrist). Set the Weapon object transforms so the prop appears correctly in your hand.
 > 
 > Weapon/Motion Offset is for motion detection. The detection direction is X+. Changing the transforms will greatly affect sensitivity to motion. I recommend only changing the offset if you need to make detection more sensitive to wrist rotations, which can be done by increasing the Y position.
 > 
-> The main way to scale sensitivity is to edit the Motion Offset source weight (Default value: 0.2) in the Light Slash/Collider parent constraint component. A lower value makes it more difficult to slash.
+> The main way to scale sensitivity is to edit the bottom source weight (Source name: "Sensitivity", Default value: 0.1) in the Light Slash/Armature/Collider parent constraint component. A lower value makes it more difficult to slash.
 > 
 > Under Light Slash/Effects are letter Containers. Place your effects within these Containers. Weapon/Effect Offset is where the effects will appear.
 > 
-> The system is disabled when you animate off the Light Slash/Collider object.
+> The system is disabled when you animate off the Light Slash/Armature/Collider/Enable object.
  
 </details>
 
